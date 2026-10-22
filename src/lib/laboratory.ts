@@ -186,6 +186,7 @@ export function initializeLaboratory(signal: AbortSignal) {
         id: number;
         x: number;
         y: number;
+        samples: { x: number; y: number; time: number }[];
       }
     | undefined;
   model.addEventListener(
@@ -203,7 +204,11 @@ export function initializeLaboratory(signal: AbortSignal) {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        samples: [
+          { x: event.clientX, y: event.clientY, time: event.timeStamp },
+        ],
       };
+      scene?.rotate(0, 0);
       model.setPointerCapture(event.pointerId);
     },
     { signal },
@@ -218,11 +223,34 @@ export function initializeLaboratory(signal: AbortSignal) {
       );
       pointer.x = event.clientX;
       pointer.y = event.clientY;
+      pointer.samples.push({
+        x: event.clientX,
+        y: event.clientY,
+        time: event.timeStamp,
+      });
+      while (
+        pointer.samples.length > 2 &&
+        pointer.samples[1]!.time < event.timeStamp - 80
+      )
+        pointer.samples.shift();
     },
     { signal },
   );
   const release = (event: PointerEvent) => {
-    if (pointer?.id === event.pointerId) pointer = undefined;
+    if (pointer?.id !== event.pointerId) return;
+    const first = pointer.samples[0]!;
+    const last = pointer.samples[pointer.samples.length - 1]!;
+    const elapsed = event.timeStamp - first.time;
+    if (
+      event.type === 'pointerup' &&
+      last.time >= event.timeStamp - 80 &&
+      elapsed > 0
+    )
+      scene?.coast(
+        ((last.x - first.x) / elapsed) * 0.012,
+        ((last.y - first.y) / elapsed) * 0.006,
+      );
+    pointer = undefined;
   };
   model.addEventListener('pointerup', release, { signal });
   model.addEventListener('pointercancel', release, { signal });
