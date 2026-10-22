@@ -15,6 +15,7 @@ export function pathFor(locale: Locale, page = '') {
 export const copy = {
   en: {
     seoTitle: 'Discover Minecraft through a kitty’s eyes!',
+    socialImageAlt: 'A ginger cat with armour and elytra in a Minecraft cave.',
     description:
       'Nekogenix brings detailed cat and neko gameplay to Minecraft, with feline abilities and custom skins while preserving vanilla items, armour and elytra.',
     nav: ['The mod', 'Abilities', 'Laboratory', 'Wiki'],
@@ -159,6 +160,7 @@ export const copy = {
   },
   uk: {
     seoTitle: 'Відкрий Minecraft очима котика!',
+    socialImageAlt: 'Рудий котик у броні та з елітрами в печері Minecraft.',
     description:
       'Nekogenix додає продуманий ігролад за кота або неко з котячими здібностями й власними скінами, зберігаючи звичні предмети, броню та елітри Minecraft.',
     nav: ['Про мод', 'Здібності', 'Лабораторія', 'Вікі'],
@@ -309,6 +311,7 @@ export const copy = {
   },
   ru: {
     seoTitle: 'Открой Minecraft глазами котика!',
+    socialImageAlt: 'Рыжий котик в броне и с элитрами в пещере Minecraft.',
     description:
       'Nekogenix добавляет проработанный геймплей за кота или неко с кошачьими способностями и своими скинами, сохраняя привычные предметы, броню и элитры Minecraft.',
     nav: ['О моде', 'Способности', 'Лаборатория', 'Вики'],
