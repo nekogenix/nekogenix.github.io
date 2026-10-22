@@ -1,0 +1,59 @@
+---
+import Icon from './Icon.astro';
+import { copy, type Locale } from '../data/site';
+
+interface Props {
+  name: 'abilities' | 'laboratory' | 'skins';
+  locale: Locale;
+  chapters?: number[];
+  background?: boolean;
+}
+
+const { name, locale, chapters = [], background = false } = Astro.props;
+const t = copy[locale];
+const mediaName = background ? `${name}-background` : name;
+---
+
+<figure
+  class:list={['shot', 'demo-video', { 'hero-scene': background }]}
+  data-demo={mediaName}
+  data-background={background || undefined}
+  data-chapters={chapters.join(',')}
+>
+  <div class="demo-video-frame">
+    <img
+      class="demo-poster"
+      src={`/media/${mediaName}-poster.webp`}
+      width="1920"
+      height="1080"
+      alt=""
+      loading={background ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={background ? 'high' : undefined}
+    />
+    <video
+      muted
+      playsinline
+      loop
+      preload="none"
+      poster={`/media/${mediaName}-poster.webp`}
+      width="1920"
+      height="1080"
+      aria-hidden={background || undefined}
+      aria-label={background ? undefined : t.videoDescriptions[name]}
+    ></video>
+  </div>
+  <div class="demo-controls">
+    <button
+      class="demo-toggle"
+      data-video-toggle
+      data-play-label={t.videoPlay}
+      data-pause-label={t.videoPause}
+      aria-label={t.videoPlay}
+      hidden
+    >
+      <Icon name="play" class="demo-play-icon" />
+      <Icon name="pause" class="demo-pause-icon" />
+    </button>
+  </div>
+</figure>

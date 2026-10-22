@@ -1,0 +1,202 @@
+[
+  {
+    "id": "nekogenix:centrifuge",
+    "group": "equipment",
+    "guide": "wiki/laboratory#centrifuge",
+    "description": {
+      "en": "Processes six bottles of cat saliva and a Blank Nucleocard into a Cat Nucleocard. One cycle uses a stack of redstone dust.",
+      "uk": "Переробляє шість пляшечок котячої слини й порожню нуклеокарту на нуклеокарту кішки. Один цикл витрачає стак редстоунового пилу.",
+      "ru": "Перерабатывает шесть бутылочек кошачьей слюны и пустую нуклеокарту в нуклеокарту кошки. Один цикл расходует стак редстоуновой пыли."
+    }
+  },
+  {
+    "id": "nekogenix:pneumatic_stand",
+    "group": "equipment",
+    "guide": "wiki/laboratory#pneumatic",
+    "description": {
+      "en": "Fills one or two syringes using a Cat Nucleocard or Sweet Amethyst. A wind charge powers each cycle.",
+      "uk": "Наповнює один або два шприци за допомогою нуклеокарти кішки чи солодкого аметисту. Кожен цикл потребує заряду вітру.",
+      "ru": "Наполняет один или два шприца с помощью нуклеокарты кошки или сладкого аметиста. Для каждого цикла нужен заряд ветра."
+    }
+  },
+  {
+    "id": "minecraft:brewing_stand",
+    "group": "equipment",
+    "guide": "wiki/potions#equipment",
+    "description": {
+      "en": "Brews bottles of cat saliva and Sweet Amethyst. Place up to three bottles below the ingredient and add blaze powder as fuel.",
+      "uk": "Готує пляшечки котячої слини й солодкий аметист. Поставте до трьох пляшечок під інгредієнтом і додайте порох пломеня як паливо.",
+      "ru": "Готовит бутылочки кошачьей слюны и сладкий аметист. Поставьте до трёх бутылочек под ингредиентом и добавьте огненный порошок в качестве топлива."
+    }
+  },
+  {
+    "id": "minecraft:cauldron",
+    "group": "equipment",
+    "guide": "wiki/recipes#clean",
+    "description": {
+      "en": "Cleans a used syringe in ten seconds. Fill it completely with water and place a heat source underneath before dropping the syringe inside.",
+      "uk": "Очищує використаний шприц за десять секунд. Повністю наповніть казан водою, розмістіть під ним джерело тепла й киньте шприц усередину.",
+      "ru": "Очищает использованный шприц за десять секунд. Полностью наполните котёл водой, разместите под ним источник тепла и бросьте шприц внутрь."
+    }
+  },
+  {
+    "id": "nekogenix:cotton_swab",
+    "group": "samples",
+    "guide": "wiki/laboratory#sample",
+    "description": {
+      "en": "Collects a saliva sample from your tamed cat. Use the swab on the cat to obtain a Cat Saliva Swab.",
+      "uk": "Збирає зразок слини вашої прирученої кішки. Використайте паличку на кішці, щоб отримати мазок котячої слини.",
+      "ru": "Собирает образец слюны вашей приручённой кошки. Используйте палочку на кошке, чтобы получить мазок кошачьей слюны."
+    }
+  },
+  {
+    "id": "nekogenix:cat_saliva_swab",
+    "group": "samples",
+    "guide": "wiki/potions#saliva",
+    "description": {
+      "en": "A collected sample for the brewing stand. One swab fills up to three empty glass bottles with cat saliva.",
+      "uk": "Зібраний зразок для варильної стійки. Один мазок наповнює котячою слиною до трьох порожніх скляних пляшечок.",
+      "ru": "Собранный образец для зельеварки. Один мазок наполняет кошачьей слюной до трёх пустых стеклянных бутылочек."
+    }
+  },
+  {
+    "id": "nekogenix:bottle_of_cat_saliva",
+    "group": "samples",
+    "guide": "wiki/potions#saliva",
+    "description": {
+      "en": "The bottled sample used in the centrifuge. Collect six bottles to prepare one Cat Nucleocard.",
+      "uk": "Зразок у пляшечці для центрифуги. Зберіть шість пляшечок, щоб підготувати одну нуклеокарту кішки.",
+      "ru": "Образец в бутылочке для центрифуги. Соберите шесть бутылочек, чтобы подготовить одну нуклеокарту кошки."
+    }
+  },
+  {
+    "id": "nekogenix:blank_nucleocard",
+    "group": "samples",
+    "guide": "wiki/laboratory#centrifuge",
+    "description": {
+      "en": "A blank card for the centrifuge. Load it with six saliva bottles and redstone dust to make a Cat Nucleocard.",
+      "uk": "Порожня карта для центрифуги. Додайте шість пляшечок слини й редстоуновий пил, щоб отримати нуклеокарту кішки.",
+      "ru": "Пустая карта для центрифуги. Добавьте шесть бутылочек слюны и редстоуновую пыль, чтобы получить нуклеокарту кошки."
+    }
+  },
+  {
+    "id": "nekogenix:cat_nucleocard",
+    "group": "samples",
+    "guide": "wiki/laboratory#pneumatic",
+    "description": {
+      "en": "The centrifuge’s finished card. Place it in the pneumatic stand to fill one or two Neko Injections.",
+      "uk": "Готова карта з центрифуги. Помістіть її в пневматичну стійку, щоб наповнити одну або дві неко-ін’єкції.",
+      "ru": "Готовая карта из центрифуги. Поместите её в пневматическую стойку, чтобы наполнить одну или две неко-инъекции."
+    }
+  },
+  {
+    "id": "nekogenix:syringe",
+    "group": "syringes",
+    "guide": "wiki/recipes#assemble",
+    "description": {
+      "en": "An empty syringe assembled from a plunger, barrel and needle. Fill it in the pneumatic stand before use.",
+      "uk": "Порожній шприц із поршня, циліндра та голки. Перед використанням наповніть його в пневматичній стійці.",
+      "ru": "Пустой шприц из поршня, цилиндра и иглы. Перед использованием наполните его в пневматической стойке."
+    }
+  },
+  {
+    "id": "nekogenix:neko_injection",
+    "group": "syringes",
+    "guide": "wiki/transformation#inject",
+    "description": {
+      "en": "Starts the gradual transformation into a neko and then a cat. Feline abilities appear as the transformation progresses.",
+      "uk": "Запускає поступове перетворення на неко, а потім на кота. Котячі здібності з’являються в міру перетворення.",
+      "ru": "Запускает постепенное превращение в неко, а затем в кота. Кошачьи способности появляются по мере превращения."
+    }
+  },
+  {
+    "id": "nekogenix:stabilizing_injection",
+    "group": "syringes",
+    "guide": "wiki/transformation#stabilize",
+    "description": {
+      "en": "Stops the transformation so you can remain a neko. Use it during Cat Transformation, before you become a cat. This choice is permanent.",
+      "uk": "Зупиняє перетворення й дозволяє залишитися неко. Використайте її під час перетворення на кота, до його завершення. Цей вибір остаточний.",
+      "ru": "Останавливает превращение и позволяет остаться неко. Используйте её во время превращения в кота, до его завершения. Этот выбор окончательный."
+    }
+  },
+  {
+    "id": "nekogenix:used_syringe",
+    "group": "syringes",
+    "guide": "wiki/recipes#clean",
+    "description": {
+      "en": "Remains after an injection. Clean it in a heated cauldron of water to get an empty syringe you can fill again.",
+      "uk": "Залишається після ін’єкції. Очистьте його в нагрітому казані з водою, щоб знову отримати порожній шприц для наповнення.",
+      "ru": "Остаётся после инъекции. Очистите его в нагретом котле с водой, чтобы снова получить пустой шприц для наполнения."
+    }
+  },
+  {
+    "id": "nekogenix:syringe_needle",
+    "group": "syringes",
+    "guide": "wiki/recipes#needle",
+    "description": {
+      "en": "The needle used to assemble an empty syringe. Combine it with a syringe barrel and plunger at a crafting table.",
+      "uk": "Голка для складання порожнього шприца. Поєднайте її з циліндром і поршнем на верстаку.",
+      "ru": "Игла для сборки пустого шприца. Соедините её с цилиндром и поршнем на верстаке."
+    }
+  },
+  {
+    "id": "nekogenix:syringe_barrel",
+    "group": "syringes",
+    "guide": "wiki/recipes#barrel",
+    "description": {
+      "en": "The glass barrel of a syringe. Combine it with a plunger and needle to assemble an empty syringe.",
+      "uk": "Скляний циліндр шприца. Поєднайте його з поршнем і голкою, щоб зібрати порожній шприц.",
+      "ru": "Стеклянный цилиндр шприца. Соедините его с поршнем и иглой, чтобы собрать пустой шприц."
+    }
+  },
+  {
+    "id": "nekogenix:syringe_plunger",
+    "group": "syringes",
+    "guide": "wiki/recipes#plunger",
+    "description": {
+      "en": "The plunger used to assemble an empty syringe. Add a barrel and needle to complete it.",
+      "uk": "Поршень для складання порожнього шприца. Додайте циліндр і голку, щоб завершити його.",
+      "ru": "Поршень для сборки пустого шприца. Добавьте цилиндр и иглу, чтобы завершить его."
+    }
+  },
+  {
+    "id": "nekogenix:neko_stabilizer",
+    "group": "ingredients",
+    "guide": "wiki/potions#sweet-amethyst",
+    "description": {
+      "en": "Brewed from honey and an amethyst shard. Use it in the pneumatic stand for a Crystallizing Injection, or drink it to gradually restore hunger.",
+      "uk": "Готується з меду й аметистового уламка. Використовуйте в пневматичній стійці для кристалізувальної ін’єкції або випийте, щоб поступово відновлювати ситість.",
+      "ru": "Варится из мёда и осколка аметиста. Используйте в пневматической стойке для кристаллизующей инъекции или выпейте, чтобы постепенно восстанавливать сытость."
+    }
+  },
+  {
+    "id": "minecraft:honey_bottle",
+    "group": "ingredients",
+    "guide": "wiki/potions#sweet-amethyst",
+    "description": {
+      "en": "The base for Sweet Amethyst. Put honey bottles in a brewing stand and add an amethyst shard.",
+      "uk": "Основа для солодкого аметисту. Поставте пляшечки меду у варильну стійку й додайте аметистовий уламок.",
+      "ru": "Основа для сладкого аметиста. Поставьте бутылочки мёда в зельеварку и добавьте осколок аметиста."
+    }
+  },
+  {
+    "id": "minecraft:amethyst_shard",
+    "group": "ingredients",
+    "guide": "wiki/potions#sweet-amethyst",
+    "description": {
+      "en": "Brew it into honey bottles to make Sweet Amethyst. One shard brews up to three bottles at once.",
+      "uk": "Додайте до пляшечок меду у варильній стійці, щоб отримати солодкий аметист. Одного уламка вистачає на три пляшечки за один цикл.",
+      "ru": "Добавьте к бутылочкам мёда в зельеварке, чтобы получить сладкий аметист. Одного осколка хватает на три бутылочки за один цикл."
+    }
+  },
+  {
+    "id": "minecraft:wind_charge",
+    "group": "ingredients",
+    "guide": "wiki/laboratory#pneumatic",
+    "description": {
+      "en": "Powers the pneumatic stand. One charge is enough to fill one or two syringes in a single cycle.",
+      "uk": "Живить пневматичну стійку. Одного заряду вистачає, щоб за один цикл наповнити один або два шприци.",
+      "ru": "Питает пневматическую стойку. Одного заряда хватает, чтобы за один цикл наполнить один или два шприца."
+    }
+  }
+]

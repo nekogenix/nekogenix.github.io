@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Home from '../components/Home.astro';
+import Wiki from '../components/Wiki.astro';
+import { articles, type Article } from '../data/wiki';
+import { locales, copy, type Locale } from '../data/site';
+export function getStaticPaths() {
+  return locales.flatMap((locale) => {
+    const prefix = locale === 'en' ? '' : locale;
+    const route = (page: string) =>
+      [prefix, page].filter(Boolean).join('/') || undefined;
+    return [
+      {
+        params: { path: route('') },
+        props: { locale, page: '', article: undefined },
+      },
+      {
+        params: { path: route('wiki') },
+        props: { locale, page: 'wiki', article: undefined },
+      },
+      ...articles[locale].map((article) => ({
+        params: { path: route(`wiki/${article.slug}`) },
+        props: { locale, page: `wiki/${article.slug}`, article },
+      })),
+    ];
+  });
+}
+interface Props {
+  locale: Locale;
+  page: string;
+  article?: Article;
+}
+const { locale, page, article } = Astro.props;
+---
+
+<BaseLayout
+  locale={locale}
+  page={page}
+  wiki={!!page}
+  title={article?.title ?? (page ? copy[locale].nav[3] : undefined)}
+  description={article?.description}
+>
+  {page ? <Wiki locale={locale} article={article} /> : <Home locale={locale} />}
+</BaseLayout>

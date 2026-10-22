@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { licenseDocuments } from '../../data/licenses';
+
+export function getStaticPaths() {
+  return licenseDocuments.map((document) => ({
+    params: { document: document.slug },
+    props: { document },
+  }));
+}
+
+interface Props {
+  document: (typeof licenseDocuments)[number];
+}
+
+const { document } = Astro.props;
+const headings = new Set([
+  'Nekogenix website assets',
+  'GNU Unifont',
+  'SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007',
+  'PREAMBLE',
+  'DEFINITIONS',
+  'PERMISSION & CONDITIONS',
+  'TERMINATION',
+  'DISCLAIMER',
+]);
+const blocks = document.text
+  .replace(/\r\n/g, '\n')
+  .replace(/^-{3,}\s*$/gm, '')
+  .trim()
+  .split(/\n\s*\n/)
+  .flatMap((paragraph) => {
+    const [first, ...rest] = paragraph.split('\n');
+    return headings.has(first!)
+      ? [
+          { heading: true, text: first! },
+          ...(rest.length ? [{ heading: false, text: rest.join('\n') }] : []),
+        ]
+      : [{ heading: false, text: paragraph }];
+  });
+---
+
+<BaseLayout
+  locale="en"
+  localized={false}
+  page={`licenses/${document.slug}`}
+  title={document.title}
+  description={document.description}
+>
+  <div class="licenses-page container">
+    <header class="license-header">
+      <div>
+        <p class="eyebrow">Nekogenix</p>
+        <h1>{document.title}</h1>
+      </div>
+      <a class="plain-text" href={`/licenses/${document.slug}.txt`}>
+        Plain text
+      </a>
+    </header>
+    <div class="license-layout">
+      <nav class="license-navigation" aria-label="Licenses">
+        {licenseDocuments.map((item) => (
+          <a
+            href={`/licenses/${item.slug}/`}
+            aria-current={item.slug === document.slug ? 'page' : undefined}
+          >
+            {item.title}
+          </a>
+        ))}
+      </nav>
+      <article class="license-copy" aria-label={document.title}>
+        {blocks.map((block) =>
+          block.heading ? (
+            <h2>{block.text}</h2>
+          ) : (
+            <p>
+              {block.text.split(/(https?:\/\/[^\s)]+)/g).map((part) =>
+                /^https?:\/\//.test(part) ? (
+                  <a href={part} target="_blank" rel="noopener noreferrer">
+                    {part}
+                  </a>
+                ) : (
+                  part
+                ),
+              )}
+            </p>
+          ),
+        )}
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .licenses-page {
+    max-width: 1200px;
+    padding-block: 64px 96px;
+  }
+  .license-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .license-header .eyebrow {
+    color: var(--pink);
+    margin-bottom: 14px;
+  }
+  .license-header h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    overflow-wrap: anywhere;
+  }
+  .plain-text {
+    color: var(--muted);
+    font-size: 14px;
+    padding-block: 8px;
+  }
+  .plain-text:hover {
+    color: var(--pink);
+  }
+  .license-layout {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    align-items: start;
+    gap: 40px;
+  }
+  .license-navigation {
+    display: grid;
+    gap: 4px;
+    position: sticky;
+    top: 118px;
+  }
+  .license-navigation a {
+    padding: 12px 16px;
+    color: var(--muted);
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+  .license-navigation a:hover {
+    color: var(--paper);
+    background: var(--surface);
+  }
+  .license-navigation a[aria-current] {
+    color: var(--pink);
+    background: var(--purple);
+    border-color: var(--pink);
+  }
+  .license-copy {
+    padding: clamp(24px, 4vw, 52px);
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 4px solid var(--pink);
+    box-shadow: 8px 8px 0 #0003;
+    overflow-wrap: anywhere;
+    line-height: 1.85;
+  }
+  .license-copy p + p {
+    margin-top: 1.4em;
+  }
+  .license-copy h2 {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.015em;
+    line-height: 1.5;
+    margin-block: 2.5em 0.8em;
+  }
+  .license-copy h2:first-child {
+    margin-top: 0;
+  }
+  .license-copy a {
+    color: #814367;
+  }
+  @media (max-width: 800px) {
+    .licenses-page {
+      padding-block: 40px 64px;
+    }
+    .license-header {
+      margin-bottom: 28px;
+    }
+    .license-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+    .license-navigation {
+      position: static;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .license-navigation a {
+      padding: 12px 10px;
+      border-left: 0;
+      border-bottom: 3px solid transparent;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  @media (max-width: 400px) {
+    .license-navigation {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .license-navigation a {
+      text-align: left;
+    }
+  }
+</style>

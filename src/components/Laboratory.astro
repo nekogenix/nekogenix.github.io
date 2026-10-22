@@ -1,0 +1,409 @@
+---
+import { laboratoryCopy, laboratoryItems } from '../data/laboratory';
+import { items } from '../data/recipes';
+import { pathFor, type Locale } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = laboratoryCopy[locale];
+const first = items[laboratoryItems[0]!.id]!;
+const guideHref = (guide: string) => {
+  const [page, anchor] = guide.split('#');
+  return `${pathFor(locale, page)}${anchor ? `#${anchor}` : ''}`;
+};
+---
+
+<div class="lab-explorer" data-laboratory>
+  <div class="lab-inventory" role="group" aria-label={t.inventory}>
+    {laboratoryItems.map((entry, index) => {
+      const item = items[entry.id]!;
+      return (
+        <button
+          class="lab-slot"
+          type="button"
+          data-lab-item={entry.id}
+          data-model={`/models/laboratory/${entry.id.split(':')[1]}.glb`}
+          data-recipe-item
+          aria-label={item.names[locale]}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+          tabindex={index === 0 ? 0 : -1}
+          aria-controls="lab-information"
+        >
+          <img
+            src={item.image}
+            width="128"
+            height="128"
+            alt=""
+            loading="lazy"
+          />
+          <span class="item-tooltip" data-item-tooltip aria-hidden="true">
+            {item.names[locale]}
+          </span>
+        </button>
+      );
+    })}
+  </div>
+  <div class="lab-workspace">
+    <div class="lab-viewer" data-lab-viewer>
+      <div class="lab-floor" aria-hidden="true"></div>
+      <div class="lab-model" data-lab-model>
+        <img
+          class="lab-fallback"
+          data-lab-fallback
+          src={first.image}
+          width="128"
+          height="128"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+      <div class="lab-view-controls">
+        <button
+          class="icon-button"
+          type="button"
+          data-lab-previous
+          aria-label={t.previous}
+        >
+          <Icon name="down" />
+        </button>
+        <button class="lab-rotate" type="button" data-lab-rotate>
+          <Icon name="rotate" />
+          {t.rotate}
+        </button>
+        <button
+          class="icon-button"
+          type="button"
+          data-lab-next
+          aria-label={t.next}
+        >
+          <Icon name="down" />
+        </button>
+      </div>
+      <p class="lab-drag-hint">{t.drag}</p>
+    </div>
+    <div id="lab-information" class="lab-information">
+      {laboratoryItems.map((entry, index) => (
+        <article
+          class="lab-panel"
+          data-lab-panel={entry.id}
+          hidden={index !== 0}
+        >
+          <p class="eyebrow">{t.groups[entry.group]}</p>
+          <h3>{items[entry.id]!.names[locale]}</h3>
+          <p class="lab-description">{entry.description[locale]}</p>
+          <a href={guideHref(entry.guide)} class="lab-guide">
+            {t.guide}
+            <Icon name="arrow" />
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+  <p class="sr-only" role="status" aria-live="polite" data-lab-status></p>
+</div>
+
+<style>
+  .lab-explorer {
+    margin-top: 44px;
+    background: #211d27;
+    color: var(--paper);
+    border: 1px solid #5c4c60;
+    box-shadow: 8px 8px 0 #d8cbd5;
+  }
+  .lab-inventory {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 60px);
+    grid-auto-columns: 60px;
+    justify-content: start;
+    gap: 8px;
+    padding: 22px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #b78aa6 #29232d;
+    background: #302a35;
+    border-bottom: 1px solid #594b5e;
+    scroll-padding-inline: 22px;
+  }
+  .lab-slot {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 7px;
+    border: 3px solid;
+    border-color: #18151d #6a5e70 #6a5e70 #18151d;
+    background: #423a49;
+    box-shadow: inset 0 0 0 1px #29222f;
+    transition:
+      background 180ms ease,
+      border-color 180ms ease;
+  }
+  .lab-slot img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+    transition: transform 200ms ease;
+  }
+  .lab-slot:hover {
+    background: #59465c;
+  }
+  .lab-slot:hover img {
+    transform: translateY(-3px) rotate(-6deg);
+  }
+  .lab-slot[aria-pressed='true'] {
+    border-color: var(--pink);
+    background: #62445e;
+    box-shadow: inset 0 0 0 1px #f6bad840;
+  }
+  .lab-slot[data-tooltip-open] > .item-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  .lab-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+  .lab-viewer {
+    position: relative;
+    min-width: 0;
+    min-height: 440px;
+    overflow: hidden;
+    isolation: isolate;
+    background: radial-gradient(ellipse at 50% 40%, #60485d66, transparent 65%);
+  }
+  .lab-floor {
+    position: absolute;
+    inset: 58% -45% -80%;
+    transform: perspective(460px) rotateX(62deg);
+    transform-origin: top;
+    background:
+      linear-gradient(#b28fa81a 1px, transparent 1px),
+      linear-gradient(90deg, #b28fa81a 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 50% 0, #000, transparent 65%);
+    pointer-events: none;
+  }
+  .lab-model {
+    position: absolute;
+    inset: 0 0 60px;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+  .lab-model:active {
+    cursor: grabbing;
+  }
+  .lab-model::before {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 8%;
+    left: 30%;
+    bottom: 10%;
+    background: #08070b80;
+    filter: blur(15px);
+    border-radius: 50%;
+  }
+  .lab-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 240px;
+    max-width: 65%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 180ms ease;
+    pointer-events: none;
+  }
+  .lab-model :global(canvas) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+  .lab-model[data-ready] :global(canvas) {
+    opacity: 1;
+  }
+  .lab-model[data-ready] .lab-fallback {
+    opacity: 0;
+  }
+  .lab-view-controls {
+    position: absolute;
+    bottom: 43px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+  }
+  .lab-view-controls .icon-button {
+    color: var(--pink);
+  }
+  [data-lab-previous] :global(svg) {
+    transform: rotate(90deg);
+  }
+  [data-lab-next] :global(svg) {
+    transform: rotate(-90deg);
+  }
+  .lab-rotate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    background: transparent;
+    color: var(--pink);
+    padding: 8px;
+    font-size: 13px;
+  }
+  .lab-rotate:hover {
+    color: white;
+  }
+  .lab-drag-hint {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #baadbf;
+    font-size: 11px;
+    pointer-events: none;
+  }
+  .lab-information {
+    display: grid;
+    min-width: 0;
+    padding: 64px 42px 48px 24px;
+  }
+  .lab-panel {
+    grid-area: 1 / 1;
+    align-self: center;
+  }
+  .lab-panel[hidden] {
+    display: block !important;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .lab-panel .eyebrow {
+    color: var(--pink);
+    margin-bottom: 20px;
+  }
+  .lab-panel h3 {
+    font-family: var(--display);
+    font-size: clamp(30px, 3.2vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .lab-description {
+    margin-top: 24px;
+    color: #d4cbd8;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .lab-guide {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--pink);
+    font-size: 13px;
+    margin-top: 28px;
+  }
+  .lab-guide :global(.icon) {
+    width: 18px;
+    height: 18px;
+  }
+  @media (hover: none) {
+    .lab-slot[data-tooltip-open]:not(:focus-visible) > .item-tooltip {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  @media (min-width: 1400px) {
+    .lab-inventory {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 800px) {
+    .lab-inventory {
+      grid-template-rows: repeat(2, 54px);
+      grid-auto-columns: 54px;
+      gap: 6px;
+      padding: 14px;
+      scroll-padding-inline: 14px;
+    }
+    .lab-slot {
+      width: 54px;
+      height: 54px;
+      padding: 5px;
+    }
+    .lab-slot img {
+      width: 38px;
+      height: 38px;
+    }
+    .lab-workspace {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .lab-viewer {
+      min-height: 330px;
+    }
+    .lab-model {
+      bottom: 60px;
+    }
+    .lab-view-controls {
+      gap: 8px;
+    }
+    .lab-rotate {
+      font-size: 12px;
+      gap: 8px;
+      padding: 6px;
+    }
+    .lab-rotate :global(.icon) {
+      width: 18px;
+      height: 18px;
+    }
+    .lab-fallback {
+      width: 200px;
+      height: 200px;
+    }
+    .lab-information {
+      min-height: 325px;
+      padding: 12px 26px 34px;
+    }
+    .lab-panel {
+      align-self: start;
+    }
+    .lab-panel .eyebrow {
+      margin-bottom: 12px;
+    }
+    .lab-description {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    .lab-guide {
+      margin-top: 20px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lab-slot,
+    .lab-slot img,
+    .lab-fallback,
+    .lab-model :global(canvas) {
+      transition: none;
+    }
+    .lab-slot:hover img {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+Nekogenix website assets
+
+Nekogenix logo: All Rights Reserved.
+Copyright (c) Rudator and Wechirok
+
+Website source code: GNU General Public License, version 3 only (GPL-3.0-only).
+License text: https://www.gnu.org/licenses/gpl-3.0.html
+
+Nekogenix mod assets: All Rights Reserved.
+Copyright (c) Rudator and Wechirok
+These terms apply to files under src/main/resources/assets/, including item and block textures.
+
+Nekogenix mod code: PolyForm Noncommercial License 1.0.0.
+Required Notice: Copyright (c) 2026 Rudator and Wechirok
+Mod license terms: https://github.com/nekogenix/nekogenix-mod/blob/main/LICENSE.md
+
+Screenshots and videos were captured in Minecraft Java Edition with Nekogenix.
+Minecraft textures, models and characters belong to Mojang and Microsoft.
+Minecraft usage guidelines: https://www.minecraft.net/usage-guidelines
+
+Interface symbols use SVG geometric paths. The GitHub mark is from Simple Icons
+(CC0 1.0): https://simpleicons.org/ and https://github.com/simple-icons/simple-icons
+GitHub brand guidelines: https://github.com/logos
+
+The interactive laboratory uses Three.js, licensed under the MIT License, see three.txt.
+Three.js: https://threejs.org/
+
+GNU Unifont: SIL Open Font License 1.1, see unifont.txt.
+Noto Sans: SIL Open Font License 1.1, see noto-sans.txt.
+Font packages are self-hosted; no external font service is required.

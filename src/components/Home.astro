@@ -1,0 +1,191 @@
+---
+import { copy, pathFor, repository, type Locale } from '../data/site';
+import Icon from './Icon.astro';
+import Shot from './Shot.astro';
+import Inline from './Inline.astro';
+import DemoVideo from './DemoVideo.astro';
+import Laboratory from './Laboratory.astro';
+import { homeImages, imageLabels } from '../data/images';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+const shots = imageLabels[locale];
+const abilityIcons = ['agility', 'vision', 'paws', 'scent'];
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <DemoVideo name="laboratory" locale={locale} background />
+  <div class="hero-shade"></div>
+  <div class="hero-copy container">
+    <p class="eyebrow">{t.heroTag}</p>
+    <h1 id="hero-title">
+      {t.heroTitle.split('\n').map((line) => (
+        <span>{line}</span>
+      ))}
+    </h1>
+    <p class="hero-description">{t.heroText}</p>
+    <div class="button-row">
+      <a class="button" href="#get">
+        {t.get}
+        <Icon name="arrow" />
+      </a>
+      <a class="button button-outline" href={pathFor(locale, 'wiki')}>
+        <Icon name="book" />
+        {t.nav[3]}
+      </a>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#the-mod">
+    {t.scroll}
+    <Icon name="down" />
+  </a>
+</section>
+<section id="the-mod" class="section intro-section paper">
+  <div class="container">
+    <div class="section-heading center">
+      <p class="eyebrow">{t.introTag}</p>
+      <h2>
+        {t.introTitle.split('\n').map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+      <p>
+        <Inline text={t.introText} locale={locale} />
+      </p>
+    </div>
+    <div class="stages">
+      {t.stages.map(([title, text], index) => (
+        <div class="stage">
+          <img
+            src={`/characters/${['human', 'neko', 'cat'][index]}.png`}
+            width="256"
+            height="256"
+            alt=""
+            class="pixel-item"
+            loading="lazy"
+          />
+          <h3>{title}</h3>
+          <p>
+            <Inline text={text} locale={locale} />
+          </p>
+          {index < 2 && <Icon name="arrow" class="stage-arrow" />}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section id="abilities" class="section abilities-section" data-demo-section>
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">{t.abilityTag}</p>
+      <h2>
+        {t.abilityTitle.split('\n').map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+    </div>
+    <div class="ability-layout">
+      <DemoVideo
+        name="abilities"
+        locale={locale}
+        chapters={[0, 3.1, 6.6, 10.5]}
+      />
+      <div class="ability-list">
+        {t.abilities.map(([title, text], index) => (
+          <div class="ability" data-demo-chapter>
+            <Icon name={abilityIcons[index]!} class="ability-symbol" />
+            <div>
+              <h3>{title}</h3>
+              <p>
+                <Inline text={text} locale={locale} />
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<section id="laboratory" class="section lab-section paper">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">{t.labTag}</p>
+      <h2>
+        {t.labTitle.split('\n').map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+      <p>
+        <Inline text={t.labIntro} locale={locale} />
+      </p>
+      <p>
+        <Inline text={t.labText} locale={locale} />
+      </p>
+    </div>
+    <Laboratory locale={locale} />
+  </div>
+</section>
+<section class="cat-banner">
+  <Shot name={homeImages.catLife} alt={shots[homeImages.catLife]!} wide />
+  <div class="cat-banner-shade"></div>
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">{t.catTag}</p>
+      <h2>
+        {t.catTitle.split('\n').map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+      <p>
+        <Inline text={t.catText} locale={locale} />
+      </p>
+    </div>
+  </div>
+</section>
+<section id="appearance" class="section skins-section paper">
+  <div class="container split-section">
+    <DemoVideo name="skins" locale={locale} />
+    <div class="section-heading">
+      <p class="eyebrow">{t.skinTag}</p>
+      <h2>
+        {t.skinTitle.split('\n').map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+      <p>
+        <Inline text={t.skinText} locale={locale} />
+      </p>
+    </div>
+  </div>
+</section>
+<section id="get" class="section download-section">
+  <div class="container center">
+    <img
+      class="download-mark"
+      src="/branding/icon.png"
+      width="100"
+      height="100"
+      alt=""
+      loading="lazy"
+    />
+    <h2>{t.downloadTitle}</h2>
+    <p>
+      <Inline text={t.downloadText} locale={locale} />
+    </p>
+    <div class="button-row">
+      <a
+        class="button button-dark"
+        href={repository}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="github" />
+        {t.github}
+        <Icon name="external" />
+      </a>
+    </div>
+    <p class="download-note">{t.downloadNote}</p>
+  </div>
+</section>

@@ -1,0 +1,169 @@
+---
+import { articles, type Article } from '../data/wiki';
+import { copy, pathFor, version, type Locale } from '../data/site';
+import Shot from './Shot.astro';
+import Icon from './Icon.astro';
+import Recipe from './Recipe.astro';
+import LaboratoryFlow from './LaboratoryFlow.astro';
+import Inline from './Inline.astro';
+import { imageLabels } from '../data/images';
+interface Props {
+  locale: Locale;
+  article?: Article;
+}
+const { locale, article } = Astro.props;
+const t = copy[locale];
+const shots = imageLabels[locale];
+const pages = articles[locale];
+const index = article
+  ? pages.findIndex((page) => page.slug === article.slug)
+  : -1;
+const previous = pages[index - 1];
+const next = pages[index + 1];
+---
+
+<div class="wiki-topline">
+  <div class="container">
+    <a href={pathFor(locale)}>
+      <Icon name="arrow" />
+      {t.back}
+    </a>
+    <span>
+      {t.versionNote} {version} · 1.21.1
+    </span>
+  </div>
+</div>
+<div class="wiki-shell container">
+  <button
+    class="wiki-mobile-nav"
+    data-wiki-toggle
+    aria-expanded="false"
+    aria-controls="wiki-sidebar"
+  >
+    {t.browse}
+    <Icon name="down" />
+  </button>
+  <aside id="wiki-sidebar" class="wiki-sidebar" aria-label={t.browse}>
+    <a href={pathFor(locale, 'wiki')}>{t.wikiEyebrow}</a>
+    {(['start', 'play', 'reference'] as const).map((group) => (
+      <div class="sidebar-group">
+        <h2>{t.groups[group]}</h2>
+        {pages
+          .filter((page) => page.group === group)
+          .map((page) => (
+            <a
+              href={pathFor(locale, `wiki/${page.slug}`)}
+              aria-current={page.slug === article?.slug ? 'page' : undefined}
+            >
+              {page.title}
+            </a>
+          ))}
+      </div>
+    ))}
+  </aside>
+  <div class="wiki-content">
+    {article ? (
+      <div class="article-layout">
+        <article class="article-prose">
+          <header class="article-header">
+            <p class="eyebrow">{t.groups[article.group]}</p>
+            <h1>{article.title}</h1>
+            <p class="article-description">{article.description}</p>
+          </header>
+          <Shot name={article.image} alt={shots[article.image]!} />
+          {article.sections.map((section) => (
+            <section id={section.id}>
+              <h2>{section.title}</h2>
+              {section.paragraphs?.map((paragraph) => (
+                <p>
+                  <Inline text={paragraph} locale={locale} />
+                </p>
+              ))}
+              {section.list && (
+                <Fragment>
+                  {section.ordered ? (
+                    <ol>
+                      {section.list.map((item) => (
+                        <li>
+                          <Inline text={item} locale={locale} />
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <ul>
+                      {section.list.map((item) => (
+                        <li>
+                          <Inline text={item} locale={locale} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </Fragment>
+              )}
+              {section.notice && (
+                <p class="notice">
+                  <Inline text={section.notice} locale={locale} />
+                </p>
+              )}
+              {section.recipes?.map((recipe) => (
+                <Recipe id={recipe} locale={locale} />
+              ))}
+              {section.process && (
+                <LaboratoryFlow locale={locale} process={section.process} />
+              )}
+              {section.image && (
+                <Shot name={section.image} alt={shots[section.image]!} />
+              )}
+            </section>
+          ))}
+          <nav class="article-pagination" aria-label={t.browse}>
+            {previous && (
+              <a href={pathFor(locale, `wiki/${previous.slug}`)}>
+                <small>← {t.previous}</small>
+                {previous.title}
+              </a>
+            )}
+            {next && (
+              <a href={pathFor(locale, `wiki/${next.slug}`)}>
+                <small>{t.next} →</small>
+                {next.title}
+              </a>
+            )}
+          </nav>
+        </article>
+        <nav class="article-toc" aria-label={t.contents}>
+          <h2>{t.contents}</h2>
+          {article.sections.map((section) => (
+            <a href={`#${section.id}`}>{section.title}</a>
+          ))}
+          <a href="#main">↑ {t.top}</a>
+        </nav>
+      </div>
+    ) : (
+      <>
+        <header class="wiki-intro">
+          <p class="eyebrow">{t.wikiEyebrow}</p>
+          <h1>{t.wikiTitle}</h1>
+          <p>{t.wikiIntro}</p>
+          <button
+            class="button button-dark"
+            data-search-toggle
+            style="margin-top: 26px"
+          >
+            <Icon name="search" />
+            {t.search}
+          </button>
+        </header>
+        <div class="wiki-card-grid">
+          {pages.map((page) => (
+            <a href={pathFor(locale, `wiki/${page.slug}`)} class="wiki-card">
+              <h2>{page.title}</h2>
+              <Icon name="arrow" />
+              <p>{page.description}</p>
+            </a>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</div>

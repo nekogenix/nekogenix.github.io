@@ -1,0 +1,472 @@
+[
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": [" PP", "PGR", " II"],
+    "key": {
+      "P": {
+        "item": "minecraft:paper"
+      },
+      "G": {
+        "item": "minecraft:gold_nugget"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "I": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "id": "nekogenix:blank_nucleocard",
+      "count": 1
+    },
+    "slug": "blank_nucleocard"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["GGG", "IRI", "ICI"],
+    "key": {
+      "G": {
+        "item": "minecraft:glass"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "C": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "result": {
+      "id": "nekogenix:centrifuge",
+      "count": 1
+    },
+    "slug": "centrifuge"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["ABA"],
+    "key": {
+      "A": {
+        "item": "minecraft:white_wool"
+      },
+      "B": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "id": "nekogenix:cotton_swab",
+      "count": 4
+    },
+    "slug": "cotton_swab"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "A": {
+        "item": "minecraft:iron_ingot"
+      },
+      "B": {
+        "item": "minecraft:redstone"
+      },
+      "C": {
+        "item": "minecraft:breeze_rod"
+      },
+      "D": {
+        "item": "minecraft:smooth_stone"
+      }
+    },
+    "pattern": ["AAA", "BCB", "DDD"],
+    "result": {
+      "id": "nekogenix:pneumatic_stand",
+      "count": 1
+    },
+    "slug": "pneumatic_stand"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["  C", " B ", "A  "],
+    "key": {
+      "A": {
+        "item": "nekogenix:syringe_plunger"
+      },
+      "B": {
+        "item": "nekogenix:syringe_barrel"
+      },
+      "C": {
+        "item": "nekogenix:syringe_needle"
+      }
+    },
+    "result": {
+      "id": "nekogenix:syringe",
+      "count": 1
+    },
+    "slug": "syringe"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["A A", "A A", "ABA"],
+    "key": {
+      "A": {
+        "item": "minecraft:glass"
+      },
+      "B": {
+        "item": "minecraft:glass_pane"
+      }
+    },
+    "result": {
+      "id": "nekogenix:syringe_barrel",
+      "count": 1
+    },
+    "slug": "syringe_barrel"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["A", "A", "A"],
+    "key": {
+      "A": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "id": "nekogenix:syringe_needle",
+      "count": 1
+    },
+    "slug": "syringe_needle"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": ["A", "B"],
+    "key": {
+      "A": {
+        "item": "minecraft:slime_ball"
+      },
+      "B": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "id": "nekogenix:syringe_plunger",
+      "count": 1
+    },
+    "slug": "syringe_plunger"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": {
+        "item": "minecraft:glass"
+      }
+    },
+    "pattern": ["# #", " # "],
+    "result": {
+      "count": 3,
+      "id": "minecraft:glass_bottle"
+    },
+    "slug": "glass_bottle"
+  },
+  {
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "result": {
+      "count": 2,
+      "id": "minecraft:blaze_powder"
+    },
+    "slug": "blaze_powder"
+  },
+  {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": {
+        "tag": "minecraft:stone_crafting_materials"
+      },
+      "B": {
+        "item": "minecraft:blaze_rod"
+      }
+    },
+    "pattern": [" B ", "###"],
+    "result": {
+      "count": 1,
+      "id": "minecraft:brewing_stand"
+    },
+    "slug": "brewing_stand",
+    "displayItems": {
+      "#": "minecraft:cobblestone"
+    }
+  },
+  {
+    "slug": "saliva_bottles",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "nekogenix:cat_saliva_swab",
+        "count": 1
+      },
+      {
+        "id": "minecraft:glass_bottle",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:bottle_of_cat_saliva",
+      "count": 3
+    }
+  },
+  {
+    "slug": "splash_saliva",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "minecraft:gunpowder",
+        "count": 1
+      },
+      {
+        "id": "nekogenix:bottle_of_cat_saliva",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:splash_bottle_of_cat_saliva",
+      "count": 3
+    }
+  },
+  {
+    "slug": "lingering_saliva",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "minecraft:dragon_breath",
+        "count": 1
+      },
+      {
+        "id": "nekogenix:splash_bottle_of_cat_saliva",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:lingering_bottle_of_cat_saliva",
+      "count": 3
+    },
+    "returns": [
+      {
+        "id": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "slug": "sweet_amethyst",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "minecraft:amethyst_shard",
+        "count": 1
+      },
+      {
+        "id": "minecraft:honey_bottle",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:neko_stabilizer",
+      "count": 3
+    }
+  },
+  {
+    "slug": "splash_sweet_amethyst",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "minecraft:gunpowder",
+        "count": 1
+      },
+      {
+        "id": "nekogenix:neko_stabilizer",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:splash_potion_of_sweet_amethyst",
+      "count": 3
+    }
+  },
+  {
+    "slug": "lingering_sweet_amethyst",
+    "type": "brewing",
+    "machine": "minecraft:brewing_stand",
+    "fuel": "minecraft:blaze_powder",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "minecraft:dragon_breath",
+        "count": 1
+      },
+      {
+        "id": "nekogenix:splash_potion_of_sweet_amethyst",
+        "count": 3
+      }
+    ],
+    "result": {
+      "id": "nekogenix:lingering_potion_of_sweet_amethyst",
+      "count": 3
+    },
+    "returns": [
+      {
+        "id": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "slug": "cat_nucleocard",
+    "type": "processing",
+    "machine": "nekogenix:centrifuge",
+    "seconds": 30,
+    "inputs": [
+      {
+        "id": "nekogenix:bottle_of_cat_saliva",
+        "count": 6
+      },
+      {
+        "id": "nekogenix:blank_nucleocard",
+        "count": 1
+      },
+      {
+        "id": "minecraft:redstone",
+        "count": 64
+      }
+    ],
+    "result": {
+      "id": "nekogenix:cat_nucleocard",
+      "count": 1
+    },
+    "returns": [
+      {
+        "id": "minecraft:glass_bottle",
+        "count": 6
+      }
+    ]
+  },
+  {
+    "slug": "neko_injection",
+    "type": "processing",
+    "machine": "nekogenix:pneumatic_stand",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "nekogenix:syringe",
+        "count": "1–2"
+      },
+      {
+        "id": "nekogenix:cat_nucleocard",
+        "count": 1
+      },
+      {
+        "id": "minecraft:wind_charge",
+        "count": 1
+      }
+    ],
+    "result": {
+      "id": "nekogenix:neko_injection",
+      "count": "1–2"
+    },
+    "returns": [
+      {
+        "id": "nekogenix:blank_nucleocard",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "slug": "crystallizing_injection",
+    "type": "processing",
+    "machine": "nekogenix:pneumatic_stand",
+    "seconds": 20,
+    "inputs": [
+      {
+        "id": "nekogenix:syringe",
+        "count": "1–2"
+      },
+      {
+        "id": "nekogenix:neko_stabilizer",
+        "count": 1
+      },
+      {
+        "id": "minecraft:wind_charge",
+        "count": 1
+      }
+    ],
+    "result": {
+      "id": "nekogenix:stabilizing_injection",
+      "count": "1–2"
+    },
+    "returns": [
+      {
+        "id": "minecraft:glass_bottle",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "slug": "collect_saliva",
+    "type": "collecting",
+    "inputs": [
+      {
+        "id": "nekogenix:cotton_swab",
+        "count": 1
+      }
+    ],
+    "result": {
+      "id": "nekogenix:cat_saliva_swab",
+      "count": 1
+    }
+  },
+  {
+    "slug": "clean_syringe",
+    "type": "cleaning",
+    "machine": "minecraft:cauldron",
+    "seconds": 10,
+    "inputs": [
+      {
+        "id": "nekogenix:used_syringe",
+        "count": 1
+      }
+    ],
+    "result": {
+      "id": "nekogenix:syringe",
+      "count": 1
+    }
+  }
+]
