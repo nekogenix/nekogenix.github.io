@@ -1,0 +1,556 @@
+[
+  {
+    "slug": "getting-started",
+    "group": "start",
+    "title": "Install Nekogenix",
+    "description": "Install Nekogenix with the official Minecraft Launcher, Prism Launcher, Modrinth App or CurseForge App.",
+    "image": "getting-started",
+    "sections": [
+      {
+        "id": "requirements",
+        "title": "Before you start",
+        "list": [
+          "A Microsoft account with access to Minecraft Java Edition.",
+          "A Nekogenix release compatible with your profile’s Minecraft version. Other mods in that profile must also support its Minecraft version and NeoForge.",
+          "NeoForge for that Minecraft version. Use a loader build that meets the requirements of your chosen Nekogenix release."
+        ],
+        "notice": "Before adding mods to an existing world, close the game and copy its folder from saves to a separate backup location."
+      },
+      {
+        "id": "installation",
+        "title": "Download the mod and choose your launcher",
+        "paragraphs": [
+          "Close Minecraft before adding mod files. Follow the steps for your launcher: [Minecraft Launcher](wiki/getting-started#official-launcher), [Prism Launcher](wiki/getting-started#prism-launcher), [Modrinth App](wiki/getting-started#modrinth) or [CurseForge App](wiki/getting-started#curseforge)."
+        ],
+        "list": [
+          "Open [Nekogenix releases on GitHub](https://github.com/nekogenix/nekogenix-mod/releases). Choose a release and read its Minecraft, NeoForge and dependency requirements.",
+          "Expand Assets under that release and download the Nekogenix file ending in .jar.",
+          "Keep the JAR in your downloads folder. Do not extract or run it: you will copy it into your game profile. If the release lists required dependency mods, download compatible files for those too."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "official-launcher",
+        "title": "Official Minecraft Launcher",
+        "list": [
+          "In [Minecraft Launcher](https://www.minecraft.net/en-us/download), open Minecraft: Java Edition → Installations and select the profile you want to use. If you do not have one yet, create it with New installation for a Minecraft version supported by the mod.",
+          "Check that a compatible NeoForge version is installed. If needed, close the launcher, download the matching installer from [NeoForge](https://neoforged.net/), open it with Java and select Install client → Proceed. The [NeoForge guide](https://docs.neoforged.net/user/docs/) covers Java requirements; launch the matching vanilla Minecraft version once if the installer requests it.",
+          "Open the profile’s three-dot menu → Edit. In Version, select the compatible NeoForge entry if it is not already selected. Enable the Modded filter in Installations if the profile is hidden.",
+          "Check Game directory in the profile settings: this is where its mods and worlds are stored. Keep the directory used by your existing profile. If the field is empty, the profile uses the default .minecraft directory.",
+          "Save the settings and use the folder button beside this profile in Installations to open its game directory. Open mods, or create that folder if it is missing.",
+          "Copy the downloaded Nekogenix JAR and any required dependency JARs into mods. Leave the mod files directly in that folder, without extracting them.",
+          "Select this profile in the launcher and start the game."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "prism-launcher",
+        "title": "Prism Launcher",
+        "list": [
+          "Select the instance you want to use in [Prism Launcher](https://prismlauncher.org/download/). If you do not have one yet, use Add Instance and choose a compatible Minecraft version and NeoForge.",
+          "Right-click the instance → Edit → Version. Check its Minecraft and NeoForge versions against the Nekogenix release requirements. If NeoForge is missing, install it from this tab.",
+          "In the same editor, open Mods. Drag the downloaded Nekogenix JAR into the list and add any required dependency JARs in the same way.",
+          "Check that the added mods appear in the list and their checkboxes are enabled.",
+          "Close the editor and launch this instance."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "modrinth",
+        "title": "Modrinth App",
+        "list": [
+          "Open the instance you want to use in [Modrinth App](https://modrinth.com/app). If you do not have one yet, use Create instance → Custom setup and choose a compatible Minecraft version and NeoForge.",
+          "In the instance settings, check the Minecraft version, Loader and Loader version against the Nekogenix release requirements. Wait for any pending game or loader installation to finish.",
+          "From the instance’s action menu, choose Open folder. Open mods, creating the folder if necessary, and copy in the Nekogenix JAR plus any required dependency JARs.",
+          "Return to the instance’s Content tab. Check that the added mods are listed and enabled.",
+          "Click Play for this instance."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "curseforge",
+        "title": "CurseForge App",
+        "list": [
+          "In [CurseForge App](https://www.curseforge.com/download/app), open Minecraft → My Modpacks and select your profile. If you do not have one yet, click Create and choose a compatible Minecraft version and NeoForge.",
+          "Check the profile’s Minecraft and NeoForge versions against the Nekogenix release requirements. Wait for any pending installation to finish.",
+          "Open the profile’s three-dot menu → Open Folder. Open mods, or create that folder if it is missing.",
+          "Copy the downloaded Nekogenix JAR and any required dependency JARs into mods. Leave the files directly in that folder, without extracting them.",
+          "Click Play for this profile. If Minecraft Launcher opens, launch the profile prepared by CurseForge."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "server",
+        "title": "Play on a server",
+        "paragraphs": [
+          "Install Nekogenix in your launcher using one of the methods above. Use the Minecraft version, NeoForge build and Nekogenix release required by the server.",
+          "The server owner also needs a NeoForge server with the matching Nekogenix JAR and required server dependencies in its mods folder. Stop the server before changing these files."
+        ]
+      }
+    ],
+    "related": ["recipes", "laboratory", "transformation"]
+  },
+  {
+    "slug": "recipes",
+    "group": "start",
+    "title": "Craft and clean a syringe",
+    "description": "Make the plunger, barrel and needle, assemble the syringe, and clean it after use.",
+    "image": "syringes",
+    "sections": [
+      {
+        "id": "plunger",
+        "title": "1. Craft the plunger",
+        "paragraphs": ["Place a slimeball above a stick in the crafting grid."],
+        "recipes": ["syringe_plunger"]
+      },
+      {
+        "id": "barrel",
+        "title": "2. Craft the barrel",
+        "paragraphs": [
+          "Use six glass blocks and one glass pane. Leave the top and middle slots of the centre column empty."
+        ],
+        "recipes": ["syringe_barrel"]
+      },
+      {
+        "id": "needle",
+        "title": "3. Craft the needle",
+        "paragraphs": ["Place three iron nuggets in a vertical line."],
+        "recipes": ["syringe_needle"]
+      },
+      {
+        "id": "assemble",
+        "title": "4. Assemble the syringe",
+        "paragraphs": [
+          "Place the plunger at the bottom left, the barrel in the centre, and the needle at the top right. Fill the finished syringe at the [pneumatic stand](wiki/laboratory#pneumatic)."
+        ],
+        "recipes": ["syringe"]
+      },
+      {
+        "id": "clean",
+        "title": "Clean a used syringe",
+        "list": [
+          "Place a cauldron above any heat source (fire, soul fire, lava, a magma block, a lit campfire or a lit soul campfire), then fill it completely with water.",
+          "Drop one used syringe into the cauldron.",
+          "Wait 10 seconds and collect the clean syringe. Refill the cauldron before cleaning the next one."
+        ],
+        "ordered": true,
+        "recipes": ["clean_syringe"]
+      }
+    ],
+    "related": ["laboratory", "transformation", "questions"]
+  },
+  {
+    "slug": "laboratory",
+    "group": "start",
+    "title": "Prepare a Neko Injection",
+    "description": "Collect cat saliva, make a cat nucleocard, and fill one or two syringes.",
+    "image": "laboratory",
+    "sections": [
+      {
+        "id": "supplies",
+        "title": "Prepare the equipment",
+        "paragraphs": [
+          "You will need a brewing stand, a centrifuge, a pneumatic stand and [one or two empty syringes](wiki/recipes). One batch can fill two syringes, so prepare both for a paired injection."
+        ],
+        "recipes": ["centrifuge", "pneumatic_stand"]
+      },
+      {
+        "id": "sample",
+        "title": "1. Collect and bottle cat saliva",
+        "list": [
+          "Tame a cat with raw cod or salmon. Craft cotton swabs using the recipe below.",
+          "Use a cotton swab on your tamed cat to get a Cat Saliva Swab. Collect two samples.",
+          "[Brew the samples into bottles of saliva](wiki/potions#saliva). Collect six bottles for the centrifuge."
+        ],
+        "recipes": ["cotton_swab", "collect_saliva"],
+        "ordered": true
+      },
+      {
+        "id": "centrifuge",
+        "title": "2. Make a cat nucleocard",
+        "paragraphs": [
+          "Craft a Blank Nucleocard, then open the centrifuge. Load the six saliva bottles, the card and a stack of redstone dust. Wait for the cycle to finish and collect the Cat Nucleocard."
+        ],
+        "recipes": ["blank_nucleocard"],
+        "process": "centrifuge"
+      },
+      {
+        "id": "pneumatic",
+        "title": "3. Fill the syringes",
+        "paragraphs": [
+          "Open the pneumatic stand. Put the Cat Nucleocard in its source slot, add a wind charge and place an empty syringe in each position you want to fill. Collect the Neko Injections when processing finishes."
+        ],
+        "process": "injection",
+        "image": "lab-detail"
+      },
+      {
+        "id": "use",
+        "title": "Use the finished injection",
+        "paragraphs": [
+          "Follow the [transformation steps](wiki/transformation#inject) to use your dose. If you want to remain a neko, prepare the [Crystallizing Injection](wiki/transformation#prepare-stabilizer) before starting."
+        ]
+      }
+    ],
+    "related": ["recipes", "transformation", "abilities", "potions"]
+  },
+  {
+    "slug": "potions",
+    "group": "start",
+    "title": "Bottles and brewing",
+    "description": "Brew cat saliva and Sweet Amethyst, then make their splash and lingering forms.",
+    "image": "potions",
+    "sections": [
+      {
+        "id": "equipment",
+        "title": "Prepare the brewing stand",
+        "paragraphs": [
+          "Craft a brewing stand and glass bottles. Add blaze powder to the fuel slot: one powder powers 20 brewing cycles. The stand can brew up to three bottles with one ingredient.",
+          "The brewing stand recipe shown uses cobblestone. Blackstone and cobbled deepslate also work."
+        ],
+        "recipes": ["brewing_stand", "glass_bottle", "blaze_powder"]
+      },
+      {
+        "id": "saliva",
+        "title": "Bottle cat saliva",
+        "paragraphs": [
+          "Collect a [sample from your tamed cat](wiki/laboratory#sample). Put empty glass bottles in the three lower slots and a Cat Saliva Swab above them. Brew twice to obtain the six bottles needed for a [Cat Nucleocard](wiki/laboratory#centrifuge)."
+        ],
+        "recipes": ["saliva_bottles"],
+        "notice": "Use empty bottles, without water. One swab can fill up to three bottles."
+      },
+      {
+        "id": "splash-saliva",
+        "title": "Splash cat saliva",
+        "paragraphs": [
+          "Brew gunpowder into Bottles of Cat Saliva to make the splash form."
+        ],
+        "recipes": ["splash_saliva"]
+      },
+      {
+        "id": "lingering-saliva",
+        "title": "Lingering cat saliva",
+        "paragraphs": [
+          "Add Dragon’s Breath to the splash bottles. The empty breath bottle is returned."
+        ],
+        "recipes": ["lingering_saliva"]
+      },
+      {
+        "id": "sweet-amethyst",
+        "title": "Brew Sweet Amethyst",
+        "paragraphs": [
+          "Collect honey from a full bee nest or beehive using a glass bottle. Put the Honey Bottles in the brewing stand and add an Amethyst Shard. The finished potion is also used to prepare a [Crystallizing Injection](wiki/transformation#prepare-stabilizer)."
+        ],
+        "recipes": ["sweet_amethyst"]
+      },
+      {
+        "id": "splash-sweet-amethyst",
+        "title": "Splash Sweet Amethyst",
+        "paragraphs": ["Add gunpowder to Potions of Sweet Amethyst."],
+        "recipes": ["splash_sweet_amethyst"]
+      },
+      {
+        "id": "lingering-sweet-amethyst",
+        "title": "Lingering Sweet Amethyst",
+        "paragraphs": [
+          "Add Dragon’s Breath to the splash potions. The empty breath bottle is returned."
+        ],
+        "recipes": ["lingering_sweet_amethyst"]
+      }
+    ],
+    "related": ["laboratory", "transformation", "recipes"]
+  },
+  {
+    "slug": "transformation",
+    "group": "start",
+    "title": "Become a cat or stay a neko",
+    "description": "Use an injection, follow the stages, and stop at neko form if you choose.",
+    "image": "transformation",
+    "sections": [
+      {
+        "id": "inject",
+        "title": "Take the injection",
+        "list": [
+          "Prepare a [Neko Injection](wiki/laboratory), food and a safe place to wait.",
+          "Hold the injection in your main hand. Hold Use Item (right mouse button by default) until the animation finishes.",
+          "The used syringe remains in your hand and Neko Sickness begins. Wait for the transformation stages below."
+        ],
+        "notice": "The needle causes a little damage. Recover your health before injecting.",
+        "ordered": true
+      },
+      {
+        "id": "stages",
+        "title": "Transformation stages",
+        "paragraphs": [
+          "A single dose takes about 81 minutes of play to complete."
+        ],
+        "list": [
+          "Neko Sickness — 1 minute.",
+          "Three ability stages — 20 minutes each. Agility, Feline Vision and Soft Paws appear in a random order.",
+          "Cat Transformation — 20 minutes. This is the stage when you can stop and stay a neko.",
+          "Cat form — the transformation is complete and Feline Scent becomes available."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "paired",
+        "title": "Transform faster with two injections",
+        "paragraphs": [
+          "Put one Neko Injection in each hand. Hold Use Item, then also hold Attack (left mouse button by default) until both injections finish.",
+          "Sickness lasts 3 minutes; each ability stage and Cat Transformation lasts 5 minutes. The total is about 23 minutes."
+        ]
+      },
+      {
+        "id": "prepare-stabilizer",
+        "title": "Prepare the stopping injection",
+        "list": [
+          "Prepare a [Potion of Sweet Amethyst](wiki/potions#sweet-amethyst) from a Honey Bottle and an Amethyst Shard.",
+          "Put the potion in the pneumatic stand’s source slot. Add a wind charge and one or two empty syringes.",
+          "Collect the Crystallizing Injection and keep a bucket of milk ready for after use."
+        ],
+        "ordered": true,
+        "process": "stabilizer"
+      },
+      {
+        "id": "stabilize",
+        "title": "Stop and stay a neko",
+        "paragraphs": [
+          "Wait until all three abilities have appeared and the Cat Transformation effect is active. Use the Crystallizing Injection before that effect ends. You will permanently stay a neko with your acquired abilities.",
+          "This choice is permanent: another Neko Injection will not resume the process. Once you are fully a cat, this injection cannot turn you back."
+        ],
+        "notice": "Crystallization lasts 60 seconds, sharply slows movement and can kill you. Drink the prepared milk to remove this effect. Drinking Sweet Amethyst itself does not stop transformation."
+      },
+      {
+        "id": "lives",
+        "title": "Nine lives",
+        "paragraphs": [
+          "You receive nine feline lives when Cat Transformation begins. In Survival, the first eight deaths preserve your feline state; the ninth returns you to human form. Dying earlier in the process cancels the transformation."
+        ],
+        "notice": "Hardcore still ends on death, even if you have feline lives remaining."
+      }
+    ],
+    "related": ["laboratory", "abilities", "cat-life", "potions"]
+  },
+  {
+    "slug": "abilities",
+    "group": "play",
+    "title": "Use feline abilities",
+    "description": "How to double-jump, see in darkness, reduce fall damage and find creatures by scent.",
+    "image": "abilities",
+    "sections": [
+      {
+        "id": "agility",
+        "title": "Double-jump and faster movement",
+        "paragraphs": [
+          "Agility doubles your sprinting and sneaking speed. Jump from the ground, then press Jump again while you are still rising to make a second, stronger leap."
+        ],
+        "notice": "Keep your hunger above three drumsticks to double-jump."
+      },
+      {
+        "id": "vision",
+        "title": "See in darkness",
+        "paragraphs": [
+          "Feline Vision activates automatically near dark places. It brightens your view when exploring caves or travelling at night.",
+          "For manual control, change the vision mode and assign its key in [settings](wiki/settings#keys)."
+        ]
+      },
+      {
+        "id": "paws",
+        "title": "Land safely with Soft Paws",
+        "paragraphs": [
+          "Soft Paws reduces fall damage by 75%. Once you reach neko form, falls of less than ten blocks deal no damage. Higher falls can still hurt."
+        ]
+      },
+      {
+        "id": "scent",
+        "title": "Find creatures by scent",
+        "paragraphs": [
+          "In full cat form, stay crouched for three seconds. Nearby creatures become outlined through walls, including those up to 30 blocks away horizontally and 15 blocks above or below you."
+        ],
+        "list": [
+          "Red — hostile creatures.",
+          "Yellow — neutral creatures.",
+          "Green — passive creatures, creepers and phantoms.",
+          "White — other players."
+        ]
+      }
+    ],
+    "related": ["transformation", "cat-life", "settings"]
+  },
+  {
+    "slug": "cat-life",
+    "group": "play",
+    "title": "Play as a cat",
+    "description": "Use your equipment, move through small passages, choose food and interact with creatures.",
+    "image": "cat-life",
+    "sections": [
+      {
+        "id": "equipment",
+        "title": "Items, armour and elytra",
+        "paragraphs": [
+          "Your inventory and equipment stay with you after transformation. Use tools, place blocks, open containers and wear armour as usual. Elytra also work in cat form."
+        ]
+      },
+      {
+        "id": "movement",
+        "title": "Walk on four paws or stand upright",
+        "paragraphs": [
+          "Adjust [Camera Height](wiki/settings#camera) to choose a low, four-paw posture or an upright one. Cats can fit into one-block-high passages and sprint through them."
+        ]
+      },
+      {
+        "id": "food",
+        "title": "Choose food",
+        "paragraphs": [
+          "From neko form onward, raw meat is as nourishing as cooked meat. Raw chicken no longer causes Hunger. Many plant foods are less filling, and hunger depletes more slowly."
+        ],
+        "notice": "Avoid cookies, rotten flesh and poisonous potatoes: they can poison you."
+      },
+      {
+        "id": "creatures",
+        "title": "Creepers, phantoms and kittens",
+        "paragraphs": [
+          "Creepers avoid you once you are a neko, and phantoms no longer spawn for you.",
+          "In full cat form, another player can feed you raw cod or salmon. Two fed cat players, or a fed cat player and a tamed cat, can breed and have a kitten."
+        ]
+      }
+    ],
+    "related": ["abilities", "cat-skins", "settings"]
+  },
+  {
+    "slug": "cat-skins",
+    "group": "play",
+    "title": "Choose or import a cat skin",
+    "description": "Apply a Minecraft cat coat or add your own texture with the skin editor.",
+    "image": "skin-editor",
+    "sections": [
+      {
+        "id": "choose",
+        "title": "Choose a Minecraft cat coat",
+        "list": [
+          "Open Mods → Nekogenix → Config → Cat Skin.",
+          "Select one of the 11 Minecraft cat coats. Rotate and zoom the preview to inspect it.",
+          "Hover over the coat’s card and click the checkmark labelled Use to apply it."
+        ],
+        "ordered": true,
+        "image": "skins"
+      },
+      {
+        "id": "file",
+        "title": "Import your own skin",
+        "list": [
+          "Choose New Skin. Use Download Skin Template for a colour guide to the body parts, then draw your texture as a 64 × 32 pixel PNG no larger than 16 KiB.",
+          "Choose Upload Skin and open your PNG, or drag the file onto the editor.",
+          "Check the skin in four-paw, upright and sitting poses. Give it a name.",
+          "Choose Save to keep it in the library, or Save and Use to apply it immediately."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "library",
+        "title": "Manage saved skins",
+        "paragraphs": [
+          "Select a saved skin to preview, rename, apply or delete it. Your library can hold up to 32 custom skins."
+        ]
+      },
+      {
+        "id": "account",
+        "title": "Applying a skin",
+        "paragraphs": [
+          "Applying a coat requires an internet connection and a verified Minecraft account. You can edit and preview skins offline."
+        ],
+        "notice": "If account verification fails, reconnect to the internet and sign in again through your launcher."
+      }
+    ],
+    "related": ["settings", "cat-life", "questions"]
+  },
+  {
+    "slug": "settings",
+    "group": "reference",
+    "title": "Change settings and controls",
+    "description": "Adjust camera height, feline voice, double-jump and vision controls.",
+    "image": "settings",
+    "sections": [
+      {
+        "id": "open",
+        "title": "Open the settings",
+        "paragraphs": [
+          "Open Mods → Nekogenix → Config from the title menu or while playing."
+        ]
+      },
+      {
+        "id": "camera",
+        "title": "Adjust camera height and posture",
+        "paragraphs": [
+          "Move Camera Height towards 0 to lower your view or towards 100 for human eye level. In cat form, values from 0 to 40 put you on four paws; higher values use an upright posture."
+        ]
+      },
+      {
+        "id": "keys",
+        "title": "Set double-jump and vision controls",
+        "list": [
+          "Use Neko Double Jump to enable or disable the second jump.",
+          "Leave Feline Vision on Automatic, or choose Manual to switch it yourself.",
+          "In Minecraft’s Options → Controls → Key Binds, find Nekogenix and assign the vision toggle. You can also assign a double-jump toggle. Neither has a key assigned by default."
+        ],
+        "ordered": true
+      },
+      {
+        "id": "voice",
+        "title": "Adjust feline voice volume",
+        "paragraphs": [
+          "Lower Neko Voice to make meowing and purring quieter, or set it to zero to mute them. This slider is also available in Minecraft’s sound options."
+        ]
+      }
+    ],
+    "related": ["abilities", "cat-skins", "cat-life"]
+  },
+  {
+    "slug": "questions",
+    "group": "reference",
+    "title": "Solve common problems",
+    "description": "Check an injection that did not work, missing abilities, milk effects or a stalled machine.",
+    "image": "questions",
+    "sections": [
+      {
+        "id": "injection",
+        "title": "The injection did not start transformation",
+        "paragraphs": [
+          "Check that you are holding a filled Neko Injection. Hold Use Item until the entire animation finishes. An empty syringe or a Bottle of Cat Saliva will not start transformation."
+        ]
+      },
+      {
+        "id": "machines",
+        "title": "A machine will not start",
+        "list": [
+          "Centrifuge: check all six saliva bottles, a Blank Nucleocard and 64 redstone dust.",
+          "Pneumatic stand: check the source, a wind charge and at least one empty syringe. The full process is in [injection preparation](wiki/laboratory#pneumatic)."
+        ]
+      },
+      {
+        "id": "missing",
+        "title": "An ability does not work",
+        "list": [
+          "Abilities arrive one at a time during transformation. Check the [stage you have reached](wiki/transformation#stages).",
+          "For double-jump, eat first, check that it is enabled, then jump from the ground and press Jump again promptly.",
+          "For manual vision, [assign its key](wiki/settings#keys). Scent requires full cat form and three seconds of crouching."
+        ]
+      },
+      {
+        "id": "milk",
+        "title": "What happens if I drink milk?",
+        "paragraphs": [
+          "Milk does not reverse transformation or remove feline abilities. It causes poison during early transformation and nausea in neko form.",
+          "It does remove temporary effects such as Sweetness and Crystallization. This makes it useful after the [stopping injection](wiki/transformation#stabilize)."
+        ]
+      },
+      {
+        "id": "stop",
+        "title": "The stopping dose did not work",
+        "paragraphs": [
+          "Use the filled Crystallizing Injection during Cat Transformation, before you become a full cat. If you drank Sweet Amethyst instead, [prepare the injection](wiki/transformation#prepare-stabilizer) from it at the pneumatic stand."
+        ]
+      }
+    ],
+    "related": ["transformation", "laboratory", "settings"]
+  }
+]

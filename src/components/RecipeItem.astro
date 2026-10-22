@@ -1,0 +1,37 @@
+---
+import { items } from '../data/recipes';
+import type { Locale } from '../data/site';
+interface Props {
+  id: string;
+  locale: Locale;
+  count?: number | string;
+  output?: boolean;
+  compact?: boolean;
+}
+const { id, locale, count = 1, output, compact } = Astro.props;
+const item = items[id];
+if (!item) throw new Error(`Unknown recipe item: ${id}`);
+const name = item.names[locale];
+---
+
+<span
+  class:list={[
+    'recipe-item',
+    { 'output-cell': output, 'compact-item': compact },
+  ]}
+  data-recipe-item
+  data-item-id={id}
+  tabindex="0"
+  role="img"
+  aria-label={count === 1 ? name : `${count} × ${name}`}
+>
+  <img src={item.image} width="128" height="128" alt="" loading="lazy" />
+  {count !== 1 && (
+    <span class="recipe-count" aria-hidden="true">
+      {count}
+    </span>
+  )}
+  <span class="item-tooltip" data-item-tooltip aria-hidden="true">
+    {name}
+  </span>
+</span>

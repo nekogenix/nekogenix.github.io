@@ -1,0 +1,16 @@
+---
+import type { Locale } from '../data/site';
+import Recipe from './Recipe.astro';
+interface Props {
+  locale: Locale;
+  process: 'centrifuge' | 'injection' | 'stabilizer';
+}
+const { locale, process } = Astro.props;
+const recipes = {
+  centrifuge: 'cat_nucleocard',
+  injection: 'neko_injection',
+  stabilizer: 'crystallizing_injection',
+};
+---
+
+<Recipe id={recipes[process]} locale={locale} />

@@ -1,0 +1,370 @@
+{
+  "nekogenix:blank_nucleocard": {
+    "image": "/items/blank_nucleocard.png",
+    "names": {
+      "en": "Blank Nucleocard",
+      "uk": "Порожня нуклеокарта",
+      "ru": "Пустая нуклеокарта"
+    }
+  },
+  "minecraft:paper": {
+    "image": "/items/paper.png",
+    "names": {
+      "en": "Paper",
+      "uk": "Папір",
+      "ru": "Бумага"
+    }
+  },
+  "minecraft:gold_nugget": {
+    "image": "/items/gold_nugget.png",
+    "names": {
+      "en": "Gold Nugget",
+      "uk": "Золотий самородок",
+      "ru": "Кусочек золота"
+    }
+  },
+  "minecraft:redstone": {
+    "image": "/items/redstone.png",
+    "names": {
+      "en": "Redstone Dust",
+      "uk": "Редстоуновий пил",
+      "ru": "Редстоуновая пыль"
+    }
+  },
+  "minecraft:iron_nugget": {
+    "image": "/items/iron_nugget.png",
+    "names": {
+      "en": "Iron Nugget",
+      "uk": "Залізний самородок",
+      "ru": "Кусочек железа"
+    }
+  },
+  "nekogenix:centrifuge": {
+    "image": "/items/centrifuge.png",
+    "names": {
+      "en": "Centrifuge",
+      "uk": "Центрифуга",
+      "ru": "Центрифуга"
+    }
+  },
+  "minecraft:glass": {
+    "image": "/items/glass.png",
+    "names": {
+      "en": "Glass",
+      "uk": "Скло",
+      "ru": "Стекло"
+    }
+  },
+  "minecraft:iron_ingot": {
+    "image": "/items/iron_ingot.png",
+    "names": {
+      "en": "Iron Ingot",
+      "uk": "Залізний злиток",
+      "ru": "Железный слиток"
+    }
+  },
+  "minecraft:copper_ingot": {
+    "image": "/items/copper_ingot.png",
+    "names": {
+      "en": "Copper Ingot",
+      "uk": "Мідний злиток",
+      "ru": "Медный слиток"
+    }
+  },
+  "nekogenix:cotton_swab": {
+    "image": "/items/cotton_swab.png",
+    "names": {
+      "en": "Cotton Swab",
+      "uk": "Ватна паличка",
+      "ru": "Ватная палочка"
+    }
+  },
+  "minecraft:white_wool": {
+    "image": "/items/white_wool.png",
+    "names": {
+      "en": "White Wool",
+      "uk": "Біла вовна",
+      "ru": "Белая шерсть"
+    }
+  },
+  "minecraft:stick": {
+    "image": "/items/stick.png",
+    "names": {
+      "en": "Stick",
+      "uk": "Палиця",
+      "ru": "Палка"
+    }
+  },
+  "nekogenix:pneumatic_stand": {
+    "image": "/items/pneumatic_stand.png",
+    "names": {
+      "en": "Pneumatic Stand",
+      "uk": "Пневматична стійка",
+      "ru": "Пневматическая стойка"
+    }
+  },
+  "minecraft:breeze_rod": {
+    "image": "/items/breeze_rod.png",
+    "names": {
+      "en": "Breeze Rod",
+      "uk": "Стрижень вітреня",
+      "ru": "Вихревой стержень"
+    }
+  },
+  "minecraft:smooth_stone": {
+    "image": "/items/smooth_stone.png",
+    "names": {
+      "en": "Smooth Stone",
+      "uk": "Гладкий камінь",
+      "ru": "Гладкий камень"
+    }
+  },
+  "nekogenix:syringe": {
+    "image": "/items/syringe.png",
+    "names": {
+      "en": "Syringe",
+      "uk": "Шприц",
+      "ru": "Шприц"
+    }
+  },
+  "nekogenix:syringe_plunger": {
+    "image": "/items/syringe_plunger.png",
+    "names": {
+      "en": "Syringe Plunger",
+      "uk": "Поршень шприца",
+      "ru": "Поршень шприца"
+    }
+  },
+  "nekogenix:syringe_barrel": {
+    "image": "/items/syringe_barrel.png",
+    "names": {
+      "en": "Syringe Barrel",
+      "uk": "Циліндр шприца",
+      "ru": "Цилиндр шприца"
+    }
+  },
+  "nekogenix:syringe_needle": {
+    "image": "/items/syringe_needle.png",
+    "names": {
+      "en": "Syringe Needle",
+      "uk": "Голка шприца",
+      "ru": "Игла шприца"
+    }
+  },
+  "minecraft:glass_pane": {
+    "image": "/items/glass_pane.png",
+    "names": {
+      "en": "Glass Pane",
+      "uk": "Шибка",
+      "ru": "Стеклянная панель"
+    }
+  },
+  "minecraft:slime_ball": {
+    "image": "/items/slime_ball.png",
+    "names": {
+      "en": "Slimeball",
+      "uk": "Слизова кулька",
+      "ru": "Сгусток слизи"
+    }
+  },
+  "nekogenix:bottle_of_cat_saliva": {
+    "image": "/items/bottle_of_cat_saliva.png",
+    "names": {
+      "en": "Bottle of Cat Saliva",
+      "uk": "Пляшечка котячої слини",
+      "ru": "Бутылочка кошачьей слюны"
+    }
+  },
+  "nekogenix:cat_saliva_swab": {
+    "image": "/items/cat_saliva_swab.png",
+    "names": {
+      "en": "Cat Saliva Swab",
+      "uk": "Мазок котячої слини",
+      "ru": "Мазок кошачьей слюны"
+    }
+  },
+  "nekogenix:cat_nucleocard": {
+    "image": "/items/cat_nucleocard.png",
+    "names": {
+      "en": "Cat Nucleocard",
+      "uk": "Нуклеокарта кішки",
+      "ru": "Нуклеокарта кошки"
+    }
+  },
+  "nekogenix:neko_injection": {
+    "image": "/items/neko_injection.png",
+    "names": {
+      "en": "Neko Injection",
+      "uk": "Неко-ін’єкція",
+      "ru": "Неко-инъекция"
+    }
+  },
+  "nekogenix:stabilizing_injection": {
+    "image": "/items/stabilizing_injection.png",
+    "names": {
+      "en": "Crystallizing Injection",
+      "uk": "Кристалізувальна ін’єкція",
+      "ru": "Кристаллизующая инъекция"
+    }
+  },
+  "nekogenix:neko_stabilizer": {
+    "image": "/items/neko_stabilizer.png",
+    "names": {
+      "en": "Potion of Sweet Amethyst",
+      "uk": "Зілля солодкого аметисту",
+      "ru": "Зелье сладкого аметиста"
+    }
+  },
+  "nekogenix:used_syringe": {
+    "image": "/items/used_syringe.png",
+    "names": {
+      "en": "Used Syringe",
+      "uk": "Використаний шприц",
+      "ru": "Использованный шприц"
+    }
+  },
+  "minecraft:wind_charge": {
+    "image": "/items/wind_charge.png",
+    "names": {
+      "en": "Wind Charge",
+      "uk": "Заряд вітру",
+      "ru": "Заряд ветра"
+    }
+  },
+  "minecraft:glass_bottle": {
+    "image": "/items/glass_bottle.png",
+    "names": {
+      "en": "Glass Bottle",
+      "uk": "Скляна пляшка",
+      "ru": "Бутылочка"
+    }
+  },
+  "minecraft:honey_bottle": {
+    "image": "/items/honey_bottle.png",
+    "names": {
+      "en": "Honey Bottle",
+      "uk": "Пляшка меду",
+      "ru": "Бутылочка мёда"
+    }
+  },
+  "minecraft:amethyst_shard": {
+    "image": "/items/amethyst_shard.png",
+    "names": {
+      "en": "Amethyst Shard",
+      "uk": "Аметистовий уламок",
+      "ru": "Осколок аметиста"
+    }
+  },
+  "minecraft:cod": {
+    "image": "/items/cod.png",
+    "names": {
+      "en": "Raw Cod",
+      "uk": "Сира тріска",
+      "ru": "Сырая треска"
+    }
+  },
+  "nekogenix:splash_bottle_of_cat_saliva": {
+    "image": "/items/splash_bottle_of_cat_saliva.png",
+    "names": {
+      "en": "Splash Bottle of Cat Saliva",
+      "uk": "Вибухова пляшечка котячої слини",
+      "ru": "Взрывная бутылочка кошачьей слюны"
+    }
+  },
+  "nekogenix:lingering_bottle_of_cat_saliva": {
+    "image": "/items/lingering_bottle_of_cat_saliva.png",
+    "names": {
+      "en": "Lingering Bottle of Cat Saliva",
+      "uk": "Осідаюча пляшечка котячої слини",
+      "ru": "Туманная бутылочка кошачьей слюны"
+    }
+  },
+  "nekogenix:splash_potion_of_sweet_amethyst": {
+    "image": "/items/splash_potion_of_sweet_amethyst.png",
+    "names": {
+      "en": "Splash Potion of Sweet Amethyst",
+      "uk": "Вибухове зілля солодкого аметисту",
+      "ru": "Взрывное зелье сладкого аметиста"
+    }
+  },
+  "nekogenix:lingering_potion_of_sweet_amethyst": {
+    "image": "/items/lingering_potion_of_sweet_amethyst.png",
+    "names": {
+      "en": "Lingering Potion of Sweet Amethyst",
+      "uk": "Осідаюче зілля солодкого аметисту",
+      "ru": "Туманное зелье сладкого аметиста"
+    }
+  },
+  "minecraft:blaze_powder": {
+    "image": "/items/blaze_powder.png",
+    "names": {
+      "en": "Blaze Powder",
+      "uk": "Порох пломеня",
+      "ru": "Огненный порошок"
+    }
+  },
+  "minecraft:gunpowder": {
+    "image": "/items/gunpowder.png",
+    "names": {
+      "en": "Gunpowder",
+      "uk": "Порох",
+      "ru": "Порох"
+    }
+  },
+  "minecraft:dragon_breath": {
+    "image": "/items/dragon_breath.png",
+    "names": {
+      "en": "Dragon's Breath",
+      "uk": "Дихання дракона",
+      "ru": "Дыхание дракона"
+    }
+  },
+  "minecraft:brewing_stand": {
+    "image": "/items/brewing_stand.png",
+    "names": {
+      "en": "Brewing Stand",
+      "uk": "Варильна стійка",
+      "ru": "Зельеварка"
+    }
+  },
+  "minecraft:cauldron": {
+    "image": "/items/cauldron.png",
+    "names": {
+      "en": "Cauldron",
+      "uk": "Казан",
+      "ru": "Котёл"
+    }
+  },
+  "minecraft:magma_block": {
+    "image": "/items/magma_block.png",
+    "names": {
+      "en": "Magma Block",
+      "uk": "Магматичний блок",
+      "ru": "Магма"
+    }
+  },
+  "minecraft:blaze_rod": {
+    "image": "/items/blaze_rod.png",
+    "names": {
+      "en": "Blaze Rod",
+      "uk": "Стрижень пломеня",
+      "ru": "Огненный стержень"
+    }
+  },
+  "minecraft:cobblestone": {
+    "image": "/items/cobblestone.png",
+    "names": {
+      "en": "Cobblestone",
+      "uk": "Кругляк",
+      "ru": "Булыжник"
+    }
+  },
+  "minecraft:crafting_table": {
+    "image": "/items/crafting_table.png",
+    "names": {
+      "en": "Crafting Table",
+      "uk": "Верстак",
+      "ru": "Верстак"
+    }
+  }
+}

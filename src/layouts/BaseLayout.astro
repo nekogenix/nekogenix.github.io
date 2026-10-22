@@ -1,0 +1,219 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import {
+  copy,
+  locales,
+  languageNames,
+  pathFor,
+  repository,
+  type Locale,
+} from '../data/site';
+import Icon from '../components/Icon.astro';
+import '../styles/global.css';
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  page?: string;
+  wiki?: boolean;
+  localized?: boolean;
+}
+const {
+  locale,
+  title,
+  description,
+  page = '',
+  wiki = false,
+  localized = true,
+} = Astro.props;
+const t = copy[locale];
+const pageTitle = title
+  ? `${title} · Nekogenix`
+  : 'Nekogenix — ' + t.heroTitle.replace('\n', ' ');
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang={locale} data-page={page}>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="description" content={description ?? t.description} />
+    <meta name="theme-color" content="#19181d" />
+    <link rel="icon" type="image/png" href="/branding/icon.png" />
+    <link
+      rel="preload"
+      href="/fonts/unifont-latin-cyrillic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="canonical" href={canonical} />
+    {(localized ? locales : (['en'] as const)).map((language) => (
+      <link
+        rel="alternate"
+        hreflang={language}
+        href={new URL(pathFor(language, page), Astro.site).href}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(pathFor('en', page), Astro.site).href}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description ?? t.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Nekogenix" />
+    <meta
+      property="og:image"
+      content={new URL('/media/hero-1920.webp', Astro.site).href}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{pageTitle}</title>
+    <ClientRouter fallback="swap" />
+  </head>
+  <body class:list={{ 'wiki-page': wiki }}>
+    <a href="#main" class="skip-link">
+      {t.skip}
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href={pathFor(locale)} aria-label="Nekogenix">
+          <img
+            src="/branding/logo.png"
+            width="180"
+            height="93"
+            alt="Nekogenix"
+          />
+        </a>
+        <button
+          class="icon-button mobile-nav"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label={t.menu}
+        >
+          <Icon name="menu" />
+        </button>
+        <nav
+          id="main-navigation"
+          class="main-navigation"
+          aria-label="Nekogenix"
+        >
+          <a href={`${pathFor(locale)}#the-mod`}>{t.nav[0]}</a>
+          <a
+            href={pathFor(locale, 'wiki')}
+            aria-current={wiki ? 'page' : undefined}
+          >
+            {t.nav[3]}
+          </a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="icon-button search-toggle"
+            data-search-toggle
+            aria-label={t.search}
+          >
+            <Icon name="search" />
+          </button>
+          {localized && (
+            <details class="language-picker">
+              <summary aria-label={t.language}>
+                <Icon name="language" />
+                <span>{locale.toUpperCase()}</span>
+                <Icon name="down" />
+              </summary>
+              <div class="language-options">
+                {locales.map((language) => (
+                  <a
+                    href={pathFor(language, page)}
+                    lang={language}
+                    hreflang={language}
+                    data-locale={language}
+                    aria-current={language === locale ? 'true' : undefined}
+                  >
+                    {languageNames[language]}
+                    {language === locale && <span aria-hidden="true">✓</span>}
+                  </a>
+                ))}
+              </div>
+            </details>
+          )}
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner container">
+        <div class="footer-brand">
+          <img
+            src="/branding/logo.png"
+            width="175"
+            height="91"
+            alt="Nekogenix"
+            loading="lazy"
+          />
+          <p>{t.footerText}</p>
+          <p>{t.credit}</p>
+        </div>
+        <nav aria-label={t.nav[3]}>
+          <a href={pathFor(locale, 'wiki')}>{t.nav[3]}</a>
+          <a href={pathFor(locale, 'wiki/getting-started')}>
+            {copy[locale].groups.start}
+          </a>
+          <a href={repository} target="_blank" rel="noopener noreferrer">
+            GitHub
+            <Icon name="external" />
+          </a>
+          <a href={pathFor(locale, 'wiki/questions')}>{t.faqTitle}</a>
+        </nav>
+      </div>
+      <div class="footer-bottom container">
+        <p>
+          NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH
+          MOJANG OR MICROSOFT.
+        </p>
+        <div>
+          <a href="/licenses/assets/">{t.assetCredits}</a>
+          <a href="/licenses/unifont/">GNU Unifont · OFL</a>
+          <a href="/licenses/noto-sans/">Noto Sans · OFL</a>
+        </div>
+      </div>
+    </footer>
+    <dialog
+      class="search-dialog"
+      data-search-dialog
+      aria-labelledby="search-title"
+      data-no-results={t.noResults}
+    >
+      <div class="dialog-heading">
+        <h2 id="search-title">{t.search}</h2>
+        <button class="icon-button" data-dialog-close aria-label={t.close}>
+          <Icon name="close" />
+        </button>
+      </div>
+      <label class="search-input-wrap">
+        <Icon name="search" />
+        <span class="sr-only">{t.search}</span>
+        <input
+          type="search"
+          data-search-input
+          placeholder={t.searchHint}
+          autocomplete="off"
+        />
+      </label>
+      <p class="search-help">{t.searchHelp}</p>
+      <div class="search-results" data-search-results aria-live="polite"></div>
+    </dialog>
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  alt: string;
+  eager?: boolean;
+  wide?: boolean;
+  class?: string;
+}
+const {
+  name,
+  alt,
+  eager = false,
+  wide = false,
+  class: className,
+} = Astro.props;
+const widths = [640, 1280, 1920, 3840];
+---
+
+<figure class:list={['shot', className]}>
+  <img
+    src={`/media/${name}-1280.webp`}
+    srcset={widths
+      .map((width) => `/media/${name}-${width}.webp ${width}w`)
+      .join(', ')}
+    sizes={
+      eager || wide
+        ? '(max-width: 800px) 800px, 100vw'
+        : '(min-width: 1100px) 55vw, 100vw'
+    }
+    width="3840"
+    height="2160"
+    alt={alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+</figure>
