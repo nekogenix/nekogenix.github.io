@@ -177,24 +177,24 @@ export function initializeLaboratory(signal: AbortSignal) {
         id: number;
         x: number;
         y: number;
-        startX: number;
-        startY: number;
-        horizontal: boolean;
       }
     | undefined;
   model.addEventListener(
     'pointerdown',
     (event) => {
-      if (event.button !== 0 || !event.isPrimary || pointer) return;
+      if (
+        event.button !== 0 ||
+        !event.isPrimary ||
+        pointer ||
+        !model.hasAttribute('data-ready')
+      )
+        return;
       pointer = {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
-        startX: event.clientX,
-        startY: event.clientY,
-        horizontal: event.pointerType === 'mouse',
       };
-      if (pointer.horizontal) model.setPointerCapture(event.pointerId);
+      model.setPointerCapture(event.pointerId);
     },
     { signal },
   );
@@ -202,17 +202,6 @@ export function initializeLaboratory(signal: AbortSignal) {
     'pointermove',
     (event) => {
       if (!pointer || pointer.id !== event.pointerId) return;
-      const dx = event.clientX - pointer.startX,
-        dy = event.clientY - pointer.startY;
-      if (!pointer.horizontal) {
-        if (Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx)) {
-          pointer = undefined;
-          return;
-        }
-        if (Math.abs(dx) < 8) return;
-        pointer.horizontal = true;
-        model.setPointerCapture(event.pointerId);
-      }
       scene?.rotate(
         (event.clientX - pointer.x) * 0.012,
         (event.clientY - pointer.y) * 0.006,
