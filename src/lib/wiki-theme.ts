@@ -1,7 +1,7 @@
 type WikiTheme = 'light' | 'dark';
 
 let theme: WikiTheme =
-  document.documentElement.dataset.wikiTheme === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.wikiTheme === 'light' ? 'light' : 'dark';
 
 document.addEventListener('astro:before-swap', (event) => {
   event.newDocument.documentElement.dataset.wikiTheme = theme;
