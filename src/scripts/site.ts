@@ -4,6 +4,7 @@ import { searchPages, type SearchPage } from '../lib/search';
 import { initializeMedia } from '../lib/media';
 import { initializeRecipeTooltips } from '../lib/recipes';
 import { initializeLaboratory } from '../lib/laboratory';
+import { initializeWikiTheme } from '../lib/wiki-theme';
 
 let controller: AbortController | undefined;
 let localeScroll: number | undefined;
@@ -37,6 +38,7 @@ function initialize() {
   controller?.abort();
   controller = new AbortController();
   const { signal } = controller;
+  initializeWikiTheme(signal);
   initializeMedia(signal);
   initializeRecipeTooltips(signal);
   initializeLaboratory(signal);

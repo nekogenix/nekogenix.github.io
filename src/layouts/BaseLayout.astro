@@ -42,6 +42,16 @@ const socialImage = new URL('/media/link-preview-cat.jpg', Astro.site).href;
     />
     <meta name="description" content={description ?? t.description} />
     <meta name="theme-color" content="#19181d" />
+    <script is:inline>
+      try {
+        document.documentElement.dataset.wikiTheme =
+          localStorage.getItem('nekogenix.wikiTheme') === 'dark'
+            ? 'dark'
+            : 'light';
+      } catch {
+        /* The default theme also works without local storage. */
+      }
+    </script>
     <link rel="icon" type="image/png" href="/branding/icon.png" />
     <link
       rel="preload"
