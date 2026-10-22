@@ -201,6 +201,9 @@ const guideHref = (guide: string) => {
   .lab-model:active {
     cursor: grabbing;
   }
+  .lab-model[data-ready] {
+    touch-action: none;
+  }
   .lab-model::before {
     content: '';
     position: absolute;
