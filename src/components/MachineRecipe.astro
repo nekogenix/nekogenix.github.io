@@ -1,0 +1,150 @@
+---
+import { copy, type Locale } from '../data/site';
+import { recipeInputs, type Recipe } from '../data/recipes';
+import RecipeItem from './RecipeItem.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  recipe: Recipe;
+  locale: Locale;
+}
+const { recipe, locale } = Astro.props;
+const t = copy[locale];
+const centrifuge = recipe.machine === 'nekogenix:centrifuge';
+const inputs = recipeInputs(recipe);
+const origin = centrifuge ? [14, 18] : [8, 8];
+const width = centrifuge ? 148 : 128;
+const height = centrifuge ? 152 : 68;
+// Slot coordinates follow CentrifugeMenu and PneumaticStandMenu.
+const slots = centrifuge
+  ? [
+      ...[
+        [80, 30],
+        [114, 49],
+        [114, 87],
+        [80, 106],
+        [46, 87],
+        [46, 49],
+      ].map(([x, y]) => ({ x: x!, y: y!, id: inputs[0]!.id, count: 1 })),
+      { x: 80, y: 143, id: inputs[1]!.id, count: inputs[1]!.count },
+      { x: 24, y: 143, id: inputs[2]!.id, count: inputs[2]!.count },
+    ]
+  : [
+      { x: 17, y: 17, id: inputs[2]!.id, count: inputs[2]!.count },
+      { x: 79, y: 17, id: inputs[1]!.id, count: inputs[1]!.count },
+      { x: 56, y: 51, id: inputs[0]!.id, count: 1 },
+      { x: 102, y: 51, id: inputs[0]!.id, count: 1 },
+    ];
+---
+
+<div
+  class="machine-recipe"
+  data-machine={centrifuge ? 'centrifuge' : 'pneumatic'}
+>
+  <div class="machine-flow">
+    <div
+      class="machine-board"
+      class:list={{ 'pneumatic-board': !centrifuge }}
+      role="group"
+      aria-label={t.input}
+      style={`aspect-ratio:${width}/${height}`}
+    >
+      {!centrifuge && (
+        <svg
+          class="machine-connections"
+          viewBox="8 8 128 68"
+          aria-hidden="true"
+        >
+          <path d="M35 25h8v21h67v4M87 35v11M64 46v4" />
+        </svg>
+      )}
+      {slots.map((slot) => (
+        <div
+          class="machine-slot"
+          style={`left:${((slot.x - origin[0]! - 1) / width) * 100}%;top:${((slot.y - origin[1]! - 1) / height) * 100}%;width:${(18 / width) * 100}%`}
+        >
+          <RecipeItem id={slot.id} locale={locale} count={slot.count} />
+        </div>
+      ))}
+    </div>
+    <Icon name="arrow" class="machine-arrow" />
+    <div class="machine-results" role="group" aria-label={t.output}>
+      {Array.from({ length: centrifuge ? 1 : 2 }, () => (
+        <RecipeItem id={recipe.result.id} locale={locale} output />
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .machine-recipe {
+    width: 100%;
+    min-width: 0;
+  }
+  .machine-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) 24px auto;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .machine-board {
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    background: #c4b9c1;
+    border: 2px solid;
+    border-color: #fffc #a599a3 #a599a3 #fffc;
+  }
+  .machine-slot {
+    position: absolute;
+    aspect-ratio: 1;
+  }
+  .machine-slot :global(.recipe-item) {
+    width: 100%;
+    height: 100%;
+    padding: 9%;
+  }
+  .machine-slot :global(.recipe-item img) {
+    width: 100%;
+    height: 100%;
+  }
+  .machine-slot :global(.recipe-count) {
+    font-size: clamp(15px, 3vw, 20px);
+  }
+  .machine-connections {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #96768b;
+    stroke-width: 1.5;
+    pointer-events: none;
+  }
+  .machine-flow :global(.machine-arrow) {
+    width: 24px;
+    height: 24px;
+    color: #96768b;
+  }
+  .machine-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 136px;
+  }
+  @media (max-width: 600px) {
+    .machine-flow {
+      grid-template-columns: minmax(0, 320px);
+      justify-items: center;
+      gap: 18px;
+    }
+    .machine-flow :global(.machine-arrow) {
+      transform: rotate(90deg);
+    }
+    .machine-results {
+      max-width: none;
+    }
+  }
+</style>

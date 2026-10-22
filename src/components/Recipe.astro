@@ -3,6 +3,7 @@ import { recipes, items, craftingCells, recipeInputs } from '../data/recipes';
 import { copy, type Locale } from '../data/site';
 import Icon from './Icon.astro';
 import RecipeItem from './RecipeItem.astro';
+import MachineRecipe from './MachineRecipe.astro';
 interface Props {
   id: string;
   locale: Locale;
@@ -15,6 +16,10 @@ const labels = t.recipeLabels;
 const output = items[recipe.result.id]!;
 const crafting = recipe.type.startsWith('minecraft:crafting_');
 const brewing = recipe.type === 'brewing';
+const machine =
+  recipe.type === 'processing' &&
+  (recipe.machine === 'nekogenix:centrifuge' ||
+    recipe.machine === 'nekogenix:pneumatic_stand');
 const inputs = recipeInputs(recipe);
 ---
 
@@ -43,62 +48,68 @@ const inputs = recipeInputs(recipe);
     </div>
   </header>
   <div class:list={['recipe-display', { 'process-display': !crafting }]}>
-    {crafting ? (
-      <div class="recipe-grid" role="group" aria-label={t.grid}>
-        {craftingCells(recipe).map((item) =>
-          item ? (
-            <RecipeItem id={item} locale={locale} />
-          ) : (
-            <span class="recipe-cell" aria-hidden="true"></span>
-          ),
-        )}
-      </div>
-    ) : brewing ? (
-      <div class="brew-layout" role="group" aria-label={t.input}>
-        <div class="brew-ingredient">
-          <RecipeItem id={inputs[0]!.id} locale={locale} />
-        </div>
-        <div class="brew-connections" aria-hidden="true"></div>
-        <div class="brew-bottles">
-          {[0, 1, 2].map(() => (
-            <RecipeItem id={inputs[1]!.id} locale={locale} />
-          ))}
-        </div>
-      </div>
+    {machine ? (
+      <MachineRecipe recipe={recipe} locale={locale} />
     ) : (
-      <div class="process-inputs" role="group" aria-label={t.input}>
-        {inputs.map((stack) => (
-          <RecipeItem id={stack.id} locale={locale} count={stack.count} />
-        ))}
-        {recipe.type === 'collecting' && (
-          <div class="recipe-cat">
-            <img
-              src="/characters/cat.png"
-              width="64"
-              height="64"
-              alt=""
-              loading="lazy"
-            />
-            <span>{labels.tamedCat}</span>
+      <Fragment>
+        {crafting ? (
+          <div class="recipe-grid" role="group" aria-label={t.grid}>
+            {craftingCells(recipe).map((item) =>
+              item ? (
+                <RecipeItem id={item} locale={locale} />
+              ) : (
+                <span class="recipe-cell" aria-hidden="true"></span>
+              ),
+            )}
+          </div>
+        ) : brewing ? (
+          <div class="brew-layout" role="group" aria-label={t.input}>
+            <div class="brew-ingredient">
+              <RecipeItem id={inputs[0]!.id} locale={locale} />
+            </div>
+            <div class="brew-connections" aria-hidden="true"></div>
+            <div class="brew-bottles">
+              {[0, 1, 2].map(() => (
+                <RecipeItem id={inputs[1]!.id} locale={locale} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div class="process-inputs" role="group" aria-label={t.input}>
+            {inputs.map((stack) => (
+              <RecipeItem id={stack.id} locale={locale} count={stack.count} />
+            ))}
+            {recipe.type === 'collecting' && (
+              <div class="recipe-cat">
+                <img
+                  src="/characters/cat.png"
+                  width="64"
+                  height="64"
+                  alt=""
+                  loading="lazy"
+                />
+                <span>{labels.tamedCat}</span>
+              </div>
+            )}
           </div>
         )}
-      </div>
+        <Icon name="arrow" class="recipe-arrow" />
+        <div class="recipe-results" role="group" aria-label={t.output}>
+          {brewing ? (
+            [0, 1, 2].map(() => (
+              <RecipeItem id={recipe.result.id} locale={locale} />
+            ))
+          ) : (
+            <RecipeItem
+              id={recipe.result.id}
+              locale={locale}
+              count={recipe.result.count}
+              output
+            />
+          )}
+        </div>
+      </Fragment>
     )}
-    <Icon name="arrow" class="recipe-arrow" />
-    <div class="recipe-results" role="group" aria-label={t.output}>
-      {brewing ? (
-        [0, 1, 2].map(() => (
-          <RecipeItem id={recipe.result.id} locale={locale} />
-        ))
-      ) : (
-        <RecipeItem
-          id={recipe.result.id}
-          locale={locale}
-          count={recipe.result.count}
-          output
-        />
-      )}
-    </div>
   </div>
   {(recipe.type === 'cleaning' || recipe.fuel || recipe.returns) && (
     <div class="recipe-extras">
