@@ -133,7 +133,7 @@ h2 {
   font-family: var(--display);
   line-height: 1.03;
   font-weight: 400;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 h1 span,
 h2 span {
