@@ -133,7 +133,7 @@ h2 {
   font-family: var(--display);
   line-height: 1.03;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
 }
 h1 span,
 h2 span {
@@ -1068,6 +1068,7 @@ dialog .icon-button:hover {
   font-weight: 750;
   font-size: 19px;
   line-height: 1.4;
+  letter-spacing: 0;
 }
 .wiki-card p {
   grid-column: 1 / -1;
@@ -1157,6 +1158,7 @@ dialog .icon-button:hover {
 }
 .article-toc h2 {
   font: 750 11px var(--body);
+  letter-spacing: 0;
   margin-bottom: 16px;
 }
 .article-toc a {
