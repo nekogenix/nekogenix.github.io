@@ -29,6 +29,7 @@ const {
 const t = copy[locale];
 const pageTitle = title ? `${title} · Nekogenix` : t.seoTitle;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = new URL('/media/link-preview-cat.jpg', Astro.site).href;
 ---
 
 <!doctype html>
@@ -67,11 +68,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:description" content={description ?? t.description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Nekogenix" />
-    <meta
-      property="og:image"
-      content={new URL('/media/hero-1920.webp', Astro.site).href}
-    />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content={t.socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={t.socialImageAlt} />
     <title>{pageTitle}</title>
     <ClientRouter fallback="swap" />
   </head>
