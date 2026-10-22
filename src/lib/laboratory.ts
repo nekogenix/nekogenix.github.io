@@ -185,7 +185,7 @@ export function initializeLaboratory(signal: AbortSignal) {
   model.addEventListener(
     'pointerdown',
     (event) => {
-      if (event.button !== 0) return;
+      if (event.button !== 0 || !event.isPrimary || pointer) return;
       pointer = {
         id: event.pointerId,
         x: event.clientX,
@@ -222,12 +222,18 @@ export function initializeLaboratory(signal: AbortSignal) {
     },
     { signal },
   );
-  const release = () => {
-    pointer = undefined;
+  const release = (event: PointerEvent) => {
+    if (pointer?.id === event.pointerId) pointer = undefined;
   };
   model.addEventListener('pointerup', release, { signal });
   model.addEventListener('pointercancel', release, { signal });
-  model.addEventListener('lostpointercapture', release, { signal });
+  model.addEventListener(
+    'lostpointercapture',
+    (event) => {
+      if (event.target === model) release(event);
+    },
+    { signal },
+  );
 
   const observer = new IntersectionObserver(
     async ([entry]) => {
