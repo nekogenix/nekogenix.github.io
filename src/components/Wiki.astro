@@ -7,6 +7,7 @@ import Recipe from './Recipe.astro';
 import LaboratoryFlow from './LaboratoryFlow.astro';
 import Inline from './Inline.astro';
 import { imageLabels } from '../data/images';
+import WikiTheme from './WikiTheme.astro';
 interface Props {
   locale: Locale;
   article?: Article;
@@ -34,27 +35,21 @@ const next = pages[index + 1];
   </div>
 </div>
 <div class="wiki-shell container">
-  <button
-    class="wiki-mobile-nav"
-    data-wiki-toggle
-    aria-expanded="false"
-    aria-controls="wiki-sidebar"
-  >
-    {t.browse}
-    <Icon name="down" />
-  </button>
+  <div class="wiki-mobile-tools">
+    <button
+      class="wiki-mobile-nav"
+      data-wiki-toggle
+      aria-expanded="false"
+      aria-controls="wiki-sidebar"
+    >
+      <span>{t.browse}</span>
+      <Icon name="down" />
+    </button>
+    <WikiTheme locale={locale} compact />
+  </div>
   <aside id="wiki-sidebar" class="wiki-sidebar" aria-label={t.browse}>
     <a href={pathFor(locale, 'wiki')}>{t.wikiEyebrow}</a>
-    <div class="wiki-theme" role="group" aria-label={t.theme}>
-      <button type="button" data-wiki-theme-choice="light" aria-pressed="true">
-        <Icon name="sun" />
-        {t.lightTheme}
-      </button>
-      <button type="button" data-wiki-theme-choice="dark" aria-pressed="false">
-        <Icon name="moon" />
-        {t.darkTheme}
-      </button>
-    </div>
+    <WikiTheme locale={locale} />
     {(['start', 'play', 'reference'] as const).map((group) => (
       <div class="sidebar-group">
         <h2>{t.groups[group]}</h2>
