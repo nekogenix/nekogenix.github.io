@@ -70,18 +70,35 @@ export function createLaboratoryScene(
   let frame = 0;
   let visible = true;
   let motion: { start: number; from: number; to: number } | undefined;
+  let inertia:
+    { time: number; horizontal: number; vertical: number } | undefined;
 
   function draw() {
     frame = 0;
     if (signal.aborted || !visible || document.hidden) return;
+    const now = performance.now();
     if (motion && current) {
-      const progress = Math.min(1, (performance.now() - motion.start) / 1050);
+      const progress = Math.min(1, (now - motion.start) / 1050);
       const ease = 1 - (1 - progress) ** 4;
       current.rotation.y = MathUtils.lerp(motion.from, motion.to, ease);
       if (progress === 1) motion = undefined;
     }
+    if (inertia && current) {
+      const elapsed = Math.min(now - inertia.time, 64);
+      const decay = Math.exp(-elapsed * 0.0034);
+      const distance = (1 - decay) / 0.0034;
+      current.rotation.y += inertia.horizontal * distance;
+      const tilt = current.rotation.x + inertia.vertical * distance;
+      current.rotation.x = MathUtils.clamp(tilt, -0.55, 0.55);
+      inertia.horizontal *= decay;
+      inertia.vertical =
+        tilt === current.rotation.x ? inertia.vertical * decay : 0;
+      inertia.time = now;
+      if (Math.hypot(inertia.horizontal, inertia.vertical) < 0.00002)
+        inertia = undefined;
+    }
     renderer.render(scene, camera);
-    if (motion) frame = requestAnimationFrame(draw);
+    if (motion || inertia) frame = requestAnimationFrame(draw);
   }
   function request() {
     if (!frame && !signal.aborted && visible && !document.hidden)
@@ -93,6 +110,7 @@ export function createLaboratoryScene(
       current.position.y = 0;
     }
     motion = undefined;
+    inertia = undefined;
     cancelAnimationFrame(frame);
     frame = 0;
   }
@@ -209,6 +227,7 @@ export function createLaboratoryScene(
     },
     async setItem(url: string, animate = true) {
       const token = ++revision;
+      settle(false);
       const asset = await loadAsset(url);
       if (signal.aborted || token !== revision) return false;
       settle();
@@ -254,6 +273,16 @@ export function createLaboratoryScene(
         -0.55,
         0.55,
       );
+      request();
+    },
+    coast(horizontal: number, vertical: number) {
+      if (!current || reduced.matches || !visible || document.hidden) return;
+      settle(false);
+      inertia = {
+        time: performance.now(),
+        horizontal: MathUtils.clamp(horizontal, -0.024, 0.024),
+        vertical: MathUtils.clamp(vertical, -0.012, 0.012),
+      };
       request();
     },
     setVisible(value: boolean) {
