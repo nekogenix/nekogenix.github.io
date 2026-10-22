@@ -40,7 +40,7 @@
     }
   },
   "nekogenix:centrifuge": {
-    "image": "/items/centrifuge.png",
+    "image": "/items/centrifuge.png?v=6c97797111",
     "names": {
       "en": "Centrifuge",
       "uk": "Центрифуга",
@@ -120,7 +120,7 @@
     }
   },
   "nekogenix:syringe": {
-    "image": "/items/syringe.png",
+    "image": "/items/syringe.png?v=6adf3d5c5a",
     "names": {
       "en": "Syringe",
       "uk": "Шприц",
@@ -128,7 +128,7 @@
     }
   },
   "nekogenix:syringe_plunger": {
-    "image": "/items/syringe_plunger.png",
+    "image": "/items/syringe_plunger.png?v=eb672b78ec",
     "names": {
       "en": "Syringe Plunger",
       "uk": "Поршень шприца",
@@ -136,7 +136,7 @@
     }
   },
   "nekogenix:syringe_barrel": {
-    "image": "/items/syringe_barrel.png",
+    "image": "/items/syringe_barrel.png?v=3785142b26",
     "names": {
       "en": "Syringe Barrel",
       "uk": "Циліндр шприца",
@@ -192,7 +192,7 @@
     }
   },
   "nekogenix:neko_injection": {
-    "image": "/items/neko_injection.png",
+    "image": "/items/neko_injection.png?v=0eb432132e",
     "names": {
       "en": "Neko Injection",
       "uk": "Неко-ін’єкція",
@@ -200,7 +200,7 @@
     }
   },
   "nekogenix:stabilizing_injection": {
-    "image": "/items/stabilizing_injection.png",
+    "image": "/items/stabilizing_injection.png?v=f6fc07a0ec",
     "names": {
       "en": "Crystallizing Injection",
       "uk": "Кристалізувальна ін’єкція",
@@ -216,7 +216,7 @@
     }
   },
   "nekogenix:used_syringe": {
-    "image": "/items/used_syringe.png",
+    "image": "/items/used_syringe.png?v=8994df0da9",
     "names": {
       "en": "Used Syringe",
       "uk": "Використаний шприц",

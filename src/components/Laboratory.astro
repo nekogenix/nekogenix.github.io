@@ -59,6 +59,15 @@ const guideHref = (guide: string) => {
           alt=""
           loading="lazy"
         />
+        <noscript>
+          <img
+            class="lab-fallback lab-static-fallback"
+            src={first.image}
+            width="128"
+            height="128"
+            alt=""
+          />
+        </noscript>
       </div>
       <div class="lab-view-controls">
         <button
@@ -201,7 +210,7 @@ const guideHref = (guide: string) => {
   .lab-model:active {
     cursor: grabbing;
   }
-  .lab-model[data-ready] {
+  .lab-model[data-ready]:not([data-loading]) {
     touch-action: none;
   }
   .lab-model::before {
@@ -225,7 +234,7 @@ const guideHref = (guide: string) => {
     object-fit: contain;
     image-rendering: pixelated;
     transform: translate(-50%, -50%);
-    opacity: 1;
+    opacity: 0;
     transition: opacity 180ms ease;
     pointer-events: none;
   }
@@ -240,8 +249,30 @@ const guideHref = (guide: string) => {
   .lab-model[data-ready] :global(canvas) {
     opacity: 1;
   }
-  .lab-model[data-ready] .lab-fallback {
-    opacity: 0;
+  .lab-model[data-fallback] .lab-fallback,
+  .lab-static-fallback {
+    opacity: 1;
+  }
+  .lab-model[data-loading] :global(canvas) {
+    opacity: 0.3;
+  }
+  .lab-model[data-loading]::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+    width: 24px;
+    height: 24px;
+    border: 3px solid #b78aa64a;
+    border-top-color: var(--pink);
+    border-radius: 50%;
+    animation: lab-loading 800ms linear infinite;
+    pointer-events: none;
+  }
+  @keyframes lab-loading {
+    to {
+      transform: rotate(360deg);
+    }
   }
   .lab-view-controls {
     position: absolute;
@@ -399,6 +430,9 @@ const guideHref = (guide: string) => {
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .lab-model[data-loading]::after {
+      animation: none;
+    }
     .lab-slot,
     .lab-slot img,
     .lab-fallback,
