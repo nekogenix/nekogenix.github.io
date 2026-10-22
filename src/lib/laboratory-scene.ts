@@ -43,6 +43,27 @@ export function createLaboratoryScene(
   const cache = new Map<string, Promise<Object3D>>();
   const assets = new Set<Object3D>();
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  function loadAsset(url: string) {
+    if (!cache.has(url))
+      cache.set(
+        url,
+        loader
+          .loadAsync(url)
+          .then((gltf) => {
+            if (signal.aborted) {
+              disposeAsset(gltf.scene);
+              return gltf.scene;
+            }
+            assets.add(gltf.scene);
+            return gltf.scene;
+          })
+          .catch((error) => {
+            cache.delete(url);
+            throw error;
+          }),
+      );
+    return cache.get(url)!;
+  }
   let current: Group | undefined;
   let revision = 0;
   let loadedRevision = 0;
@@ -111,14 +132,17 @@ export function createLaboratoryScene(
       event.preventDefault();
       settle();
       container.removeAttribute('data-ready');
+      container.setAttribute('data-fallback', '');
     },
     { signal },
   );
   renderer.domElement.addEventListener(
     'webglcontextrestored',
     () => {
-      if (current && loadedRevision === revision)
+      if (current && loadedRevision === revision) {
+        container.removeAttribute('data-fallback');
         container.setAttribute('data-ready', '');
+      }
       request();
     },
     { signal },
@@ -169,27 +193,23 @@ export function createLaboratoryScene(
   resize();
 
   return {
+    async preload(urls: string[]) {
+      const pending = [...new Set(urls)];
+      await Promise.all(
+        Array.from({ length: 2 }, async () => {
+          while (!signal.aborted && pending.length) {
+            try {
+              await loadAsset(pending.shift()!);
+            } catch {
+              // A failed preload can be retried when the item is selected.
+            }
+          }
+        }),
+      );
+    },
     async setItem(url: string, animate = true) {
       const token = ++revision;
-      if (!cache.has(url))
-        cache.set(
-          url,
-          loader
-            .loadAsync(url)
-            .then((gltf) => {
-              if (signal.aborted) {
-                disposeAsset(gltf.scene);
-                return gltf.scene;
-              }
-              assets.add(gltf.scene);
-              return gltf.scene;
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            }),
-        );
-      const asset = await cache.get(url)!;
+      const asset = await loadAsset(url);
       if (signal.aborted || token !== revision) return false;
       settle();
       if (current) scene.remove(current);

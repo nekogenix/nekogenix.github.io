@@ -42,7 +42,9 @@ export function initializeLaboratory(signal: AbortSignal) {
   async function showModel(animateSelection: boolean) {
     if (!scene) return;
     const token = ++selectionToken;
-    model.removeAttribute('data-ready');
+    model.setAttribute('data-loading', '');
+    model.removeAttribute('data-fallback');
+    model.setAttribute('aria-busy', 'true');
     try {
       const ready = await scene.setItem(
         buttons[selected]!.dataset.model!,
@@ -51,7 +53,15 @@ export function initializeLaboratory(signal: AbortSignal) {
       if (ready && !signal.aborted && token === selectionToken)
         model.setAttribute('data-ready', '');
     } catch {
-      if (token === selectionToken) model.removeAttribute('data-ready');
+      if (token === selectionToken) {
+        model.removeAttribute('data-ready');
+        model.setAttribute('data-fallback', '');
+      }
+    } finally {
+      if (!signal.aborted && token === selectionToken) {
+        model.removeAttribute('data-loading');
+        model.setAttribute('aria-busy', 'false');
+      }
     }
   }
   function select(index: number, animateSelection = true, announce = true) {
@@ -101,7 +111,13 @@ export function initializeLaboratory(signal: AbortSignal) {
     fallback.src = buttons[next]!.querySelector('img')!.src;
     if (announce)
       status.textContent = `${buttons[next]!.getAttribute('aria-label')}. ${panel.querySelector('.lab-description')!.textContent}`;
-    if (same && announce) spin();
+    if (
+      same &&
+      announce &&
+      model.hasAttribute('data-ready') &&
+      !model.hasAttribute('data-loading')
+    )
+      spin();
     else void showModel(animateSelection);
     const cell = buttons[next]!.getBoundingClientRect();
     const bounds = shelf.getBoundingClientRect();
@@ -112,19 +128,12 @@ export function initializeLaboratory(signal: AbortSignal) {
       });
   }
   function spin() {
-    if (scene && model.hasAttribute('data-ready')) scene.spin();
-    else
-      animate(
-        fallback,
-        [
-          { transform: 'translate(-50%, -50%) perspective(600px) rotateY(0)' },
-          {
-            transform:
-              'translate(-50%, -50%) perspective(600px) rotateY(360deg)',
-          },
-        ],
-        850,
-      );
+    if (
+      scene &&
+      model.hasAttribute('data-ready') &&
+      !model.hasAttribute('data-loading')
+    )
+      scene.spin();
   }
   const saved = buttons.findIndex(
     (button) => button.dataset.labItem === rememberedItem,
@@ -186,6 +195,7 @@ export function initializeLaboratory(signal: AbortSignal) {
         event.button !== 0 ||
         !event.isPrimary ||
         pointer ||
+        model.hasAttribute('data-loading') ||
         !model.hasAttribute('data-ready')
       )
         return;
@@ -230,14 +240,20 @@ export function initializeLaboratory(signal: AbortSignal) {
       scene?.setVisible(inView);
       if (!inView || loading || scene) return;
       loading = true;
+      model.setAttribute('data-loading', '');
+      model.setAttribute('aria-busy', 'true');
       try {
         const { createLaboratoryScene } = await import('./laboratory-scene');
         if (signal.aborted) return;
         scene = createLaboratoryScene(model, signal);
         scene.setVisible(inView);
         await showModel(false);
+        void scene.preload(buttons.map((button) => button.dataset.model!));
       } catch {
         model.removeAttribute('data-ready');
+        model.setAttribute('data-fallback', '');
+        model.removeAttribute('data-loading');
+        model.setAttribute('aria-busy', 'false');
       } finally {
         loading = false;
       }
