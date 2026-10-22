@@ -791,10 +791,10 @@ h3 {
   column-gap: 16px;
 }
 dialog {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--wiki-panel, var(--paper));
+  color: var(--wiki-text, var(--ink));
   padding: 0;
-  border: 1px solid #b8a1b9;
+  border: 1px solid var(--wiki-border, #b8a1b9);
   box-shadow: 10px 10px 0 #0005;
 }
 dialog::backdrop {
@@ -802,8 +802,8 @@ dialog::backdrop {
   backdrop-filter: blur(4px);
 }
 dialog .icon-button:hover {
-  background: #0001;
-  border-color: #0002;
+  background: var(--wiki-hover, #0001);
+  border-color: var(--wiki-border, #0002);
 }
 .search-dialog {
   width: min(680px, calc(100% - 32px));
@@ -825,8 +825,8 @@ dialog .icon-button:hover {
   display: flex;
   gap: 16px;
   align-items: center;
-  border: 2px solid #8c6b8d;
-  background: #fff;
+  border: 2px solid var(--wiki-accent-muted, #8c6b8d);
+  background: var(--wiki-background, #fff);
   padding: 10px 14px;
 }
 .search-input-wrap input {
@@ -835,13 +835,13 @@ dialog .icon-button:hover {
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--ink);
+  color: var(--wiki-text, var(--ink));
   font-size: 16px;
 }
 .search-help {
   margin-block: 12px 20px;
   font-size: 12px;
-  color: #776775;
+  color: var(--wiki-muted, #776775);
 }
 .search-results {
   display: grid;
@@ -849,12 +849,12 @@ dialog .icon-button:hover {
 }
 .search-result {
   display: block;
-  border-top: 1px solid #d8ccd7;
+  border-top: 1px solid var(--wiki-border, #d8ccd7);
   padding: 16px 4px;
   text-decoration: none;
 }
 .search-result:hover {
-  background: #f1e7ef;
+  background: var(--wiki-hover, #f1e7ef);
 }
 .search-result strong {
   display: block;
@@ -862,25 +862,59 @@ dialog .icon-button:hover {
 }
 .search-result p {
   font-size: 13px;
-  color: #72616e;
+  color: var(--wiki-muted, #72616e);
   margin-top: 4px;
 }
 .search-empty {
   padding: 20px 4px;
   font-size: 14px;
 }
-.wiki-page {
+:root[data-page^='wiki'] {
   background: var(--paper);
-  color: var(--ink);
   color-scheme: light;
+}
+:root[data-page^='wiki'][data-wiki-theme='dark'] {
+  background: var(--night);
+  color-scheme: dark;
+}
+.wiki-page {
+  background: var(--wiki-background, var(--paper));
+  color: var(--wiki-text, var(--ink));
+  color-scheme: light;
+}
+[data-wiki-theme='dark'] .wiki-page {
+  --wiki-background: #19181d;
+  --wiki-text: #f3edf3;
+  --wiki-prose: #d1c6d2;
+  --wiki-muted: #bfb2c0;
+  --wiki-panel: #242128;
+  --wiki-hover: #302735;
+  --wiki-border: #4b414f;
+  --wiki-accent: #efb4d5;
+  --wiki-accent-muted: #c594b7;
+  --wiki-current: #38293b;
+  --wiki-notice: #302535;
+  --wiki-recipe: #27232c;
+  --wiki-grid: #4c444f;
+  --wiki-grid-border: #746878;
+  --wiki-slot: #3b343e;
+  --wiki-slot-shadow: #2b252e;
+  --wiki-slot-highlight: #655a6a;
+  --wiki-slot-hover: #58475a;
+  --wiki-pipe: #b38ba5;
+  color-scheme: dark;
 }
 .wiki-page .site-header {
   color: var(--paper);
   color-scheme: dark;
 }
+.wiki-page .site-footer {
+  color: var(--paper);
+  color-scheme: dark;
+}
 .wiki-topline {
-  border-bottom: 1px solid #d8cfd6;
-  background: #f0e8ef;
+  border-bottom: 1px solid var(--wiki-border, #d8cfd6);
+  background: var(--wiki-panel, #f0e8ef);
 }
 .wiki-topline .container {
   display: flex;
@@ -902,7 +936,7 @@ dialog .icon-button:hover {
   transform: rotate(180deg);
 }
 .wiki-topline span {
-  color: #7d6a7b;
+  color: var(--wiki-muted, #7d6a7b);
   font-size: 11px;
 }
 .wiki-shell {
@@ -927,6 +961,42 @@ dialog .icon-button:hover {
   text-decoration: none;
   margin-bottom: 24px;
 }
+.wiki-theme {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 28px;
+  padding: 4px;
+  background: var(--wiki-panel, #f0e8ef);
+  border: 1px solid var(--wiki-border, #d8cfd6);
+}
+.wiki-theme button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 6px 2px;
+  font-size: 11px;
+  line-height: 1.4;
+  background: transparent;
+  color: var(--wiki-muted, #776773);
+  border: 1px solid transparent;
+}
+.wiki-theme .icon {
+  width: 16px;
+  height: 16px;
+}
+.wiki-theme button:hover {
+  background: var(--wiki-hover, #efe5ed);
+  color: var(--wiki-text, var(--ink));
+}
+:root:not([data-wiki-theme='dark']) [data-wiki-theme-choice='light'],
+:root[data-wiki-theme='dark'] [data-wiki-theme-choice='dark'] {
+  background: var(--wiki-current, #efe3ec);
+  color: var(--wiki-accent, #814b74);
+  border-color: var(--wiki-accent-muted, #ac729a);
+}
 .sidebar-group + .sidebar-group {
   margin-top: 28px;
 }
@@ -934,7 +1004,7 @@ dialog .icon-button:hover {
   font: 800 10px var(--body);
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #94788f;
+  color: var(--wiki-accent-muted, #94788f);
   margin-bottom: 9px;
 }
 .sidebar-group a {
@@ -946,12 +1016,12 @@ dialog .icon-button:hover {
   line-height: 1.5;
 }
 .sidebar-group a:hover {
-  background: #efe5ed;
+  background: var(--wiki-hover, #efe5ed);
 }
 .sidebar-group a[aria-current] {
-  color: #814b74;
-  border-color: #ac729a;
-  background: #efe3ec;
+  color: var(--wiki-accent, #814b74);
+  border-color: var(--wiki-accent-muted, #ac729a);
+  background: var(--wiki-current, #efe3ec);
   font-weight: 750;
 }
 .wiki-content {
@@ -961,7 +1031,7 @@ dialog .icon-button:hover {
   margin-bottom: 46px;
 }
 .wiki-intro .eyebrow {
-  color: #a36492;
+  color: var(--wiki-accent-muted, #a36492);
   margin-bottom: 18px;
 }
 .wiki-intro h1 {
@@ -969,7 +1039,7 @@ dialog .icon-button:hover {
   max-width: 800px;
 }
 .wiki-intro > p:not(.eyebrow) {
-  color: #776773;
+  color: var(--wiki-muted, #776773);
   margin-top: 24px;
   max-width: 700px;
 }
@@ -981,17 +1051,17 @@ dialog .icon-button:hover {
 }
 .wiki-card {
   text-decoration: none;
-  background: #fff;
-  border: 1px solid #e5dce2;
+  background: var(--wiki-panel, #fff);
+  border: 1px solid var(--wiki-border, #e5dce2);
   padding: 25px;
-  box-shadow: 0 4px 0 #e5dce2;
+  box-shadow: 0 4px 0 var(--wiki-border, #e5dce2);
   display: grid;
   grid-template-columns: 1fr 24px;
   gap: 12px;
 }
 .wiki-card:hover {
-  border-color: #ba94b1;
-  box-shadow: 0 4px 0 #ba94b1;
+  border-color: var(--wiki-accent-muted, #ba94b1);
+  box-shadow: 0 4px 0 var(--wiki-accent-muted, #ba94b1);
 }
 .wiki-card h2 {
   font-family: var(--body);
@@ -1001,11 +1071,11 @@ dialog .icon-button:hover {
 }
 .wiki-card p {
   grid-column: 1 / -1;
-  color: #7b6c77;
+  color: var(--wiki-muted, #7b6c77);
   font-size: 13px;
 }
 .wiki-card .icon {
-  color: #ad789d;
+  color: var(--wiki-accent-muted, #ad789d);
 }
 .article-layout {
   display: grid;
@@ -1019,7 +1089,7 @@ dialog .icon-button:hover {
   margin-bottom: 30px;
 }
 .article-header .eyebrow {
-  color: #a36492;
+  color: var(--wiki-accent-muted, #a36492);
   margin-bottom: 15px;
 }
 .article-header h1 {
@@ -1027,7 +1097,7 @@ dialog .icon-button:hover {
 }
 .article-description {
   font-size: 17px;
-  color: #7b6677;
+  color: var(--wiki-muted, #7b6677);
   margin-top: 22px;
 }
 .article-prose > .shot {
@@ -1042,7 +1112,7 @@ dialog .icon-button:hover {
 .article-prose section + section {
   margin-top: 40px;
   padding-top: 35px;
-  border-top: 1px solid #e0d5de;
+  border-top: 1px solid var(--wiki-border, #e0d5de);
 }
 .article-prose section h2 {
   font-family: var(--body);
@@ -1055,7 +1125,7 @@ dialog .icon-button:hover {
 .article-prose section p,
 .article-prose section li {
   font-size: 16px;
-  color: #5e505b;
+  color: var(--wiki-prose, #5e505b);
   line-height: 1.9;
 }
 .article-prose section p + p {
@@ -1070,18 +1140,18 @@ dialog .icon-button:hover {
   margin-top: 10px;
 }
 .article-prose .notice {
-  border-left: 3px solid #b97faa;
-  background: #f0e3ed;
+  border-left: 3px solid var(--wiki-accent-muted, #b97faa);
+  background: var(--wiki-notice, #f0e3ed);
   padding: 18px 22px;
   margin-top: 22px;
   font-size: 13px;
-  color: #724e6a;
+  color: var(--wiki-accent, #724e6a);
 }
 .article-toc {
   position: sticky;
   top: 125px;
   align-self: start;
-  border-left: 1px solid #ded0da;
+  border-left: 1px solid var(--wiki-border, #ded0da);
   padding-left: 20px;
   font-size: 11px;
 }
@@ -1093,16 +1163,16 @@ dialog .icon-button:hover {
   display: block;
   text-decoration: none;
   margin-block: 12px;
-  color: #8b7384;
+  color: var(--wiki-muted, #8b7384);
 }
 .article-toc a:hover {
-  color: #8f4577;
+  color: var(--wiki-accent, #8f4577);
 }
 .article-pagination {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-  border-top: 1px solid #d9ccd5;
+  border-top: 1px solid var(--wiki-border, #d9ccd5);
   padding-top: 30px;
   margin-top: 55px;
 }
@@ -1110,7 +1180,7 @@ dialog .icon-button:hover {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  border: 1px solid #e0d2dc;
+  border: 1px solid var(--wiki-border, #e0d2dc);
   padding: 18px;
   font-size: 14px;
 }
@@ -1119,14 +1189,14 @@ dialog .icon-button:hover {
   grid-column: 2;
 }
 .article-pagination small {
-  color: #aa819b;
+  color: var(--wiki-accent-muted, #aa819b);
   font-size: 10px;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 .recipe-card {
-  background: #efe7ed;
-  border: 1px solid #d9cbd5;
+  background: var(--wiki-recipe, #efe7ed);
+  border: 1px solid var(--wiki-border, #d9cbd5);
   padding: 24px;
   margin-top: 22px;
 }
@@ -1145,8 +1215,8 @@ dialog .icon-button:hover {
   grid-template-columns: repeat(3, 48px);
   gap: 3px;
   padding: 4px;
-  background: #c4b9c1;
-  border: 2px solid #a599a3;
+  background: var(--wiki-grid, #c4b9c1);
+  border: 2px solid var(--wiki-grid-border, #a599a3);
 }
 .recipe-cell,
 .recipe-item {
@@ -1155,9 +1225,11 @@ dialog .icon-button:hover {
   width: 48px;
   height: 48px;
   padding: 6px;
-  background: #bdb2ba;
+  background: var(--wiki-slot, #bdb2ba);
   border: 2px solid;
-  border-color: #b7adb4 #fffc #fffc #b7adb4;
+  border-color: var(--wiki-slot-shadow, #b7adb4)
+    var(--wiki-slot-highlight, #fffc) var(--wiki-slot-highlight, #fffc)
+    var(--wiki-slot-shadow, #b7adb4);
   position: relative;
 }
 .recipe-cell img,
@@ -1186,12 +1258,12 @@ dialog .icon-button:hover {
 }
 .recipe-arrow {
   width: 28px;
-  color: #96768b;
+  color: var(--wiki-pipe, #96768b);
 }
 .recipe-ingredients {
   font-size: 11px !important;
   line-height: 1.7 !important;
-  color: #705367 !important;
+  color: var(--wiki-muted, #705367) !important;
   margin-top: 20px;
 }
 .wiki-mobile-nav {
@@ -1222,7 +1294,7 @@ dialog .icon-button:hover {
 }
 .recipe-item:hover,
 .recipe-item:focus-visible {
-  background-color: #d8c7d3;
+  background-color: var(--wiki-slot-hover, #d8c7d3);
 }
 .recipe-heading {
   display: flex;
@@ -1241,11 +1313,11 @@ dialog .icon-button:hover {
   align-items: center;
   gap: 8px;
   font-size: 11px;
-  color: #705367;
+  color: var(--wiki-muted, #705367);
 }
 .recipe-time {
   padding-left: 9px;
-  border-left: 1px solid #c7b3c2;
+  border-left: 1px solid var(--wiki-border, #c7b3c2);
   white-space: nowrap;
 }
 .recipe-results,
@@ -1273,7 +1345,7 @@ dialog .icon-button:hover {
   width: 113px;
   height: 24px;
   margin: 0 auto;
-  border: solid #a88aa0;
+  border: solid var(--wiki-pipe, #a88aa0);
   border-width: 2px 2px 0;
   position: relative;
 }
@@ -1283,7 +1355,7 @@ dialog .icon-button:hover {
   left: 50%;
   top: -2px;
   height: 24px;
-  border-left: 2px solid #a88aa0;
+  border-left: 2px solid var(--wiki-pipe, #a88aa0);
 }
 .recipe-cat {
   display: flex;
@@ -1293,7 +1365,7 @@ dialog .icon-button:hover {
   max-width: 100px;
   font-size: 11px;
   text-align: center;
-  color: #705367;
+  color: var(--wiki-muted, #705367);
 }
 .recipe-cat img {
   width: 54px;
@@ -1306,7 +1378,7 @@ dialog .icon-button:hover {
   align-items: center;
   justify-content: space-between;
   gap: 8px 22px;
-  border-top: 1px solid #d9cbd5;
+  border-top: 1px solid var(--wiki-border, #d9cbd5);
   margin-top: 24px;
   padding-top: 12px;
 }
@@ -1316,7 +1388,7 @@ dialog .icon-button:hover {
   align-items: center;
   gap: 8px;
   font-size: 11px;
-  color: #705367;
+  color: var(--wiki-muted, #705367);
 }
 .recipe-item.compact-item {
   width: 30px;
@@ -1398,8 +1470,8 @@ dialog .icon-button:hover {
     columns: 2;
     margin-bottom: 10px;
     padding: 16px 20px;
-    background: #f0e8ef;
-    border-left: 2px solid #ba8aaa;
+    background: var(--wiki-panel, #f0e8ef);
+    border-left: 2px solid var(--wiki-accent-muted, #ba8aaa);
   }
   .article-toc h2 {
     column-span: all;
@@ -1553,7 +1625,7 @@ dialog .icon-button:hover {
     position: static;
     max-height: none;
     padding: 20px;
-    background: #eee4ec;
+    background: var(--wiki-panel, #eee4ec);
   }
   .wiki-sidebar[data-open] {
     display: block;
@@ -1563,10 +1635,10 @@ dialog .icon-button:hover {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: 1px solid #d2becc;
+    border: 1px solid var(--wiki-border, #d2becc);
     padding: 12px 16px;
-    background: #f0e8ef;
-    color: var(--ink);
+    background: var(--wiki-panel, #f0e8ef);
+    color: var(--wiki-text, var(--ink));
     font-weight: 700;
     font-size: 13px;
   }
