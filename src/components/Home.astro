@@ -170,7 +170,17 @@ const abilityIcons = ['agility', 'vision', 'paws', 'scent'];
       alt=""
       loading="lazy"
     />
-    <h2>{t.downloadTitle}</h2>
+    <h2>
+      {t.downloadTitle
+        .split(/(w)(?=n)/)
+        .map((part) =>
+          part === 'w' ? (
+            <span class="download-wide-letter">{part}</span>
+          ) : (
+            part
+          ),
+        )}
+    </h2>
     <p>
       <Inline text={t.downloadText} locale={locale} />
     </p>
