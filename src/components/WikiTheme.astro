@@ -1,0 +1,22 @@
+---
+import { copy, type Locale } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  compact?: boolean;
+}
+const { locale, compact = false } = Astro.props;
+const t = copy[locale];
+---
+
+<div class="wiki-theme" role="group" aria-label={t.theme}>
+  <button type="button" data-wiki-theme-choice="light" aria-pressed="true">
+    <Icon name="sun" />
+    <span class:list={{ 'sr-only': compact }}>{t.lightTheme}</span>
+  </button>
+  <button type="button" data-wiki-theme-choice="dark" aria-pressed="false">
+    <Icon name="moon" />
+    <span class:list={{ 'sr-only': compact }}>{t.darkTheme}</span>
+  </button>
+</div>
