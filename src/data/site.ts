@@ -98,7 +98,7 @@ export const copy = {
     labTag: 'INGREDIENTS AND EQUIPMENT',
     labTitle: 'Laboratory',
     labIntro:
-      'On your way to becoming a kitty, you’ll use all sorts of equipment — a whole super lab of your own!',
+      'On your way to becoming a kitty, you’ll use all sorts of equipment, a whole super lab of your own!',
     labText: 'Choose an item to inspect it and see how it is used.',
     catTag: 'INVENTORY AND EQUIPMENT',
     catTitle: 'Playing as a cat',
