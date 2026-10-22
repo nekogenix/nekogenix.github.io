@@ -14,8 +14,9 @@ export function pathFor(locale: Locale, page = '') {
 
 export const copy = {
   en: {
+    seoTitle: 'Discover Minecraft through a kitty’s eyes!',
     description:
-      'Nekogenix is a Minecraft Java mod for becoming a neko or a cat, with feline abilities, laboratory equipment and custom cat skins.',
+      'Nekogenix brings detailed cat and neko gameplay to Minecraft, with feline abilities and custom skins while preserving vanilla items, armour and elytra.',
     nav: ['The mod', 'Abilities', 'Laboratory', 'Wiki'],
     get: 'Download Nekogenix',
     github: 'View on GitHub',
@@ -53,7 +54,7 @@ export const copy = {
     returns: 'Returned',
     seconds: 'seconds',
     grid: 'Crafting grid',
-    heroTag: 'MINECRAFT JAVA · NEOFORGE',
+    heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Minecraft\nas a cat',
     heroText:
       'Nekogenix adds a gradual transformation with feline abilities, a kitty model and new animations, while preserving familiar armour, elytra and other game mechanics.',
@@ -111,7 +112,7 @@ export const copy = {
     downloadTitle: 'Download Nekogenix',
     downloadText:
       'The project is available on GitHub. Check the [installation instructions](wiki/getting-started) before adding it to your game.',
-    downloadNote: 'CurseForge and Modrinth pages are planned.',
+    downloadNote: 'CurseForge and Modrinth releases coming soon!',
     faqTitle: 'Common questions',
     faqs: [
       [
@@ -157,8 +158,9 @@ export const copy = {
     },
   },
   uk: {
+    seoTitle: 'Відкрий Minecraft очима котика!',
     description:
-      'Nekogenix — мод для Minecraft Java про перетворення на неко або кота, з котячими здібностями, лабораторним обладнанням і власними скінами.',
+      'Nekogenix додає продуманий ігролад за кота або неко з котячими здібностями й власними скінами, зберігаючи звичні предмети, броню та елітри Minecraft.',
     nav: ['Про мод', 'Здібності', 'Лабораторія', 'Вікі'],
     get: 'Завантажити Nekogenix',
     github: 'Переглянути на GitHub',
@@ -196,7 +198,7 @@ export const copy = {
     returns: 'Повертається',
     seconds: 'секунд',
     grid: 'Сітка виготовлення',
-    heroTag: 'MINECRAFT JAVA · NEOFORGE',
+    heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Майнкрафт\nочима кота',
     heroText:
       'Nekogenix додає поступове перетворення з котячими здібностями, моделлю котика та новими анімаціями, зберігаючи звичну роботу з бронею, елітрами й іншими атрибутами гри.',
@@ -259,7 +261,7 @@ export const copy = {
     downloadTitle: 'Завантажити Nekogenix',
     downloadText:
       'Проєкт доступний на GitHub. Перед додаванням у гру перевірте [інструкцію зі встановлення](wiki/getting-started).',
-    downloadNote: 'Сторінки на CurseForge і Modrinth заплановані.',
+    downloadNote: 'Релізи на CurseForge та Modrinth скоро!',
     faqTitle: 'Поширені запитання',
     faqs: [
       [
@@ -306,8 +308,9 @@ export const copy = {
     },
   },
   ru: {
+    seoTitle: 'Открой Minecraft глазами котика!',
     description:
-      'Nekogenix — мод для Minecraft Java о превращении в неко или кота, с кошачьими способностями, лабораторным оборудованием и собственными скинами.',
+      'Nekogenix добавляет проработанный геймплей за кота или неко с кошачьими способностями и своими скинами, сохраняя привычные предметы, броню и элитры Minecraft.',
     nav: ['О моде', 'Способности', 'Лаборатория', 'Вики'],
     get: 'Скачать Nekogenix',
     github: 'Открыть на GitHub',
@@ -345,7 +348,7 @@ export const copy = {
     returns: 'Возвращается',
     seconds: 'секунд',
     grid: 'Сетка создания',
-    heroTag: 'MINECRAFT JAVA · NEOFORGE',
+    heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Майнкрафт\nот лица кота',
     heroText:
       'Nekogenix добавляет постепенное превращение с кошачьими способностями, моделью котика и новыми анимациями, сохраняя привычную работу с броней, элитрами и прочими атрибутами игры.',
@@ -408,7 +411,7 @@ export const copy = {
     downloadTitle: 'Скачать Nekogenix',
     downloadText:
       'Проект доступен на GitHub. Перед добавлением в игру проверьте [инструкцию по установке](wiki/getting-started).',
-    downloadNote: 'Страницы на CurseForge и Modrinth запланированы.',
+    downloadNote: 'CurseForge и Modrinth релизы скоро!',
     faqTitle: 'Частые вопросы',
     faqs: [
       [

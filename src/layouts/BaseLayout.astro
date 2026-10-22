@@ -27,9 +27,7 @@ const {
   localized = true,
 } = Astro.props;
 const t = copy[locale];
-const pageTitle = title
-  ? `${title} · Nekogenix`
-  : 'Nekogenix — ' + t.heroTitle.replace('\n', ' ');
+const pageTitle = title ? `${title} · Nekogenix` : t.seoTitle;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
