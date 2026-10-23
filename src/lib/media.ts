@@ -74,8 +74,9 @@ export function initializeMedia(signal: AbortSignal) {
           ? 1920
           : 1280;
       failedSources = 0;
+      const revision = name === 'laboratory-background' ? '?v=ui-trim' : '';
       for (const source of sources) {
-        source.src = `/media/${name}-${width}.${source.dataset.format}`;
+        source.src = `/media/${name}-${width}.${source.dataset.format}${revision}`;
         if (!source.isConnected) video.append(source);
       }
       loaded = true;
