@@ -135,7 +135,7 @@ export const copy = {
     catTag: 'INVENTORY AND EQUIPMENT',
     catTitle: 'Playing as a cat',
     catText:
-      'Use items, wear armour and fly with elytra. Your inventory stays with you. Cat form also changes [food and interactions with creatures](wiki/cat-life#food). Creepers and phantoms are no longer a problem!',
+      'Cat form adds new possibilities to familiar Minecraft and makes survival more fun. Use items, wear armour and fly with elytra. Your whole inventory stays with you and adapts to your kitty form!',
     skinTag: 'APPEARANCE',
     skinTitle: 'Cat skins',
     skinText:
@@ -312,7 +312,7 @@ export const copy = {
     catTag: 'ІНВЕНТАР І СПОРЯДЖЕННЯ',
     catTitle: 'Гра за кота',
     catText:
-      'Користуйтеся предметами, носіть броню та літайте на елітрах. Інвентар залишається з вами. У котячій формі змінюються також [харчування та взаємодія з істотами](wiki/cat-life#food). Кріпери з фантомами тепер не проблема!',
+      'Котяча форма додає нові можливості у звичний Майнкрафт і робить виживання веселішим. Юзайте предмети, носіть броню та літайте на елітрах. Увесь ваш інвентар залишається з вами, просто все підлаштовується під ваш вигляд котика!',
     skinTag: 'ЗОВНІШНІСТЬ',
     skinTitle: 'Котячі скіни',
     skinText:
@@ -493,7 +493,7 @@ export const copy = {
     catTag: 'ИНВЕНТАРЬ И СНАРЯЖЕНИЕ',
     catTitle: 'Игра за кота',
     catText:
-      'Пользуйтесь предметами, носите броню и летайте на элитрах. Инвентарь остаётся с вами. В кошачьей форме меняются также [питание и взаимодействие с существами](wiki/cat-life#food). Криперы с фантомами теперь не проблема!',
+      'Кошачья форма добавляет новые возможности в привычный Майнкрафт и делает выживание веселее. Юзайте предметы, носите броню и летайте на элитрах. Весь ваш инвентарь остаётся с вами, просто все преобразуется под ваш облик котика!',
     skinTag: 'ВНЕШНОСТЬ',
     skinTitle: 'Кошачьи скины',
     skinText:
