@@ -106,6 +106,20 @@ const abilityIcons = ['agility', 'vision', 'paws', 'scent'];
         ))}
       </div>
     </div>
+    <ul
+      id="more-abilities"
+      class="ability-extras"
+      aria-label={t.additionalAbilitiesLabel}
+    >
+      {t.additionalAbilities.map(([title, text]) => (
+        <li>
+          <h3>{title}</h3>
+          <p>
+            <Inline text={text} locale={locale} />
+          </p>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 <section id="laboratory" class="section lab-section paper">

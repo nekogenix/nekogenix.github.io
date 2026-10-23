@@ -657,6 +657,34 @@ h3 {
   color: var(--pink);
   margin-left: 58px;
 }
+.ability-extras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px 48px;
+  max-width: 1080px;
+  list-style: none;
+  margin: 70px auto 0;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.ability-extras li {
+  min-width: 0;
+}
+.ability-extras h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.ability-extras p {
+  max-width: 310px;
+  margin-inline: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -1598,6 +1626,12 @@ dialog .icon-button:hover {
     grid-column: 1 / -1;
     margin-left: 50px;
   }
+  .ability-extras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 28px;
+    margin-top: 48px;
+    padding-top: 36px;
+  }
   .skins-section .shot {
     order: 2;
   }
@@ -1753,6 +1787,10 @@ dialog .icon-button:hover {
   }
   .ability {
     gap: 20px;
+  }
+  .ability-extras {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
   }
   .footer-inner {
     flex-direction: column;

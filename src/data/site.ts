@@ -100,6 +100,33 @@ export const copy = {
         'scent',
       ],
     ],
+    additionalAbilitiesLabel: 'More feline abilities',
+    additionalAbilities: [
+      [
+        'Creepers fear you',
+        '[Creepers](wiki/cat-life#creatures) keep their distance and no longer target you.',
+      ],
+      [
+        'No phantoms',
+        '[Phantoms](wiki/cat-life#creatures) no longer spawn because you have not slept.',
+      ],
+      [
+        'Nine lives',
+        'In Survival, [eight deaths](wiki/transformation#lives) preserve your neko or cat form. After the ninth, you become human again.',
+      ],
+      [
+        'One-block passages',
+        'In cat form, [walk and sprint](wiki/cat-life#movement) through spaces a human would have to crawl through.',
+      ],
+      [
+        'A feline diet',
+        '[Raw food](wiki/cat-life#food) is as filling as cooked food. Some of it no longer poisons you at all!',
+      ],
+      [
+        'Other cats',
+        '[Stray cats](wiki/cat-life#creatures) no longer run from you.',
+      ],
+    ],
     labTag: 'INGREDIENTS AND EQUIPMENT',
     labTitle: 'Laboratory',
     labIntro:
@@ -251,6 +278,30 @@ export const copy = {
         'Ставши котом, присядьте на три секунди, щоб [знайти істот](wiki/abilities#scent) крізь стіни.',
         'scent',
       ],
+    ],
+    additionalAbilitiesLabel: 'Інші котячі здібності',
+    additionalAbilities: [
+      [
+        'Крипери бояться вас',
+        '[Крипери](wiki/cat-life#creatures) тримаються подалі й не обирають вас ціллю.',
+      ],
+      [
+        'Без фантомів',
+        '[Фантоми](wiki/cat-life#creatures) не з’являються через ваш недосип.',
+      ],
+      [
+        'Дев’ять життів',
+        'У виживанні [вісім смертей](wiki/transformation#lives) зберігають форму неко або кота. Після дев’ятої ви знову людина.',
+      ],
+      [
+        'Проходи в один блок',
+        'У формі кота [ходіть і бігайте](wiki/cat-life#movement) там, де людині доводиться повзти.',
+      ],
+      [
+        'Котячий раціон',
+        '[Сира їжа](wiki/cat-life#food) насичує вас так само, як приготована. А деяка взагалі більше не отруює!',
+      ],
+      ['Інші коти', '[Дикі коти](wiki/cat-life#creatures) не тікають від вас.'],
     ],
     labTag: 'СКЛАДНИКИ Й ОБЛАДНАННЯ',
     labTitle: 'Лабораторія',
@@ -404,6 +455,33 @@ export const copy = {
         'Кошачий нюх',
         'Став котом, присядьте на три секунды, чтобы [найти существ](wiki/abilities#scent) сквозь стены.',
         'scent',
+      ],
+    ],
+    additionalAbilitiesLabel: 'Другие кошачьи способности',
+    additionalAbilities: [
+      [
+        'Криперы боятся вас',
+        '[Криперы](wiki/cat-life#creatures) держатся подальше и не выбирают вас целью.',
+      ],
+      [
+        'Без фантомов',
+        '[Фантомы](wiki/cat-life#creatures) не появляются из-за вашего недосыпа.',
+      ],
+      [
+        'Девять жизней',
+        'В выживании [восемь смертей](wiki/transformation#lives) сохраняют форму неко или кота. После девятой вы снова человек.',
+      ],
+      [
+        'Проходы в один блок',
+        'В форме кота [проходите и бегайте](wiki/cat-life#movement) там, где человеку приходится ползти.',
+      ],
+      [
+        'Кошачий рацион',
+        '[Сырая еда](wiki/cat-life#food) насыщает вас как приготовленная. А некоторая вообще перестала отравлять!',
+      ],
+      [
+        'Другие коты',
+        '[Дикие коты](wiki/cat-life#creatures) не убегают от вас.',
       ],
     ],
     labTag: 'ИНГРЕДИЕНТЫ И ОБОРУДОВАНИЕ',
