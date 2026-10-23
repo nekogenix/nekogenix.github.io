@@ -822,6 +822,9 @@ h3 {
   flex-wrap: wrap;
   column-gap: 16px;
 }
+:root:has(.search-dialog:modal) {
+  overflow: hidden;
+}
 dialog {
   background: var(--wiki-panel, var(--paper));
   color: var(--wiki-text, var(--ink));
@@ -840,6 +843,8 @@ dialog .icon-button:hover {
 .search-dialog {
   width: min(680px, calc(100% - 32px));
   max-height: min(80svh, 800px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   margin-top: 12svh;
   padding: 26px;
 }
