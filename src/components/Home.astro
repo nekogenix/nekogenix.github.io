@@ -13,6 +13,11 @@ const { locale } = Astro.props;
 const t = copy[locale];
 const shots = imageLabels[locale];
 const abilityIcons = ['agility', 'vision', 'paws', 'scent'];
+const stageImages = [
+  'human.png?v=siamese-ears',
+  'neko.png?v=siamese-ears',
+  'cat.png',
+];
 ---
 
 <section class="hero" aria-labelledby="hero-title">
@@ -59,7 +64,7 @@ const abilityIcons = ['agility', 'vision', 'paws', 'scent'];
       {t.stages.map(([title, text], index) => (
         <div class="stage">
           <img
-            src={`/characters/${['human', 'neko', 'cat'][index]}.png`}
+            src={`/characters/${stageImages[index]}`}
             width="256"
             height="256"
             alt=""
