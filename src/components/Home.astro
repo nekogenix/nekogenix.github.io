@@ -206,6 +206,16 @@ const stageImages = [
     <div class="button-row">
       <a
         class="button button-dark"
+        href="https://www.curseforge.com/minecraft/mc-mods/nekogenix"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="curseforge" />
+        CurseForge
+        <Icon name="external" />
+      </a>
+      <a
+        class="button button-dark"
         href={repository}
         target="_blank"
         rel="noopener noreferrer"
@@ -216,5 +226,23 @@ const stageImages = [
       </a>
     </div>
     <p class="download-note">{t.downloadNote}</p>
+    <aside class="support-card" aria-labelledby="support-title">
+      <div class="support-copy">
+        <Icon name="heart" class="support-heart" />
+        <div>
+          <h3 id="support-title">{t.supportTitle}</h3>
+          <p>{t.supportText}</p>
+        </div>
+      </div>
+      <a
+        class="button"
+        href="https://liberapay.com/Nekogenix/donate"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t.supportButton}
+        <Icon name="external" />
+      </a>
+    </aside>
   </div>
 </section>

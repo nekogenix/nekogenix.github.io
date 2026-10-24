@@ -765,6 +765,67 @@ h3 {
   font-size: 12px;
   color: #685163;
 }
+.download-section .button-row .button {
+  min-width: 230px;
+}
+.support-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 1000px;
+  margin: 56px auto 0;
+  padding: clamp(24px, 3vw, 38px);
+  border: 2px solid var(--ink);
+  background: var(--night);
+  color: var(--paper);
+  box-shadow: 6px 6px 0 #b96b9666;
+  text-align: left;
+}
+.support-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+}
+.support-heart {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  color: var(--pink);
+}
+.support-card h3 {
+  font-size: clamp(28px, 2.4vw, 34px);
+}
+.support-card p {
+  max-width: 440px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.support-card > .button {
+  flex-shrink: 0;
+}
+@media (max-width: 850px) {
+  .support-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .support-card > .button {
+    align-self: center;
+  }
+}
+@media (max-width: 480px) {
+  .download-section .button-row .button,
+  .support-card > .button {
+    min-width: 0;
+    width: 100%;
+  }
+  .support-copy {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 .site-footer {
   background: #111014;
 }
