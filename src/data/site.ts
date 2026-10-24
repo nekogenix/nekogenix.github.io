@@ -142,8 +142,12 @@ export const copy = {
       'Choose one of 11 Minecraft cat coats or [import a custom skin](wiki/cat-skins#file). The editor previews your cat in several poses.',
     downloadTitle: 'Download Nekogenix',
     downloadText:
-      'The project is available on GitHub. Check the [installation instructions](wiki/getting-started) before adding it to your game.',
-    downloadNote: 'CurseForge and Modrinth releases coming soon!',
+      'Download the mod from CurseForge or GitHub. Check the [installation instructions](wiki/getting-started) before adding it to your game.',
+    downloadNote: 'Modrinth releases coming soon!',
+    supportTitle: 'Support Nekogenix',
+    supportText:
+      'Enjoy playing as a kitty? You can support our work on the mod, website and wiki. Thank you! ;3',
+    supportButton: 'Support on Liberapay',
     faqTitle: 'Common questions',
     faqs: [
       [
@@ -319,8 +323,12 @@ export const copy = {
       'Виберіть одне з 11 забарвлень котів Minecraft або [імпортуйте власний скін](wiki/cat-skins#file). Редактор показує кота в кількох позах.',
     downloadTitle: 'Завантажити Nekogenix',
     downloadText:
-      'Проєкт доступний на GitHub. Перед додаванням у гру перевірте [інструкцію зі встановлення](wiki/getting-started).',
-    downloadNote: 'Релізи на CurseForge та Modrinth скоро!',
+      'Завантажте мод із CurseForge або GitHub. Перед додаванням у гру перевірте [інструкцію зі встановлення](wiki/getting-started).',
+    downloadNote: 'Релізи на Modrinth скоро!',
+    supportTitle: 'Підтримати Nekogenix',
+    supportText:
+      'Подобається грати за котика? Ви можете підтримати нашу роботу над модом, сайтом і вікі. Дякуємо! ;3',
+    supportButton: 'Підтримати на Liberapay',
     faqTitle: 'Поширені запитання',
     faqs: [
       [
@@ -500,8 +508,12 @@ export const copy = {
       'Выберите одну из 11 расцветок котов Minecraft или [импортируйте собственный скин](wiki/cat-skins#file). Редактор показывает кота в нескольких позах.',
     downloadTitle: 'Скачать Nekogenix',
     downloadText:
-      'Проект доступен на GitHub. Перед добавлением в игру проверьте [инструкцию по установке](wiki/getting-started).',
-    downloadNote: 'CurseForge и Modrinth релизы скоро!',
+      'Скачайте мод с CurseForge или GitHub. Перед добавлением в игру проверьте [инструкцию по установке](wiki/getting-started).',
+    downloadNote: 'Релизы на Modrinth скоро!',
+    supportTitle: 'Поддержать Nekogenix',
+    supportText:
+      'Нравится играть за котика? Вы можете поддержать нашу работу над модом, сайтом и вики. Спасибо! ;3',
+    supportButton: 'Поддержать на Liberapay',
     faqTitle: 'Частые вопросы',
     faqs: [
       [

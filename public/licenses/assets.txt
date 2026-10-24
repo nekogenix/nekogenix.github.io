@@ -18,7 +18,7 @@ Screenshots and videos were captured in Minecraft Java Edition with Nekogenix.
 Minecraft textures, models and characters belong to Mojang and Microsoft.
 Minecraft usage guidelines: https://www.minecraft.net/usage-guidelines
 
-Interface symbols use SVG geometric paths. The GitHub mark is from Simple Icons
+Interface symbols use SVG geometric paths. The GitHub and CurseForge marks are from Simple Icons
 (CC0 1.0): https://simpleicons.org/ and https://github.com/simple-icons/simple-icons
 GitHub brand guidelines: https://github.com/logos
 
