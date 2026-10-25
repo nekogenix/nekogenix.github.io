@@ -4,8 +4,9 @@ import { pathFor, type Locale } from '../data/site';
 interface Props {
   text: string;
   locale: Locale;
+  externalNewTab?: boolean;
 }
-const { text, locale } = Astro.props;
+const { text, locale, externalNewTab = false } = Astro.props;
 ---
 
 {inlineParts(text).map((part) => {
@@ -16,7 +17,18 @@ const { text, locale } = Astro.props;
       ? part.target
       : `${pathFor(locale, page)}${anchor ? `#${anchor}` : ''}`;
   return (
-    <a class="inline-link" href={href}>
+    <a
+      class="inline-link"
+      href={href}
+      target={
+        externalNewTab && href.startsWith('https://') ? '_blank' : undefined
+      }
+      rel={
+        externalNewTab && href.startsWith('https://')
+          ? 'noopener noreferrer'
+          : undefined
+      }
+    >
       {part.text}
     </a>
   );
