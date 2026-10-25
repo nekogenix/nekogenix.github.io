@@ -164,7 +164,7 @@ export const copy = {
       ],
       [
         'Can milk reverse the transformation?',
-        'No. It can cause [poison or nausea](wiki/questions#milk).',
+        'No. It can cause [poisoning with nausea](wiki/questions#milk).',
       ],
       [
         'I’m having problems. What should I do?',
@@ -353,7 +353,7 @@ export const copy = {
       ],
       [
         'Молоко скасовує перетворення?',
-        'Ні. Воно може спричинити [отруєння або нудоту](wiki/questions#milk).',
+        'Ні. Воно може спричинити [отруєння з нудотою](wiki/questions#milk).',
       ],
       [
         'У мене проблеми. Що робити?',
@@ -546,7 +546,7 @@ export const copy = {
       ],
       [
         'Молоко отменяет превращение?',
-        'Нет. Оно может вызвать [отравление или тошноту](wiki/questions#milk).',
+        'Нет. Оно может вызвать [отравление с тошнотой](wiki/questions#milk).',
       ],
       [
         'У меня проблемы. Что делать?',
