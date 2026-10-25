@@ -61,7 +61,7 @@ export const copy = {
     heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Minecraft\nas a cat',
     heroText:
-      'Nekogenix adds a gradual transformation with feline abilities, a kitty model and new animations, while preserving familiar armour, elytra and other game mechanics.',
+      "This game already has cats. Nekogenix lets you become one.\n\nMake a Neko Injection and start changing from human to neko, then into a cat with its own model and animations. You pick up feline abilities along the way. If the ears are enough for you, there's a way to stop before the final transformation.\n\nAnd yes, you can still mine, build, wear armour and fly with elytra. We weren't about to take your inventory away just because you grew paws.",
     heroAlt:
       'Steve, Alex and a player in cat form on a village path beside a river in Minecraft with Nekogenix',
     scroll: 'About the mod',
@@ -135,11 +135,11 @@ export const copy = {
     catTag: 'INVENTORY AND EQUIPMENT',
     catTitle: 'Playing as a cat',
     catText:
-      'Cat form adds new possibilities to familiar Minecraft and makes survival more fun. Use items, wear armour and fly with elytra. Your whole inventory stays with you and adapts to your kitty form!',
+      'You still mine, build, use items and fly with elytra. Your armour and equipment fit your cat form, and everything in your inventory stays with you.',
     skinTag: 'APPEARANCE',
     skinTitle: 'Cat skins',
     skinText:
-      'Choose one of 11 Minecraft cat coats or [import a custom skin](wiki/cat-skins#file). The editor previews your cat in several poses.',
+      'There are 11 Minecraft cat coats to choose from, and you can [import your own skin](wiki/cat-skins#file). The menu shows how it looks on your cat. Your neko ears take their colours from the same skin.',
     downloadTitle: 'Download Nekogenix',
     downloadText:
       'Download the mod from CurseForge or GitHub. Check the [installation instructions](wiki/getting-started) before adding it to your game.',
@@ -148,11 +148,15 @@ export const copy = {
     supportText:
       'Enjoy playing as a kitty? You can support our work on the mod, website and wiki. Thank you! ;3',
     supportButton: 'Support on Liberapay',
-    faqTitle: 'Common questions',
+    faqTitle: 'FAQ',
     faqs: [
       [
+        'Was AI used? Where?',
+        "AI has helped us a lot with Nekogenix's code. Does that automatically make our mod low-quality garbage? Hell NO.\n\nWe're not just throwing prompts at an LLM and sitting on our asses waiting for a finished mod. We decide HOW things work: libraries, client-server logic, networking, data persistence, events, mixins, rendering, hitboxes, and mod compatibility. We read, review, and test the whole damn code. Every asset, icon, and our logo was made by hand. Experienced modders regularly give us feedback.\n\nWe know AI slop is everywhere, and we understand why people are sick of it. So are we. But we're putting real work into Nekogenix, and we're determined to make it not just good, but a mod we'd be genuinely proud of.",
+      ],
+      [
         'Can I play with friends?',
-        'Yes. Install Nekogenix on the server and on every player’s client.',
+        'Yes. Nekogenix needs to be installed on the server / host, as well as by every player.',
       ],
       [
         'How long does transformation take?',
@@ -161,6 +165,10 @@ export const copy = {
       [
         'Can milk reverse the transformation?',
         'No. It can cause [poison or nausea](wiki/questions#milk).',
+      ],
+      [
+        'I’m having problems. What should I do?',
+        'First, check whether [we already know about your problem](wiki/questions)! If not, open an [issue on GitHub](https://github.com/nekogenix/nekogenix-mod/issues) and describe what happened in detail. Upload your logs to [https://mclo.gs/](https://mclo.gs/) and provide the link. This makes the problem much easier to find and greatly improves your chances of getting help.',
       ],
     ],
     credit: 'Made by Rudator & Wechirok.',
@@ -240,7 +248,7 @@ export const copy = {
     heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Майнкрафт\nочима кота',
     heroText:
-      'Nekogenix додає поступове перетворення з котячими здібностями, моделлю котика та новими анімаціями, зберігаючи звичну роботу з бронею, елітрами й іншими атрибутами гри.',
+      'У цій грі вже є коти. Nekogenix дозволяє стати одним із них.\n\nЗробіть неко-ін’єкцію й почніть перетворюватися з людини на неко, а потім на кота з власною моделлю та анімаціями. Котячі здібності з’являються в міру перетворення. Якщо вам достатньо вушок, є спосіб зупинитися перед остаточною зміною.\n\nІ так, ви досі можете копати, будувати, носити броню та літати на елітрах. Ми ж не збиралися забирати ваш інвентар лише тому, що у вас виросли лапки.',
     heroAlt:
       'Стів, Алекс і гравець у формі кота на сільській стежці біля річки в Minecraft із Nekogenix',
     scroll: 'Про мод',
@@ -316,11 +324,11 @@ export const copy = {
     catTag: 'ІНВЕНТАР І СПОРЯДЖЕННЯ',
     catTitle: 'Гра за кота',
     catText:
-      'Котяча форма додає нові можливості у звичний Майнкрафт і робить виживання веселішим. Юзайте предмети, носіть броню та літайте на елітрах. Увесь ваш інвентар залишається з вами, просто все підлаштовується під ваш вигляд котика!',
+      'Ви так само копаєте, будуєте, користуєтеся предметами й літаєте на елітрах. Броня та спорядження підлаштовуються під котячу форму, а весь вміст інвентарю залишається з вами.',
     skinTag: 'ЗОВНІШНІСТЬ',
     skinTitle: 'Котячі скіни',
     skinText:
-      'Виберіть одне з 11 забарвлень котів Minecraft або [імпортуйте власний скін](wiki/cat-skins#file). Редактор показує кота в кількох позах.',
+      'Є 11 котячих забарвлень Minecraft, а ще можна [імпортувати власний скін](wiki/cat-skins#file). У меню видно, як він виглядатиме на коті. Вушка неко беруть кольори з того самого скіна.',
     downloadTitle: 'Завантажити Nekogenix',
     downloadText:
       'Завантажте мод із CurseForge або GitHub. Перед додаванням у гру перевірте [інструкцію зі встановлення](wiki/getting-started).',
@@ -329,11 +337,15 @@ export const copy = {
     supportText:
       'Подобається грати за котика? Ви можете підтримати нашу роботу над модом, сайтом і вікі. Дякуємо! ;3',
     supportButton: 'Підтримати на Liberapay',
-    faqTitle: 'Поширені запитання',
+    faqTitle: 'FAQ',
     faqs: [
       [
+        'Чи використовувався ШІ? Де?',
+        'ШІ дуже допоміг нам із кодом Nekogenix. Це автоматично робить наш мод низькоякісним сміттям? Дідька лисого.\n\nМи не просто кидаємо промпти в LLM і сидимо на дупах, чекаючи на готовий мод. Ми вирішуємо, ЯК усе працює: бібліотеки, клієнт-серверна логіка, мережа, збереження даних, події, міксини, рендеринг, хітбокси та сумісність з іншими модами. Ми читаємо, перевіряємо й тестуємо весь код. Усі ресурси, іконки та наш логотип зроблені вручну. Досвідчені модери регулярно дають нам відгуки.\n\nМи знаємо, що слоп всюди, і розуміємо, чому воно всім набридло. Нам теж. Але ми вкладаємо справжню працю в Nekogenix і хочемо зробити його не просто хорошим, а модом, яким справді пишатимемося.',
+      ],
+      [
         'Можна грати з друзями?',
-        'Так. Установіть Nekogenix на сервері й у клієнтах усіх гравців.',
+        'Так. Nekogenix має бути на сервері / у хоста, як і в усіх гравців.',
       ],
       [
         'Скільки триває перетворення?',
@@ -342,6 +354,10 @@ export const copy = {
       [
         'Молоко скасовує перетворення?',
         'Ні. Воно може спричинити [отруєння або нудоту](wiki/questions#milk).',
+      ],
+      [
+        'У мене проблеми. Що робити?',
+        'Спочатку перевірте, можливо, [ми вже знаємо про вашу проблему](wiki/questions)! Якщо ні — створіть [звернення на GitHub](https://github.com/nekogenix/nekogenix-mod/issues) і докладно опишіть, що сталося. Завантажте ваші логи на [https://mclo.gs/](https://mclo.gs/) та надайте посилання. Так знайти проблему набагато простіше, а шанси отримати допомогу значно вищі.',
       ],
     ],
     credit: 'Створили Rudator і Wechirok.',
@@ -422,7 +438,7 @@ export const copy = {
     heroTag: '1.21.1 · NEOFORGE',
     heroTitle: 'Майнкрафт\nот лица кота',
     heroText:
-      'Nekogenix добавляет постепенное превращение с кошачьими способностями, моделью котика и новыми анимациями, сохраняя привычную работу с броней, элитрами и прочими атрибутами игры.',
+      'В этой игре уже есть коты. Nekogenix позволяет стать одним из них.\n\nСделайте неко-инъекцию и начните превращаться из человека в неко, а затем в кота со своей моделью и анимациями. Кошачьи способности появляются по мере превращения. Если вам достаточно ушек, есть способ остановиться перед окончательным изменением.\n\nИ да, вы всё ещё можете копать, строить, носить броню и летать на элитрах. Мы же не собирались забирать ваш инвентарь только потому, что у вас выросли лапки.',
     heroAlt:
       'Стив, Алекс и игрок в форме кота на деревенской тропе у реки в Minecraft с Nekogenix',
     scroll: 'О моде',
@@ -501,11 +517,11 @@ export const copy = {
     catTag: 'ИНВЕНТАРЬ И СНАРЯЖЕНИЕ',
     catTitle: 'Игра за кота',
     catText:
-      'Кошачья форма добавляет новые возможности в привычный Майнкрафт и делает выживание веселее. Юзайте предметы, носите броню и летайте на элитрах. Весь ваш инвентарь остаётся с вами, просто все преобразуется под ваш облик котика!',
+      'Вы так же копаете, строите, пользуетесь предметами и летаете на элитрах. Броня и снаряжение подстраиваются под кошачью форму, а всё содержимое инвентаря остаётся с вами.',
     skinTag: 'ВНЕШНОСТЬ',
     skinTitle: 'Кошачьи скины',
     skinText:
-      'Выберите одну из 11 расцветок котов Minecraft или [импортируйте собственный скин](wiki/cat-skins#file). Редактор показывает кота в нескольких позах.',
+      'Есть 11 кошачьих расцветок Minecraft, а ещё можно [импортировать свой скин](wiki/cat-skins#file). В меню видно, как он будет выглядеть на коте. Ушки неко берут цвета из того же скина.',
     downloadTitle: 'Скачать Nekogenix',
     downloadText:
       'Скачайте мод с CurseForge или GitHub. Перед добавлением в игру проверьте [инструкцию по установке](wiki/getting-started).',
@@ -514,11 +530,15 @@ export const copy = {
     supportText:
       'Нравится играть за котика? Вы можете поддержать нашу работу над модом, сайтом и вики. Спасибо! ;3',
     supportButton: 'Поддержать на Liberapay',
-    faqTitle: 'Частые вопросы',
+    faqTitle: 'FAQ',
     faqs: [
       [
+        'Применялось ли ИИ? Где?',
+        'ИИ очень помог нам с кодом Nekogenix. Это автоматически делает наш мод низкокачественным мусором? Ни хрена подобного.\n\nМы не просто кидаем промпты в LLM и сидим на жопе в ожидании готового мода. Мы решаем, КАК всё работает: библиотеки, клиент-серверная логика, сеть, сохранение данных, события, миксины, рендеринг, хитбоксы и совместимость с другими модами. Мы читаем, проверяем и тестируем весь код. Все ресурсы, иконки и наш логотип сделаны вручную. Опытные моддеры регулярно дают нам обратную связь.\n\nМы знаем, что слоп повсюду, и понимаем, почему он всем надоел. Нам тоже. Но мы вкладываем настоящий труд в Nekogenix и хотим сделать его не просто хорошим, а модом, которым будем по-настоящему гордиться.',
+      ],
+      [
         'Можно играть с друзьями?',
-        'Да. Установите Nekogenix на сервер и в клиенты всех игроков.',
+        'Да. Nekogenix должен быть на сервере / у хоста, как и у всех игроков.',
       ],
       [
         'Сколько длится превращение?',
@@ -527,6 +547,10 @@ export const copy = {
       [
         'Молоко отменяет превращение?',
         'Нет. Оно может вызвать [отравление или тошноту](wiki/questions#milk).',
+      ],
+      [
+        'У меня проблемы. Что делать?',
+        'Сначала проверьте, может [мы уже знаем о вашей проблеме](wiki/questions)! Если нет — создайте [обращение на GitHub](https://github.com/nekogenix/nekogenix-mod/issues) и подробно опишите, что случилось. Загрузите ваши логи на [https://mclo.gs/](https://mclo.gs/) и предоставьте ссылку. Так найти проблему гораздо проще, а шансы получить помощь намного выше.',
       ],
     ],
     credit: 'Создали Rudator и Wechirok.',

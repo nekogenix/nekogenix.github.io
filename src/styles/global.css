@@ -487,6 +487,9 @@ h3 {
   line-height: 1.75;
   color: #f4edf2;
 }
+.hero-description p + p {
+  margin-top: 16px;
+}
 .hero-scroll {
   position: absolute;
   bottom: 28px;
@@ -733,6 +736,70 @@ h3 {
 }
 .skins-section .shot img {
   aspect-ratio: 16 / 9;
+}
+.faq-section {
+  background: var(--night);
+}
+.faq-list {
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 24px;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 650;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary:hover,
+.faq-item[open] summary {
+  color: var(--pink);
+}
+.faq-item summary .icon {
+  color: var(--pink);
+  transition: transform 200ms ease;
+}
+.faq-item[open] summary .icon {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  padding-bottom: 28px;
+  color: var(--muted);
+}
+.faq-answer p + p {
+  margin-top: 16px;
+}
+@supports (interpolate-size: allow-keywords) {
+  .faq-item {
+    interpolate-size: allow-keywords;
+  }
+  .faq-item::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      block-size 200ms ease,
+      opacity 200ms ease,
+      content-visibility 200ms allow-discrete;
+  }
+  .faq-item[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item::details-content {
+      transition: none;
+    }
+  }
 }
 .download-section {
   background: var(--pink);

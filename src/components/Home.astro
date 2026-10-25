@@ -30,7 +30,11 @@ const stageImages = [
         <span>{line}</span>
       ))}
     </h1>
-    <p class="hero-description">{t.heroText}</p>
+    <div class="hero-description">
+      {t.heroText.split('\n\n').map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
     <div class="button-row">
       <a class="button" href="#get">
         {t.get}
@@ -176,6 +180,30 @@ const stageImages = [
       <p>
         <Inline text={t.skinText} locale={locale} />
       </p>
+    </div>
+  </div>
+</section>
+<section id="faq" class="section faq-section" aria-labelledby="faq-title">
+  <div class="container narrow">
+    <div class="section-heading">
+      <h2 id="faq-title">{t.faqTitle}</h2>
+    </div>
+    <div class="faq-list">
+      {t.faqs.map(([question, answer]) => (
+        <details class="faq-item">
+          <summary>
+            <span>{question}</span>
+            <Icon name="down" />
+          </summary>
+          <div class="faq-answer">
+            {answer.split('\n\n').map((paragraph) => (
+              <p>
+                <Inline text={paragraph} locale={locale} externalNewTab />
+              </p>
+            ))}
+          </div>
+        </details>
+      ))}
     </div>
   </div>
 </section>
