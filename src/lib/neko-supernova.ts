@@ -1,7 +1,8 @@
-export function nekoSupernova(surface: HTMLElement) {
+export function nekoSupernova(surface: HTMLElement, signal: AbortSignal) {
   const layer = surface.querySelector<HTMLElement>('[data-neko-supernova]');
   if (!layer) return;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const timeouts = new Set<ReturnType<typeof setTimeout>>();
   const pulses: {
     canvas: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
@@ -123,7 +124,11 @@ export function nekoSupernova(surface: HTMLElement) {
     if (reducedMotion.matches) {
       while (layer!.childElementCount > 4) layer!.firstElementChild?.remove();
       paint(context, 0.25, true);
-      setTimeout(() => canvas.remove(), 650);
+      const timeout = setTimeout(() => {
+        canvas.remove();
+        timeouts.delete(timeout);
+      }, 650);
+      timeouts.add(timeout);
     } else {
       pulses.push({ canvas, context, start: performance.now() });
       paint(context, 0, false);
@@ -137,7 +142,7 @@ export function nekoSupernova(surface: HTMLElement) {
   surface.addEventListener(
     'pointerdown',
     (event) => pulse(event.clientX, event.clientY),
-    { passive: true },
+    { passive: true, signal },
   );
   surface.addEventListener(
     'pointermove',
@@ -145,24 +150,40 @@ export function nekoSupernova(surface: HTMLElement) {
       if (event.buttons && performance.now() - lastPulse > 160)
         pulse(event.clientX, event.clientY);
     },
-    { passive: true },
+    { passive: true, signal },
   );
-  surface.addEventListener('click', (event) => {
-    if (event.detail !== 0 || !(event.target instanceof Element)) return;
-    const node = event.target.closest('[data-adv-select]');
-    if (!node) return;
-    const bounds = node.getBoundingClientRect();
-    pulse(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
-  });
+  surface.addEventListener(
+    'click',
+    (event) => {
+      if (event.detail !== 0 || !(event.target instanceof Element)) return;
+      const node = event.target.closest('[data-adv-select]');
+      if (!node) return;
+      const bounds = node.getBoundingClientRect();
+      pulse(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+    },
+    { signal },
+  );
   function stop() {
     cancelAnimationFrame(frame);
     frame = 0;
     pulses.splice(0).forEach((pulse) => pulse.canvas.remove());
+    timeouts.forEach(clearTimeout);
+    timeouts.clear();
+    layer!.replaceChildren();
   }
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop();
-  });
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches) stop();
-  });
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+      if (document.hidden) stop();
+    },
+    { signal },
+  );
+  reducedMotion.addEventListener(
+    'change',
+    () => {
+      if (reducedMotion.matches) stop();
+    },
+    { signal },
+  );
+  signal.addEventListener('abort', stop, { once: true });
 }

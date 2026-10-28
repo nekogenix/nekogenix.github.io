@@ -1,4 +1,4 @@
-export function endStarfield(surface: HTMLElement) {
+export function endStarfield(surface: HTMLElement, signal: AbortSignal) {
   const stars = Array.from(surface.querySelectorAll<HTMLElement>('.end-star'));
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const pushes = new WeakMap<HTMLElement, Animation>();
@@ -22,13 +22,17 @@ export function endStarfield(surface: HTMLElement) {
       `${((event.clientY - bounds.top) / bounds.height - 0.5) * -64}px`,
     );
   }
-  surface.addEventListener('pointermove', parallax, { passive: true });
-  surface.addEventListener('pointerdown', parallax, { passive: true });
-  surface.addEventListener('pointerleave', resetParallax);
-  surface.addEventListener('pointercancel', resetParallax);
-  surface.addEventListener('pointerup', (event) => {
-    if (event.pointerType !== 'mouse' && !neutral) resetParallax();
-  });
+  surface.addEventListener('pointermove', parallax, { passive: true, signal });
+  surface.addEventListener('pointerdown', parallax, { passive: true, signal });
+  surface.addEventListener('pointerleave', resetParallax, { signal });
+  surface.addEventListener('pointercancel', resetParallax, { signal });
+  surface.addEventListener(
+    'pointerup',
+    (event) => {
+      if (event.pointerType !== 'mouse' && !neutral) resetParallax();
+    },
+    { signal },
+  );
 
   function orientation(event: DeviceOrientationEvent) {
     if (
@@ -64,6 +68,7 @@ export function endStarfield(surface: HTMLElement) {
   const listen = () =>
     globalThis.addEventListener('deviceorientation', orientation, {
       passive: true,
+      signal,
     });
   if (orientationApi && isSecureContext) {
     if (
@@ -73,77 +78,102 @@ export function endStarfield(surface: HTMLElement) {
       motionButton
     ) {
       motionButton.hidden = false;
-      motionButton.addEventListener('click', async () => {
-        try {
-          if ((await orientationApi.requestPermission!()) === 'granted') {
-            listen();
-            motionButton.hidden = true;
-            return;
+      motionButton.addEventListener(
+        'click',
+        async () => {
+          try {
+            if ((await orientationApi.requestPermission!()) === 'granted') {
+              if (signal.aborted) return;
+              listen();
+              motionButton.hidden = true;
+              return;
+            }
+          } catch {
+            /* Permission may be unavailable in an embedded browser. */
           }
-        } catch {
-          /* Permission may be unavailable in an embedded browser. */
-        }
-        motionButton.textContent = motionButton.dataset.deniedLabel ?? '';
-        motionButton.disabled = true;
-      });
+          if (signal.aborted) return;
+          motionButton.textContent = motionButton.dataset.deniedLabel ?? '';
+          motionButton.disabled = true;
+        },
+        { signal },
+      );
     } else if (!orientationApi.requestPermission) listen();
   }
-  screen.orientation?.addEventListener('change', () => {
-    neutral = undefined;
-    resetParallax();
-  });
+  screen.orientation?.addEventListener(
+    'change',
+    () => {
+      neutral = undefined;
+      resetParallax();
+    },
+    { signal },
+  );
 
-  surface.addEventListener('neko-supernova', (event) => {
-    if (reducedMotion.matches) return;
-    const { x, y } = (event as CustomEvent<{ x: number; y: number }>).detail;
-    const positions = stars.map((star) => {
-      const bounds = star.getBoundingClientRect();
-      return {
-        star,
-        x: bounds.left + bounds.width / 2,
-        y: bounds.top + bounds.height / 2,
-        translate: getComputedStyle(star).translate,
-      };
-    });
-    positions.forEach(({ star, x: starX, y: starY, translate }, index) => {
-      const dx = starX - x,
-        dy = starY - y;
-      const distance = Math.hypot(dx, dy);
-      if (distance > 360) return;
-      const force = 155 * (1 - distance / 360) ** 1.1;
-      const angle = distance > 1 ? Math.atan2(dy, dx) : index * 2.4;
-      pushes.get(star)?.cancel();
-      pushes.set(
-        star,
-        star.animate(
-          [
+  surface.addEventListener(
+    'neko-supernova',
+    (event) => {
+      if (reducedMotion.matches) return;
+      const { x, y } = (event as CustomEvent<{ x: number; y: number }>).detail;
+      const positions = stars.map((star) => {
+        const bounds = star.getBoundingClientRect();
+        return {
+          star,
+          x: bounds.left + bounds.width / 2,
+          y: bounds.top + bounds.height / 2,
+          translate: getComputedStyle(star).translate,
+        };
+      });
+      positions.forEach(({ star, x: starX, y: starY, translate }, index) => {
+        const dx = starX - x,
+          dy = starY - y;
+        const distance = Math.hypot(dx, dy);
+        if (distance > 360) return;
+        const force = 155 * (1 - distance / 360) ** 1.1;
+        const angle = distance > 1 ? Math.atan2(dy, dx) : index * 2.4;
+        pushes.get(star)?.cancel();
+        pushes.set(
+          star,
+          star.animate(
+            [
+              {
+                translate: translate === 'none' ? '0px 0px' : translate,
+                easing: 'cubic-bezier(.16,1,.3,1)',
+              },
+              {
+                translate: `${Math.cos(angle) * force}px ${Math.sin(angle) * force}px`,
+                offset: 0.14,
+                easing: 'ease-out',
+              },
+              {
+                translate: `${Math.cos(angle) * force * 0.9}px ${Math.sin(angle) * force * 0.9}px`,
+                offset: 0.42,
+                easing: 'cubic-bezier(.4,0,.2,1)',
+              },
+              { translate: '0px 0px' },
+            ],
             {
-              translate: translate === 'none' ? '0px 0px' : translate,
-              easing: 'cubic-bezier(.16,1,.3,1)',
+              id: 'neko-supernova-push',
+              duration: 4200 + (index % 5) * 160,
             },
-            {
-              translate: `${Math.cos(angle) * force}px ${Math.sin(angle) * force}px`,
-              offset: 0.14,
-              easing: 'ease-out',
-            },
-            {
-              translate: `${Math.cos(angle) * force * 0.9}px ${Math.sin(angle) * force * 0.9}px`,
-              offset: 0.42,
-              easing: 'cubic-bezier(.4,0,.2,1)',
-            },
-            { translate: '0px 0px' },
-          ],
-          {
-            id: 'neko-supernova-push',
-            duration: 4200 + (index % 5) * 160,
-          },
-        ),
-      );
-    });
-  });
-  reducedMotion.addEventListener('change', () => {
-    if (!reducedMotion.matches) return;
-    resetParallax();
-    stars.forEach((star) => pushes.get(star)?.cancel());
-  });
+          ),
+        );
+      });
+    },
+    { signal },
+  );
+  reducedMotion.addEventListener(
+    'change',
+    () => {
+      if (!reducedMotion.matches) return;
+      resetParallax();
+      stars.forEach((star) => pushes.get(star)?.cancel());
+    },
+    { signal },
+  );
+  signal.addEventListener(
+    'abort',
+    () => {
+      stars.forEach((star) => pushes.get(star)?.cancel());
+    },
+    { once: true },
+  );
 }

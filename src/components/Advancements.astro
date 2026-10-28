@@ -75,43 +75,6 @@ const stars = Array.from({ length: 144 }, (_, i) => ({
   </div>
 </div>
 
-<script>
-  import { nekoSupernova } from '../lib/neko-supernova';
-  import { endStarfield } from '../lib/end-starfield';
-  document
-    .querySelectorAll<HTMLElement>('[data-advancements]')
-    .forEach((window) => {
-      nekoSupernova(window);
-      endStarfield(window);
-      let visible = false;
-      const updateStars = () => {
-        window.toggleAttribute(
-          'data-stars-active',
-          visible && !document.hidden,
-        );
-      };
-      const observer = new IntersectionObserver(([entry]) => {
-        visible = entry!.isIntersecting;
-        updateStars();
-      });
-      observer.observe(window);
-      document.addEventListener('visibilitychange', updateStars);
-      const buttons =
-        window.querySelectorAll<HTMLButtonElement>('[data-adv-select]');
-      const panels = window.querySelectorAll<HTMLElement>('[data-adv-panel]');
-      buttons.forEach((button) =>
-        button.addEventListener('click', () => {
-          buttons.forEach((item) =>
-            item.setAttribute('aria-pressed', String(item === button)),
-          );
-          panels.forEach((panel) => {
-            panel.hidden = panel.id !== button.getAttribute('aria-controls');
-          });
-        }),
-      );
-    });
-</script>
-
 <style>
   .adv-window {
     position: relative;
