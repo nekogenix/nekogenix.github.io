@@ -195,7 +195,7 @@ test('every wiki screenshot has localized captions and all responsive sizes', ()
       wikiOverviewImage,
       ...Object.values(homeImages),
       ...articles[locale].flatMap((article) => [
-        article.image,
+        ...(article.image ? [article.image] : []),
         ...article.sections.flatMap((section) =>
           section.image ? [section.image] : [],
         ),

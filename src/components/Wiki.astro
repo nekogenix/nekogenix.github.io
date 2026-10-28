@@ -76,7 +76,9 @@ const next = pages[index + 1];
             <h1>{article.title}</h1>
             <p class="article-description">{article.description}</p>
           </header>
-          <Shot name={article.image} alt={shots[article.image]!} />
+          {article.image && (
+            <Shot name={article.image} alt={shots[article.image]!} />
+          )}
           {article.sections.map((section) => (
             <section id={section.id}>
               <h2>{section.title}</h2>

@@ -20,7 +20,7 @@ export interface Article {
   group: 'start' | 'play' | 'reference';
   title: string;
   description: string;
-  image: string;
+  image?: string;
   sections: ArticleSection[];
   related: string[];
 }

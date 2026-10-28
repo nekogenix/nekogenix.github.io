@@ -1,110 +1,95 @@
 {
   "en": {
     "title": "Advancements",
-    "note": "The lines follow the in-game layout. Single and paired injections have separate conditions. The paired-injection advancement is not required for either ending.",
     "entries": [
-      {
-        "id": "root",
-        "name": "Nekogenix",
-        "description": "The tab appears when you enter the world. Four advancements mark injections and the choice between staying neko and becoming a cat.",
-        "image": "/advancements/advancement_logo.png"
-      },
       {
         "id": "what_could_go_wrong",
         "name": "What Could Go Wrong?",
-        "description": "Finish using one Neko Injection. If you start two doses but cancel the second, the completed dose counts as a single injection.",
+        "description": "Finish using one Neko Injection.",
         "image": "/items/neko_injection.png"
       },
       {
         "id": "dual_injection",
         "name": "Tight, Tight, Tight! Yeah!",
-        "description": "Put a Neko Injection in each hand. Hold Use Item, then also hold Attack until both injections finish. Both doses must be completed in the same session; using them separately does not count.",
+        "description": "Put a Neko Injection in each hand. Hold Use Item, then also hold Attack until both injections finish.",
         "image": "/advancements/advancement_dual_injection.png"
       },
       {
         "id": "finish_what_you_started",
         "name": "Finish What You Started",
-        "description": "Let the final Cat Transformation stage finish. You receive this advancement when you become a full cat.",
+        "description": "Let the final Cat Transformation stage finish.",
         "image": "/advancements/advancement_cat.png"
       },
       {
         "id": "weeb",
         "name": "Weeb",
-        "description": "During Cat Transformation, use a Crystallizing Injection to stay neko. Drinking Sweet Amethyst does not count: it is an ingredient for the injection.",
+        "description": "During Cat Transformation, use a Crystallizing Injection to stay neko.",
         "image": "/items/stabilizing_injection.png"
       }
-    ]
+    ],
+    "enableMotion": "Enable tilt",
+    "motionDenied": "Tilt access denied"
   },
   "ru": {
     "title": "Достижения",
-    "note": "Линии повторяют расположение в игре. У одиночной и парной инъекций отдельные условия. Достижение за парную инъекцию не требуется ни для одного из двух исходов.",
     "entries": [
-      {
-        "id": "root",
-        "name": "Nekogenix",
-        "description": "Вкладка появляется при входе в мир. Четыре достижения связаны с инъекциями и выбором: остаться неко или стать котом.",
-        "image": "/advancements/advancement_logo.png"
-      },
       {
         "id": "what_could_go_wrong",
         "name": "Что пойдёт не так?",
-        "description": "Полностью введите одну неко-инъекцию. Если начать две, но отменить вторую, завершённая доза засчитается как одиночная инъекция.",
+        "description": "Полностью введите одну неко-инъекцию.",
         "image": "/items/neko_injection.png"
       },
       {
         "id": "dual_injection",
         "name": "Прёт, прёт, прёт! Да!",
-        "description": "Возьмите по неко-инъекции в каждую руку. Зажмите использование предмета, затем также зажмите атаку до конца обеих инъекций. Обе дозы нужно завершить за один раз; отдельные введения не засчитываются.",
+        "description": "Возьмите по неко-инъекции в каждую руку. Зажмите использование предмета, затем также зажмите атаку до конца обеих инъекций.",
         "image": "/advancements/advancement_dual_injection.png"
       },
       {
         "id": "finish_what_you_started",
         "name": "Закончить начатое",
-        "description": "Дождитесь окончания заключительного этапа «Кошачье превращение». Достижение выдаётся, когда вы полностью становитесь котом.",
+        "description": "Дождитесь окончания заключительного этапа «Кошачье превращение».",
         "image": "/advancements/advancement_cat.png"
       },
       {
         "id": "weeb",
         "name": "Отаку",
-        "description": "Во время «Кошачьего превращения» используйте кристаллизующую инъекцию, чтобы остаться неко. Выпитое зелье сладкого аметиста не засчитывается: из него нужно приготовить инъекцию.",
+        "description": "Во время «Кошачьего превращения» используйте кристаллизующую инъекцию, чтобы остаться неко.",
         "image": "/items/stabilizing_injection.png"
       }
-    ]
+    ],
+    "enableMotion": "Включить наклон",
+    "motionDenied": "Доступ к наклону закрыт"
   },
   "uk": {
     "title": "Досягнення",
-    "note": "Лінії повторюють розташування у грі. Одиночна й парна ін’єкції мають окремі умови. Досягнення за парну ін’єкцію не потрібне для жодного з двох результатів.",
     "entries": [
-      {
-        "id": "root",
-        "name": "Nekogenix",
-        "description": "Вкладка з’являється при вході у світ. Чотири досягнення пов’язані з ін’єкціями та вибором: залишитися неко чи стати котом.",
-        "image": "/advancements/advancement_logo.png"
-      },
       {
         "id": "what_could_go_wrong",
         "name": "Що може піти не так?",
-        "description": "Повністю введіть одну неко-ін’єкцію. Якщо почати дві, але скасувати другу, завершена доза зарахується як одиночна ін’єкція.",
+        "description": "Повністю введіть одну неко-ін’єкцію.",
         "image": "/items/neko_injection.png"
       },
       {
         "id": "dual_injection",
         "name": "Парубок моторний",
-        "description": "Візьміть по неко-ін’єкції в кожну руку. Затисніть використання предмета, потім також затисніть атаку до кінця обох ін’єкцій. Обидві дози потрібно завершити за один раз; окремі введення не зараховуються.",
+        "description": "Візьміть по неко-ін’єкції в кожну руку. Затисніть використання предмета, потім також затисніть атаку до кінця обох ін’єкцій.",
         "image": "/advancements/advancement_dual_injection.png"
       },
       {
         "id": "finish_what_you_started",
         "name": "Завершити почате",
-        "description": "Дочекайтеся завершення останнього етапу «Котяче перетворення». Досягнення видається, коли ви повністю стаєте котом.",
+        "description": "Дочекайтеся завершення останнього етапу «Котяче перетворення».",
         "image": "/advancements/advancement_cat.png"
       },
       {
         "id": "weeb",
         "name": "Отаку",
-        "description": "Під час «Котячого перетворення» використайте кристалізувальну ін’єкцію, щоб залишитися неко. Випите зілля солодкого аметисту не зараховується: з нього потрібно приготувати ін’єкцію.",
+        "description": "Під час «Котячого перетворення» використайте кристалізувальну ін’єкцію, щоб залишитися неко.",
         "image": "/items/stabilizing_injection.png"
       }
-    ]
+    ],
+    "enableMotion": "Увімкнути нахил",
+    "motionDenied": "Доступ до нахилу закрито"
   }
 }
