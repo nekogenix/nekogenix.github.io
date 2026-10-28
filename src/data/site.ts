@@ -2,7 +2,7 @@ export const locales = ['en', 'uk', 'ru'] as const;
 export type Locale = (typeof locales)[number];
 export const languageNames = { en: 'English', uk: 'Українська', ru: 'Русский' };
 export const repository = 'https://github.com/nekogenix/nekogenix-mod';
-export const version = '1.0.0-prealpha.14';
+export const version = '1.0.0-alpha.1';
 
 export function isLocale(value: unknown): value is Locale {
   return locales.some((locale) => locale === value);

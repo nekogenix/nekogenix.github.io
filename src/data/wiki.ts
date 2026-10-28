@@ -13,6 +13,7 @@ export interface ArticleSection {
   notice?: string;
   recipes?: string[];
   image?: string;
+  advancements?: boolean;
 }
 export interface Article {
   slug: string;

@@ -11,23 +11,9 @@
         "title": "Before you start",
         "list": [
           "A Microsoft account with access to Minecraft Java Edition.",
-          "A Nekogenix release compatible with your profile’s Minecraft version. Other mods in that profile must also support its Minecraft version and NeoForge.",
-          "NeoForge for that Minecraft version. Use a loader build that meets the requirements of your chosen Nekogenix release."
+          "A Nekogenix release compatible with your profile’s Minecraft version. Other mods in that profile must also support its Minecraft version and NeoForge."
         ],
         "notice": "Before adding mods to an existing world, close the game and copy its folder from saves to a separate backup location."
-      },
-      {
-        "id": "installation",
-        "title": "Download the mod and choose your launcher",
-        "paragraphs": [
-          "Close Minecraft before adding mod files. Follow the steps for your launcher: [Minecraft Launcher](wiki/getting-started#official-launcher), [Prism Launcher](wiki/getting-started#prism-launcher), [Modrinth App](wiki/getting-started#modrinth) or [CurseForge App](wiki/getting-started#curseforge)."
-        ],
-        "list": [
-          "Open [Nekogenix releases on GitHub](https://github.com/nekogenix/nekogenix-mod/releases). Choose a release and read its Minecraft, NeoForge and dependency requirements.",
-          "Expand Assets under that release and download the Nekogenix file ending in .jar.",
-          "Keep the JAR in your downloads folder. Do not extract or run it: you will copy it into your game profile. If the release lists required dependency mods, download compatible files for those too."
-        ],
-        "ordered": true
       },
       {
         "id": "official-launcher",
@@ -73,8 +59,9 @@
         "list": [
           "In [CurseForge App](https://www.curseforge.com/download/app), open Minecraft → My Modpacks and select your profile. If you do not have one yet, click Create and choose a compatible Minecraft version and NeoForge.",
           "Check the profile’s Minecraft and NeoForge versions against the Nekogenix release requirements. Wait for any pending installation to finish.",
-          "Open the profile’s three-dot menu → Open Folder. Open mods, or create that folder if it is missing.",
-          "Copy the downloaded Nekogenix JAR and any required dependency JARs into mods. Leave the files directly in that folder, without extracting them.",
+          "Click Add More Content. If the button is missing, open the profile’s three-dot menu → Profile Options, enable Allow content management for this profile and click Done.",
+          "Search for Nekogenix and click Install next to it. The catalogue shows files compatible with the profile’s Minecraft version and mod loader.",
+          "Wait for the installation to finish. Nekogenix will appear in the profile’s installed mods.",
           "Click Play for this profile. If Minecraft Launcher opens, launch the profile prepared by CurseForge."
         ],
         "ordered": true
@@ -326,6 +313,14 @@
           "You receive nine feline lives when Cat Transformation begins. In Survival, the first eight deaths preserve your feline state; the ninth returns you to human form. Dying earlier in the process cancels the transformation."
         ],
         "notice": "Hardcore still ends on death, even if you have feline lives remaining."
+      },
+      {
+        "id": "advancements",
+        "title": "Advancements",
+        "paragraphs": [
+          "The Nekogenix tab follows your transformation. Select an icon to see what earns each advancement."
+        ],
+        "advancements": true
       }
     ],
     "related": ["laboratory", "abilities", "cat-life", "potions"]
@@ -371,6 +366,14 @@
           "Yellow — neutral creatures.",
           "Green — passive creatures, creepers and phantoms.",
           "White — other players."
+        ]
+      },
+      {
+        "id": "wetness",
+        "title": "Water and rain",
+        "paragraphs": [
+          "Water and rain give neko players Heavy Ears and cats Heavy Fur. While wet, you lose the extra sprinting and sneaking speed. Your other feline abilities stay with you.",
+          "Get out of the water or take cover from the rain. You dry off in 10 seconds; getting wet again restarts the wait."
         ]
       }
     ],
@@ -435,12 +438,19 @@
         "image": "skins"
       },
       {
+        "id": "ears",
+        "title": "Your neko ears",
+        "paragraphs": [
+          "Your chosen cat skin also colours your neko ears. They move as you run, jump and turn your head, and shake off water. Headgear hides them."
+        ]
+      },
+      {
         "id": "file",
         "title": "Import your own skin",
         "list": [
           "Choose New Skin. Use Download Skin Template for a colour guide to the body parts, then draw your texture as a 64 × 32 pixel PNG no larger than 16 KiB.",
           "Choose Upload Skin and open your PNG, or drag the file onto the editor.",
-          "Check the skin in four-paw, upright and sitting poses. Give it a name.",
+          "Check the skin in four-paw, upright, sitting and Neko poses. The Neko preview shows the ears on your player skin. Give the skin a name.",
           "Choose Save to keep it in the library, or Save and Use to apply it immediately."
         ],
         "ordered": true
@@ -533,6 +543,9 @@
           "Abilities arrive one at a time during transformation. Check the [stage you have reached](wiki/transformation#stages).",
           "For double-jump, eat first, check that it is enabled, then jump from the ground and press Jump again promptly.",
           "For manual vision, [assign its key](wiki/settings#keys). Scent requires full cat form and three seconds of crouching."
+        ],
+        "paragraphs": [
+          "If your extra running speed has disappeared, check for [Heavy Ears or Heavy Fur](wiki/abilities#wetness). Leave the water or rain and wait 10 seconds."
         ]
       },
       {

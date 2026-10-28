@@ -8,6 +8,7 @@ import LaboratoryFlow from './LaboratoryFlow.astro';
 import Inline from './Inline.astro';
 import { imageLabels } from '../data/images';
 import WikiTheme from './WikiTheme.astro';
+import Advancements from './Advancements.astro';
 interface Props {
   locale: Locale;
   article?: Article;
@@ -116,6 +117,7 @@ const next = pages[index + 1];
               {section.process && (
                 <LaboratoryFlow locale={locale} process={section.process} />
               )}
+              {section.advancements && <Advancements locale={locale} />}
               {section.image && (
                 <Shot name={section.image} alt={shots[section.image]!} />
               )}
