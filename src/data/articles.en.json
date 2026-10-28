@@ -313,17 +313,23 @@
           "You receive nine feline lives when Cat Transformation begins. In Survival, the first eight deaths preserve your feline state; the ninth returns you to human form. Dying earlier in the process cancels the transformation."
         ],
         "notice": "Hardcore still ends on death, even if you have feline lives remaining."
-      },
-      {
-        "id": "advancements",
-        "title": "Advancements",
-        "paragraphs": [
-          "The Nekogenix tab follows your transformation. Select an icon to see what earns each advancement."
-        ],
-        "advancements": true
       }
     ],
     "related": ["laboratory", "abilities", "cat-life", "potions"]
+  },
+  {
+    "slug": "advancements",
+    "group": "start",
+    "title": "Advancements",
+    "description": "The Nekogenix tab follows your transformation. Select an icon to see what earns each advancement.",
+    "sections": [
+      {
+        "id": "tree",
+        "title": "How to earn them",
+        "advancements": true
+      }
+    ],
+    "related": ["transformation", "laboratory"]
   },
   {
     "slug": "abilities",
