@@ -1,8 +1,5 @@
 Nekogenix website assets
 
-Nekogenix logo: All Rights Reserved.
-Copyright (c) Rudator and Wechirok
-
 Website source code: GNU General Public License, version 3 only (GPL-3.0-only).
 License text: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -10,8 +7,8 @@ Nekogenix mod assets: All Rights Reserved.
 Copyright (c) Rudator and Wechirok
 These terms apply to files under src/main/resources/assets/, including item and block textures.
 
-Nekogenix mod code: PolyForm Noncommercial License 1.0.0.
-Required Notice: Copyright (c) 2026 Rudator and Wechirok
+Nekogenix mod code: GNU General Public License v3.0 only (GPL-3.0-only).
+Copyright (c) 2026 Rudator and Wechirok
 Mod license terms: https://github.com/nekogenix/nekogenix-mod/blob/main/LICENSE.md
 
 Screenshots and videos were captured in Minecraft Java Edition with Nekogenix.

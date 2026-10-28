@@ -1,0 +1,244 @@
+---
+import data from '../data/advancements.json';
+import type { Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = data[locale];
+const positions = [
+  [16, 50],
+  [47, 50],
+  [47, 16],
+  [80, 38],
+  [80, 78],
+];
+---
+
+<div class="adv-window" data-advancements>
+  <div class="adv-bar">
+    <img
+      src="/advancements/advancement_logo.png"
+      alt=""
+      width="24"
+      height="24"
+    />
+    <span>Nekogenix</span>
+  </div>
+  <div class="adv-tree" role="group" aria-label={t.title}>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M16 50H47V16 M47 50H63V38H80 M63 50V78H80" />
+    </svg>
+    {t.entries.map((entry, i) => (
+      <button
+        type="button"
+        class:list={['adv-node', { 'adv-goal': i > 2 }]}
+        style={`--x:${positions[i]![0]}%;--y:${positions[i]![1]}%`}
+        data-adv-select={entry.id}
+        aria-label={entry.name}
+        title={entry.name}
+        aria-pressed={i === 1 ? 'true' : 'false'}
+        aria-controls={`adv-${entry.id}`}
+      >
+        <img src={entry.image} alt="" width="40" height="40" />
+      </button>
+    ))}
+  </div>
+  <div class="adv-details" aria-live="polite" aria-atomic="true">
+    {t.entries.map((entry, i) => (
+      <div id={`adv-${entry.id}`} data-adv-panel hidden={i !== 1}>
+        <h3>{entry.name}</h3>
+        <p>{entry.description}</p>
+      </div>
+    ))}
+  </div>
+  <p class="adv-note">{t.note}</p>
+</div>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>('[data-advancements]')
+    .forEach((window) => {
+      const buttons =
+        window.querySelectorAll<HTMLButtonElement>('[data-adv-select]');
+      const panels = window.querySelectorAll<HTMLElement>('[data-adv-panel]');
+      buttons.forEach((button) =>
+        button.addEventListener('click', () => {
+          buttons.forEach((item) =>
+            item.setAttribute('aria-pressed', String(item === button)),
+          );
+          panels.forEach((panel) => {
+            panel.hidden = panel.id !== button.getAttribute('aria-controls');
+          });
+        }),
+      );
+    });
+</script>
+
+<style>
+  .adv-window {
+    margin: 24px 0;
+    border: 4px solid #756b79;
+    background: #242029;
+    box-shadow: 0 4px 0 #151218;
+    color: #f4edf5;
+  }
+  .adv-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #c6bdc9;
+    color: #211b25;
+    font-family: var(--display);
+    font-size: 24px;
+    border-bottom: 4px solid #756b79;
+  }
+  .adv-bar img,
+  .adv-node img {
+    image-rendering: pixelated;
+    object-fit: contain;
+  }
+  .adv-tree {
+    position: relative;
+    height: 280px;
+    background-color: #342b40;
+    background-image:
+      linear-gradient(
+        135deg,
+        #ffffff04 25%,
+        transparent 25%,
+        transparent 75%,
+        #ffffff04 75%
+      ),
+      linear-gradient(
+        45deg,
+        #00000018 25%,
+        transparent 25%,
+        transparent 75%,
+        #00000018 75%
+      );
+    background-size: 32px 32px;
+    box-shadow: inset 0 0 50px #09060c80;
+  }
+  .adv-tree svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .adv-tree path {
+    fill: none;
+    stroke: #b8a3bf;
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+  }
+  .adv-node {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    padding: 7px;
+    border: 3px solid #bfb4c3;
+    background: #625968;
+    box-shadow:
+      inset 3px 3px #ffffff30,
+      inset -3px -3px #0005,
+      0 3px #100d16;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      border-color 0.15s;
+  }
+  .adv-goal {
+    border-radius: 9px;
+    border-width: 5px;
+    padding: 5px;
+  }
+  .adv-node[aria-pressed='true'] {
+    background: #845c27;
+    border-color: #f6cc73;
+  }
+  .adv-node:hover {
+    background: #806d88;
+  }
+  .adv-node:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 5px;
+  }
+  .adv-details {
+    padding: 22px;
+    border-top: 3px solid #756b79;
+    min-height: 174px;
+  }
+  .adv-details h3 {
+    color: #f6cc73;
+    font-family: var(--display);
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+  }
+  .adv-details p {
+    color: #f4edf5;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .adv-details [hidden] {
+    display: none;
+  }
+  .adv-details > div:not([hidden]) {
+    animation: adv-reveal 0.18s ease-out;
+  }
+  .adv-note {
+    margin: 0 !important;
+    padding: 16px 22px;
+    border-top: 1px solid #756b79;
+    color: #c6b9ce;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  @keyframes adv-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 480px) {
+    .adv-tree {
+      height: 240px;
+    }
+    .adv-node {
+      width: 48px;
+      height: 48px;
+      padding: 5px;
+    }
+    .adv-node img {
+      width: 32px;
+      height: 32px;
+    }
+    .adv-goal {
+      padding: 3px;
+    }
+    .adv-details {
+      padding: 18px;
+      min-height: 225px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .adv-node {
+      transition: none;
+    }
+    .adv-details > div:not([hidden]) {
+      animation: none;
+    }
+  }
+</style>
