@@ -117,12 +117,19 @@ const socialImage = new URL('/media/link-preview-cat.jpg', Astro.site).href;
           class="main-navigation"
           aria-label="Nekogenix"
         >
-          <a href={`${pathFor(locale)}#the-mod`}>{t.nav[0]}</a>
+          <a href={pathFor(locale)}>{t.nav[0]}</a>
           <a
             href={pathFor(locale, 'wiki')}
             aria-current={wiki ? 'page' : undefined}
           >
             {t.nav[3]}
+          </a>
+          <a
+            href="https://www.curseforge.com/minecraft/mc-mods/nekogenix"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CurseForge
           </a>
         </nav>
         <div class="header-actions">
