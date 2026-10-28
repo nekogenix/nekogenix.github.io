@@ -152,7 +152,7 @@ export const copy = {
     faqs: [
       [
         'Was AI used? Where?',
-        "AI has helped us a lot with Nekogenix's code. Does that automatically make our mod low-quality garbage? Hell NO.\n\nWe're not just throwing prompts at an LLM and sitting on our asses waiting for a finished mod. We decide HOW things work: libraries, client-server logic, networking, data persistence, events, mixins, rendering, hitboxes, and mod compatibility. We read, review, and test the whole damn code. Every asset, icon, and our logo was made by hand. Experienced modders regularly give us feedback.\n\nWe know AI slop is everywhere, and we understand why people are sick of it. So are we. But we're putting real work into Nekogenix, and we're determined to make it not just good, but a mod we'd be genuinely proud of.",
+        "AI has helped us a lot with Nekogenix's code. Does that automatically make our mod low-quality garbage? Hell NO.\n\nWe're not just throwing prompts at an LLM and sitting on our asses waiting for a finished mod. We decide HOW things work: libraries, client-server logic, networking, data persistence, events, mixins, rendering, hitboxes, and mod compatibility. We read, review, and test the whole damn code. Every asset, icon, and our logo was made by hand. We regularly discuss our ideas with experienced modders in the community and work out the best ways to implement them.\n\nWe know AI slop is everywhere, and we understand why people are sick of it. So are we. But we're putting real work into Nekogenix, and we're determined to make it not just good, but a mod we'd be genuinely proud of.",
       ],
       [
         'Can I play with friends?',
@@ -341,7 +341,7 @@ export const copy = {
     faqs: [
       [
         'Чи використовувався ШІ? Де?',
-        'ШІ дуже допоміг нам із кодом Nekogenix. Це автоматично робить наш мод низькоякісним сміттям? Абсолютно НІ.\n\nМи не просто кидаємо промпти в LLM і сидимо на дупах, чекаючи на готовий мод. Ми вирішуємо, ЯК усе працює: бібліотеки, клієнт-серверна логіка, мережа, збереження даних, події, міксини, рендеринг, хітбокси та сумісність з іншими модами. Ми читаємо, перевіряємо й тестуємо весь код. Усі ресурси, іконки та наш логотип зроблені вручну. Досвідчені модери регулярно дають нам відгуки.\n\nМи знаємо, що слоп всюди, і розуміємо, чому воно всім набридло. Нам теж. Але ми вкладаємо справжню працю в Nekogenix і хочемо зробити його не просто хорошим, а модом, яким справді пишатимемося.',
+        'ШІ дуже допоміг нам із кодом Nekogenix. Це автоматично робить наш мод низькоякісним сміттям? Абсолютно НІ.\n\nМи не просто кидаємо промпти в LLM і сидимо на дупах, чекаючи на готовий мод. Ми вирішуємо, ЯК усе працює: бібліотеки, клієнт-серверна логіка, мережа, збереження даних, події, міксини, рендеринг, хітбокси та сумісність з іншими модами. Ми читаємо, перевіряємо й тестуємо весь код. Усі ресурси, іконки та наш логотип зроблені вручну. Ми регулярно обговорюємо свої ідеї з досвідченими модерами спільноти й разом шукаємо найкращі способи їх втілення.\n\nМи знаємо, що слоп всюди, і розуміємо, чому воно всім набридло. Нам теж. Але ми вкладаємо справжню працю в Nekogenix і хочемо зробити його не просто хорошим, а модом, яким справді пишатимемося.',
       ],
       [
         'Можна грати з друзями?',
@@ -534,7 +534,7 @@ export const copy = {
     faqs: [
       [
         'Применялось ли ИИ? Где?',
-        'ИИ очень помог нам с кодом Nekogenix. Это автоматически делает наш мод низкокачественным мусором? Абсолютное НЕТ.\n\nМы не просто кидаем промпты в LLM и сидим на жопе в ожидании готового мода. Мы решаем, КАК всё работает: библиотеки, клиент-серверная логика, сеть, сохранение данных, события, миксины, рендеринг, хитбоксы и совместимость с другими модами. Мы читаем, проверяем и тестируем весь код. Все ресурсы, иконки и наш логотип сделаны вручную. Опытные моддеры регулярно дают нам обратную связь.\n\nМы знаем, что слоп повсюду, и понимаем, почему он всем надоел. Нам тоже. Но мы вкладываем настоящий труд в Nekogenix и хотим сделать его не просто хорошим, а модом, которым будем по-настоящему гордиться.',
+        'ИИ очень помог нам с кодом Nekogenix. Это автоматически делает наш мод низкокачественным мусором? Абсолютное НЕТ.\n\nМы не просто кидаем промпты в LLM и сидим на жопе в ожидании готового мода. Мы решаем, КАК всё работает: библиотеки, клиент-серверная логика, сеть, сохранение данных, события, миксины, рендеринг, хитбоксы и совместимость с другими модами. Мы читаем, проверяем и тестируем весь код. Все ресурсы, иконки и наш логотип сделаны вручную. Мы регулярно обсуждаем свои идеи с опытными моддерами сообщества и вместе ищем лучшие способы их реализации.\n\nМы знаем, что слоп повсюду, и понимаем, почему он всем надоел. Нам тоже. Но мы вкладываем настоящий труд в Nekogenix и хотим сделать его не просто хорошим, а модом, которым будем по-настоящему гордиться.',
       ],
       [
         'Можно играть с друзьями?',
