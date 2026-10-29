@@ -5,6 +5,7 @@ import Shot from './Shot.astro';
 import Inline from './Inline.astro';
 import DemoVideo from './DemoVideo.astro';
 import Laboratory from './Laboratory.astro';
+import Starfield from './Starfield.astro';
 import { homeImages, imageLabels } from '../data/images';
 interface Props {
   locale: Locale;
@@ -183,7 +184,13 @@ const stageImages = [
     </div>
   </div>
 </section>
-<section id="faq" class="section faq-section" aria-labelledby="faq-title">
+<section
+  id="faq"
+  class="section faq-section"
+  aria-labelledby="faq-title"
+  data-starfield
+>
+  <Starfield locale={locale} />
   <div class="container narrow">
     <div class="section-heading">
       <h2 id="faq-title">{t.faqTitle}</h2>

@@ -1,0 +1,126 @@
+---
+import data from '../data/advancements.json';
+import type { Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = data[locale];
+const stars = Array.from({ length: 144 }, (_, i) => ({
+  x: (((i * 73 + 19) % 101) / 101) * 100,
+  y: (((i * i * 17 + i * 31 + 7) % 103) / 103) * 100,
+  size: i % 7 === 0 ? 3 : i % 3 === 0 ? 2 : 1,
+  delay: -(i % 13),
+  duration: 4 + (i % 6),
+}));
+---
+
+<div class="end-starfield" aria-hidden="true">
+  {[0.3, 0.65, 1].map((depth, layer) => (
+    <div class="end-star-layer" style={`--star-depth:${depth}`}>
+      {stars
+        .filter((_, i) => i % 3 === layer)
+        .map((star) => (
+          <span
+            class="end-star"
+            style={`--star-x:${star.x}%;--star-y:${star.y}%;--star-size:${star.size}px;--star-delay:${star.delay}s;--star-duration:${star.duration}s`}
+          ></span>
+        ))}
+    </div>
+  ))}
+</div>
+<div class="neko-supernova" data-neko-supernova aria-hidden="true"></div>
+<button
+  class="starfield-tilt"
+  type="button"
+  data-enable-tilt
+  data-denied-label={t.motionDenied}
+  hidden
+>
+  {t.enableMotion}
+</button>
+
+<style>
+  .starfield-tilt {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    padding: 7px 10px;
+    max-width: 50%;
+    border: 1px solid #756b79;
+    background: #17101e;
+    color: #ffc5e0;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .starfield-tilt[hidden] {
+    display: none;
+  }
+
+  .end-starfield {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #030106;
+  }
+  .end-star-layer {
+    position: absolute;
+    inset: -46px;
+    translate: calc(var(--parallax-x, 0px) * var(--star-depth))
+      calc(var(--parallax-y, 0px) * var(--star-depth));
+    transition: translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .end-star {
+    position: absolute;
+    left: var(--star-x);
+    top: var(--star-y);
+    width: var(--star-size);
+    height: var(--star-size);
+    background: #ddc2f6;
+    opacity: 0.5;
+    box-shadow: 0 0 5px #ad71d780;
+    animation: end-star-drift var(--star-duration) ease-in-out var(--star-delay)
+      infinite alternate;
+    animation-play-state: paused;
+  }
+  .end-star:nth-child(3n) {
+    background: #ffc5e0;
+  }
+  .end-star:nth-child(5n) {
+    background: #8752b3;
+  }
+  :global([data-stars-active]) .end-star {
+    animation-play-state: running;
+  }
+  @keyframes end-star-drift {
+    from {
+      opacity: 0.15;
+      transform: translate3d(-3px, 6px, 0);
+    }
+    to {
+      opacity: 0.85;
+      transform: translate3d(7px, -10px, 0);
+    }
+  }
+
+  .neko-supernova {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .neko-supernova :global(canvas) {
+    position: absolute;
+    left: var(--nova-x);
+    top: var(--nova-y);
+    width: var(--nova-size);
+    height: var(--nova-size);
+    image-rendering: pixelated;
+    transform: translate(-50%, -50%);
+  }
+</style>

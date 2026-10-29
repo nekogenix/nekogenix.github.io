@@ -1,5 +1,6 @@
 ---
 import data from '../data/advancements.json';
+import Starfield from './Starfield.astro';
 import type { Locale } from '../data/site';
 interface Props {
   locale: Locale;
@@ -12,40 +13,10 @@ const positions = [
   [78, 50],
   [78, 82],
 ];
-const stars = Array.from({ length: 144 }, (_, i) => ({
-  x: (((i * 73 + 19) % 101) / 101) * 100,
-  y: (((i * i * 17 + i * 31 + 7) % 103) / 103) * 100,
-  size: i % 7 === 0 ? 3 : i % 3 === 0 ? 2 : 1,
-  delay: -(i % 13),
-  duration: 4 + (i % 6),
-}));
 ---
 
-<div class="adv-window" data-advancements>
-  <div class="end-starfield" aria-hidden="true">
-    {[0.3, 0.65, 1].map((depth, layer) => (
-      <div class="end-star-layer" style={`--star-depth:${depth}`}>
-        {stars
-          .filter((_, i) => i % 3 === layer)
-          .map((star) => (
-            <span
-              class="end-star"
-              style={`--star-x:${star.x}%;--star-y:${star.y}%;--star-size:${star.size}px;--star-delay:${star.delay}s;--star-duration:${star.duration}s`}
-            ></span>
-          ))}
-      </div>
-    ))}
-  </div>
-  <div class="neko-supernova" data-neko-supernova aria-hidden="true"></div>
-  <button
-    class="adv-tilt"
-    type="button"
-    data-enable-tilt
-    data-denied-label={t.motionDenied}
-    hidden
-  >
-    {t.enableMotion}
-  </button>
+<div class="adv-window" data-advancements data-starfield>
+  <Starfield locale={locale} />
   <div class="adv-tree" role="group" aria-label={t.title}>
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
       <path d="M22 18H44V82H78 M22 64H44 M44 50H78" />
@@ -85,73 +56,9 @@ const stars = Array.from({ length: 144 }, (_, i) => ({
     box-shadow: 0 4px 0 #151218;
     color: #f4edf5;
   }
-  .adv-tilt {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 1;
-    padding: 7px 10px;
-    max-width: 50%;
-    border: 1px solid #756b79;
-    background: #17101e;
-    color: #ffc5e0;
-    font: inherit;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  .adv-tilt[hidden] {
-    display: none;
-  }
   .adv-node img {
     image-rendering: pixelated;
     object-fit: contain;
-  }
-  .end-starfield {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-    background: #030106;
-  }
-  .end-star-layer {
-    position: absolute;
-    inset: -46px;
-    translate: calc(var(--parallax-x, 0px) * var(--star-depth))
-      calc(var(--parallax-y, 0px) * var(--star-depth));
-    transition: translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .end-star {
-    position: absolute;
-    left: var(--star-x);
-    top: var(--star-y);
-    width: var(--star-size);
-    height: var(--star-size);
-    background: #ddc2f6;
-    opacity: 0.5;
-    box-shadow: 0 0 5px #ad71d780;
-    animation: end-star-drift var(--star-duration) ease-in-out var(--star-delay)
-      infinite alternate;
-    animation-play-state: paused;
-  }
-  .end-star:nth-child(3n) {
-    background: #ffc5e0;
-  }
-  .end-star:nth-child(5n) {
-    background: #8752b3;
-  }
-  .adv-window[data-stars-active] .end-star {
-    animation-play-state: running;
-  }
-  @keyframes end-star-drift {
-    from {
-      opacity: 0.15;
-      transform: translate3d(-3px, 6px, 0);
-    }
-    to {
-      opacity: 0.85;
-      transform: translate3d(7px, -10px, 0);
-    }
   }
   .adv-tree {
     position: relative;
@@ -213,22 +120,6 @@ const stars = Array.from({ length: 144 }, (_, i) => ({
     border-top: 3px solid #756b79;
     min-height: 174px;
     background: #0008;
-  }
-  .neko-supernova {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .neko-supernova :global(canvas) {
-    position: absolute;
-    left: var(--nova-x);
-    top: var(--nova-y);
-    width: var(--nova-size);
-    height: var(--nova-size);
-    image-rendering: pixelated;
-    transform: translate(-50%, -50%);
   }
   .adv-details h3 {
     color: #f6cc73;
