@@ -4,7 +4,7 @@ import { copy } from '../data/site';
 const t = copy.en;
 ---
 
-<BaseLayout locale="en" title="404">
+<BaseLayout locale="en" title="404" description={t.notFoundText}>
   <div class="container not-found">
     <p class="eyebrow">404</p>
     <h1>{t.notFound}</h1>

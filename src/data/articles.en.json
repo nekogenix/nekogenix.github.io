@@ -3,7 +3,7 @@
     "slug": "getting-started",
     "group": "start",
     "title": "Install Nekogenix",
-    "description": "Install Nekogenix with the official Minecraft Launcher, Prism Launcher, Modrinth App or CurseForge App.",
+    "description": "Installation with Minecraft Launcher, Prism Launcher, Modrinth App and CurseForge App.",
     "image": "getting-started",
     "sections": [
       {
@@ -81,7 +81,7 @@
     "slug": "recipes",
     "group": "start",
     "title": "Craft and clean a syringe",
-    "description": "Make the plunger, barrel and needle, assemble the syringe, and clean it after use.",
+    "description": "Syringe parts, crafting recipes and cleaning used syringes.",
     "image": "syringes",
     "sections": [
       {
@@ -130,7 +130,7 @@
     "slug": "laboratory",
     "group": "start",
     "title": "Prepare a Neko Injection",
-    "description": "Collect cat saliva, make a cat nucleocard, and fill one or two syringes.",
+    "description": "Cat saliva, nucleocards, the centrifuge and the pneumatic stand. How to make a Neko Injection.",
     "image": "laboratory",
     "sections": [
       {
@@ -184,7 +184,7 @@
     "slug": "potions",
     "group": "start",
     "title": "Bottles and brewing",
-    "description": "Brew cat saliva and Sweet Amethyst, then make their splash and lingering forms.",
+    "description": "Brewing recipes for cat saliva and Sweet Amethyst, including splash and lingering bottles.",
     "image": "potions",
     "sections": [
       {
@@ -250,7 +250,7 @@
     "slug": "transformation",
     "group": "start",
     "title": "Become a cat or stay a neko",
-    "description": "Use an injection, follow the stages, and stop at neko form if you choose.",
+    "description": "Transformation stages, paired injections, staying neko and nine lives.",
     "image": "transformation",
     "sections": [
       {
@@ -321,7 +321,7 @@
     "slug": "advancements",
     "group": "start",
     "title": "Advancements",
-    "description": "The Nekogenix tab follows your transformation. Select an icon to see what earns each advancement.",
+    "description": "Nekogenix advancements and how to get them.",
     "sections": [
       {
         "id": "tree",
@@ -335,7 +335,7 @@
     "slug": "abilities",
     "group": "play",
     "title": "Use feline abilities",
-    "description": "How to double-jump, see in darkness, reduce fall damage and find creatures by scent.",
+    "description": "Double jump, feline vision, soft paws, scent and the effects of water and rain.",
     "image": "abilities",
     "sections": [
       {
@@ -389,7 +389,7 @@
     "slug": "cat-life",
     "group": "play",
     "title": "Play as a cat",
-    "description": "Use your equipment, move through small passages, choose food and interact with creatures.",
+    "description": "Equipment, movement, food and creatures in cat form.",
     "image": "cat-life",
     "sections": [
       {
@@ -429,7 +429,7 @@
     "slug": "cat-skins",
     "group": "play",
     "title": "Choose or import a cat skin",
-    "description": "Apply a Minecraft cat coat or add your own texture with the skin editor.",
+    "description": "Vanilla cat coats, custom skin imports and neko ears.",
     "image": "skin-editor",
     "sections": [
       {
@@ -483,7 +483,7 @@
     "slug": "settings",
     "group": "reference",
     "title": "Change settings and controls",
-    "description": "Adjust camera height, feline voice, double-jump and vision controls.",
+    "description": "Camera height, feline voice volume, double jump and vision settings.",
     "image": "settings",
     "sections": [
       {
@@ -524,7 +524,7 @@
     "slug": "questions",
     "group": "reference",
     "title": "Solve common problems",
-    "description": "Check an injection that did not work, missing abilities, milk effects or a stalled machine.",
+    "description": "Help with injections, abilities, laboratory equipment and milk effects.",
     "image": "questions",
     "sections": [
       {
