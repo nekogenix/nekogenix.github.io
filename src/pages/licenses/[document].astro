@@ -74,15 +74,26 @@ const blocks = document.text
             <h2>{block.text}</h2>
           ) : (
             <p>
-              {block.text.split(/(https?:\/\/[^\s)]+)/g).map((part) =>
-                /^https?:\/\//.test(part) ? (
-                  <a href={part} target="_blank" rel="noopener noreferrer">
-                    {part}
-                  </a>
-                ) : (
-                  part
-                ),
-              )}
+              {block.text
+                .split(/(https?:\/\/[^\s)]+|src\/main\/resources\/assets\/)/g)
+                .map((part) =>
+                  /^https?:\/\//.test(part) ||
+                  part === 'src/main/resources/assets/' ? (
+                    <a
+                      href={
+                        part === 'src/main/resources/assets/'
+                          ? 'https://github.com/nekogenix/nekogenix-mod/tree/main/src/main/resources/assets'
+                          : part
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {part}
+                    </a>
+                  ) : (
+                    part
+                  ),
+                )}
             </p>
           ),
         )}
