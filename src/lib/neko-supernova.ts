@@ -156,7 +156,7 @@ export function nekoSupernova(surface: HTMLElement, signal: AbortSignal) {
     'click',
     (event) => {
       if (event.detail !== 0 || !(event.target instanceof Element)) return;
-      const node = event.target.closest('[data-adv-select]');
+      const node = event.target.closest('[data-adv-select], .faq-item summary');
       if (!node) return;
       const bounds = node.getBoundingClientRect();
       pulse(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
