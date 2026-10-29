@@ -196,13 +196,31 @@ const stageImages = [
       <h2 id="faq-title">{t.faqTitle}</h2>
     </div>
     <div class="faq-list">
-      {t.faqs.map(([question, answer]) => (
+      {t.faqs.map(([question, answer], index) => (
         <details class="faq-item">
           <summary>
             <span>{question}</span>
             <Icon name="down" />
           </summary>
           <div class="faq-answer">
+            {index === 0 && (
+              <div class="faq-creation">
+                <span>
+                  <Icon name="code" />
+                  {t.creation.code}
+                </span>
+                <span>
+                  <Icon name="palette" />
+                  <span>
+                    <Inline
+                      text={t.creation.assets}
+                      locale={locale}
+                      externalNewTab
+                    />
+                  </span>
+                </span>
+              </div>
+            )}
             {answer.split('\n\n').map((paragraph) => (
               <p>
                 <Inline text={paragraph} locale={locale} externalNewTab />

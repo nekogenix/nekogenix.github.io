@@ -792,6 +792,27 @@ h3 {
 .faq-answer p + p {
   margin-top: 16px;
 }
+.faq-creation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f6bad82b;
+  color: var(--paper);
+  font-size: 14px;
+}
+.faq-creation > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.faq-creation .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--pink);
+}
 @supports (interpolate-size: allow-keywords) {
   .faq-item {
     interpolate-size: allow-keywords;

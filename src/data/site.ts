@@ -149,6 +149,11 @@ export const copy = {
       'Enjoy playing as a kitty? You can support our work on the mod, website and wiki. Thank you! ;3',
     supportButton: 'Support on Liberapay',
     faqTitle: 'FAQ',
+    creation: {
+      code: 'Code: AI-assisted',
+      assets:
+        'Assets: made by the developers using [Aseprite](https://www.aseprite.org/) and [Blockbench](https://blockbench.net/)',
+    },
     faqs: [
       [
         'Was AI used? Where?',
@@ -338,6 +343,11 @@ export const copy = {
       'Подобається грати за котика? Ви можете підтримати нашу роботу над модом, сайтом і вікі. Дякуємо! ;3',
     supportButton: 'Підтримати на Liberapay',
     faqTitle: 'FAQ',
+    creation: {
+      code: 'Код: AI-assisted',
+      assets:
+        'Ресурси: зроблені розробниками в [Aseprite](https://www.aseprite.org/) та [Blockbench](https://blockbench.net/)',
+    },
     faqs: [
       [
         'Чи використовувався ШІ? Де?',
@@ -531,6 +541,11 @@ export const copy = {
       'Нравится играть за котика? Вы можете поддержать нашу работу над модом, сайтом и вики. Спасибо! ;3',
     supportButton: 'Поддержать на Liberapay',
     faqTitle: 'FAQ',
+    creation: {
+      code: 'Код: AI-assisted',
+      assets:
+        'Ресурсы: сделаны разработчиками через [Aseprite](https://www.aseprite.org/) и [Blockbench](https://blockbench.net/)',
+    },
     faqs: [
       [
         'Применялось ли ИИ? Где?',
