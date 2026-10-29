@@ -14,10 +14,10 @@ export function pathFor(locale: Locale, page = '') {
 
 export const copy = {
   en: {
-    seoTitle: 'Discover Minecraft through a kitty’s eyes!',
+    seoTitle: 'Some neko content for your Minecraft world!',
     socialImageAlt: 'A ginger cat with armour and elytra in a Minecraft cave.',
     description:
-      'Nekogenix brings detailed cat and neko gameplay to Minecraft, with feline abilities and custom skins while preserving vanilla items, armour and elytra.',
+      'A Minecraft mod that lets you become a neko or a cat. Feline abilities, laboratory equipment and custom cat skins.',
     nav: ['Homepage', 'Abilities', 'Laboratory', 'Wiki'],
     get: 'Download Nekogenix',
     github: 'View on GitHub',
@@ -41,7 +41,7 @@ export const copy = {
     },
     wikiTitle: 'Nekogenix guides',
     wikiIntro:
-      'Start with installation, then assemble a syringe and prepare your first injection. Each guide includes the ingredients and steps you need.',
+      'Installation, recipes, transformation, abilities, cat skins and settings.',
     wikiEyebrow: 'THE NEKOGENIX WIKI',
     browse: 'Browse all guides',
     theme: 'Theme',
@@ -201,10 +201,10 @@ export const copy = {
     },
   },
   uk: {
-    seoTitle: 'Відкрий Minecraft очима котика!',
+    seoTitle: 'Трохи неко у вашому світі Minecraft!',
     socialImageAlt: 'Рудий котик у броні та з елітрами в печері Minecraft.',
     description:
-      'Nekogenix додає продуманий ігролад за кота або неко з котячими здібностями й власними скінами, зберігаючи звичні предмети, броню та елітри Minecraft.',
+      'Мод для Minecraft, у якому можна стати неко або котом. Котячі здібності, лабораторне обладнання та власні скіни котів.',
     nav: ['Головна', 'Здібності', 'Лабораторія', 'Вікі'],
     get: 'Завантажити Nekogenix',
     github: 'Переглянути на GitHub',
@@ -228,7 +228,7 @@ export const copy = {
     },
     wikiTitle: 'Посібники з Nekogenix',
     wikiIntro:
-      'Почніть зі встановлення, потім зберіть шприц і приготуйте першу ін’єкцію. У кожному посібнику є потрібні складники та порядок дій.',
+      'Установлення, рецепти, перетворення, здібності, котячі скіни та налаштування.',
     wikiEyebrow: 'ВІКІ NEKOGENIX',
     browse: 'Усі посібники',
     theme: 'Тема',
@@ -391,10 +391,10 @@ export const copy = {
     },
   },
   ru: {
-    seoTitle: 'Открой Minecraft глазами котика!',
+    seoTitle: 'Немного неко в вашем мире Minecraft!',
     socialImageAlt: 'Рыжий котик в броне и с элитрами в пещере Minecraft.',
     description:
-      'Nekogenix добавляет проработанный геймплей за кота или неко с кошачьими способностями и своими скинами, сохраняя привычные предметы, броню и элитры Minecraft.',
+      'Мод для Minecraft, в котором можно стать неко или котом. Кошачьи способности, лабораторное оборудование и свои скины котов.',
     nav: ['Главная', 'Способности', 'Лаборатория', 'Вики'],
     get: 'Скачать Nekogenix',
     github: 'Открыть на GitHub',
@@ -418,7 +418,7 @@ export const copy = {
     },
     wikiTitle: 'Руководства по Nekogenix',
     wikiIntro:
-      'Начните с установки, затем соберите шприц и приготовьте первую инъекцию. В каждом руководстве есть нужные ингредиенты и порядок действий.',
+      'Установка, рецепты, превращение, способности, кошачьи скины и настройки.',
     wikiEyebrow: 'ВИКИ NEKOGENIX',
     browse: 'Все руководства',
     theme: 'Тема',

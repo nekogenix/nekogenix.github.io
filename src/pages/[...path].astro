@@ -37,8 +37,10 @@ const { locale, page, article } = Astro.props;
   locale={locale}
   page={page}
   wiki={!!page}
-  title={article?.title ?? (page ? copy[locale].nav[3] : undefined)}
-  description={article?.description}
+  title={article?.title ?? (page ? copy[locale].wikiTitle : undefined)}
+  description={
+    article?.description ?? (page ? copy[locale].wikiIntro : undefined)
+  }
 >
   {page ? <Wiki locale={locale} article={article} /> : <Home locale={locale} />}
 </BaseLayout>
