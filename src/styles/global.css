@@ -396,13 +396,16 @@ h3 {
   place-items: center;
   width: 40px;
   height: 40px;
-  padding: 9px;
+  padding: 0;
   color: white;
   background: #19181ddd;
   border: 1px solid #ffffff60;
 }
 .demo-controls button:hover {
   background: #342d37;
+}
+.demo-play-icon {
+  transform: translateX(1px);
 }
 .demo-controls button[hidden],
 .demo-pause-icon,
